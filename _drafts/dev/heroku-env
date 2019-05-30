@@ -1,0 +1,5 @@
+heroku config:set GITHUB_USERNAME=joesmith
+
+### Heroku 서버 restart
+
+    heroku restart --app <APP_NAME>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Google Sheet - 대시보드 만드는데 사용되는 function들 &middot; Doohyun Kim
+    
+  </title>
+  <!-- meta -->
+  <link rel="author" href="https://plus.google.com/u/0/+sglee"/>
+  <meta name="description" content="이성관 블로그">
+  <meta name="naver-site-verification" content="589ef55a64f45cb4651dbf19ef610ca67fa3bdab"/>
+
+  <!-- meta for facebook -->
+  <meta property="og:url" content="http://localhost:4000/growth/measure/2016/12/01/google-sheet-function-for-building-dashboard/"/>
+  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/sg-rails-sample-app/main.jpg"/>
+  <meta property="og:description" content="이성관 블로그">
+
+  <!-- CSS theme -->
+  <!-- <link rel="stylesheet"  href="/css/poole.css"> -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <!-- CSS custom -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+  <!-- Google Analytics Tag -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47572822-3', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+</head>
+
+
+  <body>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <!-- <label for="sidebar-checkbox" class="sidebar-toggle"></label> -->
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Doohyun Kim</a>
+            <!-- <small>Blog</small> -->
+          </h3>
+          <div class="search-box">
+            <form action="/search" method="get">
+              <input type="text" id="search-box" name="query" placeholder="search">
+            </form>
+          </div>
+          <div class="pull-right category-box">
+            <a href="/about" class="category-menu"><small>ABOUT</small></a>
+            <!-- <a href="/categories/dev" class="category-menu"><small>DEV</small></a> -->
+            <!-- <a href="/categories/biz" class="category-menu"><small>BIZ</small></a> -->
+            <a href="/categories/algorithm" class="category-menu"><small>ALROGITHM</small></a>
+            <a href="/categories/database" class="category-menu"><small>DATABASE</small></a>
+            <a href="/categories/frontend" class="category-menu"><small>FRONTEND</small></a>
+            <a href="/categories/backend" class="category-menu"><small>BACKEND</small></a>
+            <a href="/categories/growth" class="category-menu"><small>GROWTH</small></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post__title">Google Sheet - 대시보드 만드는데 사용되는 function들</h1>
+  <div class="post__desc">
+    <small class="post-date">Dec 01, 16</small>
+    
+      
+        <small>growth</small>
+      
+    
+      
+        <small>Measure</small>
+      
+    
+  </div>
+  <div class="post-content">
+    <p><img src="/public/google-sheet.png" alt="google-sheet-dashboard" /></p>
+
+<p>전체 함수 리스트는 <a href="https://support.google.com/docs/table/25273?hl=en">google sheet function list</a> 에서 확인하세요.</p>
+
+<p>Google Sheet를 이용해서 대시보드를 만들면서 사용한 함수들을 정리해봅니다.
+Google Analytics Add-on을 사용해서 data를 가져왔습니다.(GA Add-on은 <a href="/growth/measure/2016/12/01/google-sheet-google-analytics-addon/">google analytics add-on</a>을 참고하세요.</p>
+
+<p><br /></p>
+
+<h2 id="공통---error-handling">공통 - Error Handling</h2>
+
+<p>자동으로 데이터를 가져오는 대시보드를 만들 때, 데이터가 없는 경우도 생각해야 합니다.</p>
+
+<p><code class="highlighter-rouge">에러 방생시 0을 반환</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= iferror(에러가발생하는_연산, 0)    // = 0
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="하나의-column이-일치하는-row의-데이터-가져오기">하나의 column이 일치하는 row의 데이터 가져오기</h2>
+
+<p><code class="highlighter-rouge">A column에서 "naver"를 찾아서, B column 값을 가져오기</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= vlookup("naver", A:B, 2, false)
+</code></pre></div></div>
+
+<p>마지막 인자(false)는 exact match를 뜻합니다.</p>
+
+<p><br /></p>
+
+<h2 id="두개의-column이-일치하는-row의-데이터를-가져오기">두개의 column이 일치하는 row의 데이터를 가져오기</h2>
+
+<p><code class="highlighter-rouge">A column과 B column값이  "naver", "organic" 인 row의 C column 값 가져오기</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=index( 
+    filter(                 // filter()는 조건이 맞는 raw를 반환합니다.
+        A:C,                // 조건을 확인할 영역
+        A:A = "naver",      // 첫번째 조건
+        B:B = "organic"     // 두번째 조건
+    )
+    , 3                     // 가져올 데이터의 column 순서 3 = c column
+)
+</code></pre></div></div>
+
+<p>가져올 데이터가 D column 이라면, filter의 range를 A:D로 바꾸고, index에 마지막 이자를 3에서 4로 바꿉니다.</p>
+
+<p><em>filter</em>는 여러개의 조건을 계속 설정할 수 있습니다.</p>
+
+<p><em>index</em>는 특정 row, column의 값을 가져오는 함수입니다. 
+row가 여러개인 경우엔 index(range, , 1) 와 같이 row값을 생략하면 1번 column만으로 만들어진 cell array를 반환합니다.</p>
+
+<p><br /></p>
+
+<h2 id="가변적인-데이터를-모두-가져오기">가변적인 데이터를 모두 가져오기</h2>
+
+<p>referral path처럼 데이터 숫자가 바뀔 수 있는 경우엔 비어있는 셀이 나올 때 까지 모든 데이터를 가져오는게 좋습니다.</p>
+
+<p><code class="highlighter-rouge">A column의 비어있지 않은 모든 데이터 가져오기</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= filter(
+    A:A, 
+    isblank(A:A) = FALSE
+    )
+</code></pre></div></div>
+
+<p><a href="https://productforums.google.com/forum/#!topic/docs/6B-wbF1Om1g">credit - goole docs forum</a></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="formatting">Formatting</h2>
+
+<p><br /></p>
+
+<h3 id="conditional-formatting---custom-fomula">Conditional Formatting - custom fomula</h3>
+
+<p>custom fomula 사용시, 대상이 되는 셀의 값을 reference로 하려면, 선택한 영역의 제일 첫 cell을 넣어주면 됩니다.</p>
+
+<p><code class="highlighter-rouge">B30:B33 을 선택한 경우</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= B30 &gt; 0
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">짝수 행 선택</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= iseven(row())
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">홀수 행 선택</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= iseven(row())
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">첫 문자가 '+' 인 경우</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= left(B30, 1) = '+'
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">끝 문자가 '.'인 경우</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= right(B30, 1) = '.'
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><code class="highlighter-rouge">주의</code> 서로 다른 condition이 하나의 cell에서 충돌하면 conditional formatting이 제대로 동작하지 않습니다.</p>
+
+<p>만약 짝수행 배경색을 넣는 것과, 양수/음수에 따라 글자색을 바꾸는 conditional formatting을 적용하려면 총 4가지 경우에 대해서 conditional formatting을 설정해 줘야 합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= and ( iseven(row()),  B30&gt; 0)  //양수 &amp; 짝수행
+= and ( iseven(row()),  B30&lt; 0)  //음수 &amp; 짝수행
+= and ( isodd(row()),   B30&gt; 0)  //양수 &amp; 홀수행
+= and ( isodd(row()),   B30&lt; 0)  //음수 &amp; 홀수행
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="text">Text</h3>
+
+<p><code class="highlighter-rouge">text 끼리의 합치기</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= "a" &amp; "b"                 // "ab"
+= concatenate("a", "b")     // "ab"
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="text-1">text()</h4>
+
+<p><em>text()</em>는 주어진 formatting을 적용한 text로 반환합니다.
+<code class="highlighter-rouge">#</code> 은 자리수를 나타내며, 자리에 숫자가 없으면 빈칸이 됩니다.
+반대로 <code class="highlighter-rouge">0</code>은 자리에 숫자가 없으면 0을 채워넣습니다.</p>
+
+<p><code class="highlighter-rouge">주로 사용하는 formatting list</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"₩#,##0"
+"0.00%"
+"#,##0"
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">원화 (값이 0일 때 ₩0 표시)</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= text(12312, "₩#,##0")     // ₩12,312
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">퍼센트 (값이 0일 때 0% 표시)</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= text(0.11, "0.00%")      // 1.10%
+</code></pre></div></div>
+
+<p>숫자 (천단위 구분점, 값이 0일 때 0표시)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= text(1123, "#,###")       // 1,123
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="값이-양수일-때--기호-넣기">값이 양수일 때 ‘+’ 기호 넣기</h4>
+
+<p>음수일 경우엔 기본적으로 ‘-‘ 기호가 표시되지만, 양수인 경우엔 ‘+’ 기호가 표시되지 않습니다.</p>
+
+<p><code class="highlighter-rouge">A1이 B1보다 큰 경우에 '+' 기호 넣기</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= if (
+    A1 - B1 &gt; 0, 
+    concatenate("+", text(A1-B1, "#,##0")), 
+    text(A1-B1, "#,##0")
+    )
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="indent">Indent</h4>
+
+<p>Google sheet에는 Indent 기능이 없지만, 아래와 같이 빈칸을 집어넣어 indenting 효과를 줄 수 있습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= REPT( CHAR( 160 ) , 15 ) &amp; your_text  // 15를 바꾸면 원하는 indent depth를 조절할 수 있습니다.
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="기타">기타</h2>
+
+<h3 id="연산자">연산자</h3>
+<p>”&lt;&gt;” : 같지 않음</p>
+
+<p><br /></p>
+
+<h3 id="특정-에러를-타겟하는-방법">특정 에러를 타겟하는 방법</h3>
+
+<p><a href="https://support.google.com/docs/answer/3238305?hl=en">Error.type</a> 은 에러 유형에 따라 숫자를 반환합니다.</p>
+
+<p>Error Type List
+1 for #NULL!
+2 for #DIV/0!
+3 for #VALUE!
+4 for #REF!
+5 for #NAME?
+6 for #NUM!
+7 for #N/A
+8 for all other errors</p>
+
+<p><code class="highlighter-rouge">A1이 #NULL! 에러일 경우, 0으로 값을 바꾸기</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>= if(Error.type(A1) = 1, 0, A1)
+</code></pre></div></div>
+
+<p><a href="https://productforums.google.com/forum/#!topic/docs/q_As66-Q3P4">credit - forum</a></p>
+
+<hr />
+<p>reference
+<a href="http://www.benlcollins.com/spreadsheets/10-techniques-for-building-dashboards-in-google-sheets/">10-techniques-for-building-dashboards-in-google-sheets</a></p>
+
+
+  </div>
+</div>
+
+
+  <div id="disqus_thread"></div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+  /*
+  var disqus_config = function () {
+  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  */
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://sgwanlee.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<style type="text/css">
+  .post__desc {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #DAD9D9;
+  }
+  .post__title {
+    font-size: 1.6em;
+  }
+</style>
+
+<!-- <div class="gdn-ads">
+  <div class="gdn-ads-title">Advertisement</div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px"
+       data-ad-client="ca-pub-2507125479501117"
+       data-ad-slot="8695918038"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div> -->
+
+<!-- <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//house201.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ -->
+
+<!-- <div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2019/05/30/2017-02-22-rails-active-record-query-interface-frequent-using/">
+            
+            <small>30 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/dev/react/javascript/2019/05/28/manage-constants-in-javascript/">
+            Javascript에서 constants 관리하기
+            <small>28 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/dev/react/eslint/vscode/2019/05/09/eslint-setup/">
+            React + ESLint + VSCode
+            <small>09 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+ -->
+      </div>
+    </div>
+  </body>
+</html>

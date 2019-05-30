@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Jekyll에 Search 기능 넣기 Lunrjs &middot; Doohyun Kim
+    
+  </title>
+  <!-- meta -->
+  <link rel="author" href="https://plus.google.com/u/0/+sglee"/>
+  <meta name="description" content="이성관 블로그">
+  <meta name="naver-site-verification" content="589ef55a64f45cb4651dbf19ef610ca67fa3bdab"/>
+
+  <!-- meta for facebook -->
+  <meta property="og:url" content="http://localhost:4000/dev/jekyll/2017/02/14/jekyll-search/"/>
+  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/sg-rails-sample-app/main.jpg"/>
+  <meta property="og:description" content="이성관 블로그">
+
+  <!-- CSS theme -->
+  <!-- <link rel="stylesheet"  href="/css/poole.css"> -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <!-- CSS custom -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+  <!-- Google Analytics Tag -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47572822-3', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+</head>
+
+
+  <body>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <!-- <label for="sidebar-checkbox" class="sidebar-toggle"></label> -->
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Doohyun Kim</a>
+            <!-- <small>Blog</small> -->
+          </h3>
+          <div class="search-box">
+            <form action="/search" method="get">
+              <input type="text" id="search-box" name="query" placeholder="search">
+            </form>
+          </div>
+          <div class="pull-right category-box">
+            <a href="/about" class="category-menu"><small>ABOUT</small></a>
+            <!-- <a href="/categories/dev" class="category-menu"><small>DEV</small></a> -->
+            <!-- <a href="/categories/biz" class="category-menu"><small>BIZ</small></a> -->
+            <a href="/categories/algorithm" class="category-menu"><small>ALROGITHM</small></a>
+            <a href="/categories/database" class="category-menu"><small>DATABASE</small></a>
+            <a href="/categories/frontend" class="category-menu"><small>FRONTEND</small></a>
+            <a href="/categories/backend" class="category-menu"><small>BACKEND</small></a>
+            <a href="/categories/growth" class="category-menu"><small>GROWTH</small></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post__title">Jekyll에 Search 기능 넣기 Lunrjs</h1>
+  <div class="post__desc">
+    <small class="post-date">Feb 14, 17</small>
+    
+      
+        <small>dev</small>
+      
+    
+      
+        <small>jekyll</small>
+      
+    
+  </div>
+  <div class="post-content">
+    <p>house201 블로그는 jekyll을 이용해서 만들었다.
+다 좋은데 static page 기반이라 검색이 안된다는게 조금은 불만.</p>
+
+<p><a href="http://jekyll.tips/jekyll-casts/jekyll-search-using-lunr-js/">Jekyll.tips</a>에 올라온 screen cast를 보고 검색기능을 넣어보기로 했다.</p>
+
+<h2 id="jekyll-tips-codes">Jekyll tips codes</h2>
+
+<p>search.html</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: search
+---
+
+&lt;div id="search-results"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  window.store = {
+    {% for post in site.posts %}
+      "{{ post.url | slugify }}": {
+        "title": "{{ post.title | xml_escape }}",
+        "category": "{{ post.categories | xml_escape }}",
+        "published_at" : "{{post.date | date: '%b %d, %y' }}",
+        "url": "{{ post.url | xml_escape }}"
+      }
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+&lt;/script&gt;
+&lt;script src="/js/lunr.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/search.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">window.store</code> 에 모든 검색 대상을 저장하는 방식이다. post양이 엄청 많다면 browser가 느려질 수 있겠지만. 제목과 카테고리 정도라면 큰 문제는 안 될 것 같다.</p>
+
+<p>_layouts/search.html</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: default
+---
+
+{{content}}
+</code></pre></div></div>
+
+<p>js/search.js</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(function() {
+  function displaySearchResults(results, store) {
+    var searchResults = document.getElementById('search-results');
+
+    if (results.length) { // Are there any results?
+      var appendString = '';
+
+      for (var i = 0; i &lt; results.length; i++) {  // Iterate over the results
+        var item = store[results[i].ref];
+        appendString += '&lt;div class="search__result"&gt;&lt;a href="' + item.url + '"&gt;&lt;h5 class="post-title"&gt;' + item.title + '&lt;/h5&gt;&lt;/a&gt;';
+        appendString += '&lt;div class="post-description"&gt;&lt;small class="post-date"&gt;' + item.published_at + '&lt;/small&gt;&lt;/div&gt;';
+        appendString += '&lt;/div&gt;'
+      }
+
+      searchResults.innerHTML = appendString;
+    } else {
+      searchResults.innerHTML = '&lt;li&gt;No results found&lt;/li&gt;';
+    }
+  }
+
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&amp;');
+
+    for (var i = 0; i &lt; vars.length; i++) {
+      var pair = vars[i].split('=');
+
+      if (pair[0] === variable) {
+        return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+      }
+    }
+  }
+
+  var searchTerm = getQueryVariable('query');
+
+  if (searchTerm) {
+    document.getElementById('search-box').setAttribute("value", searchTerm);
+
+    // Initalize lunr with the fields it will be searching on. I've given title
+    // a boost of 10 to indicate matches on this field are more important.
+    var idx = lunr(function () {
+      this.field('id');
+      this.field('title', { boost: 10 });
+      this.field('category');
+    });
+
+    for (var key in window.store) { // Add the data to lunr
+      idx.add({
+        'id': key,
+        'title': window.store[key].title,
+        'category': window.store[key].category,
+      });
+
+      var results = idx.search(searchTerm); // Get lunr to perform a search
+      displaySearchResults(results, window.store); // We'll write this in the next section
+    }
+  }
+})();
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">displaySearchResults</code> 이 부분은 검색결과를 어떻게 화면에다가 붙여줄 건지에 대한 부분</p>
+
+<p><code class="highlighter-rouge">getQueryVariable</code> 이 부분은 query로 들어온 값을 검색어 배열로 바궈주는 부분</p>
+
+<p>나머지 부분이 lurn에 모든 포스트 정보를 집어넣고, 검색어에 따라 일치하는 정보만 가져오는 부분이다.</p>
+
+<h2 id="jslunrminjs">js/lunr.min.js</h2>
+
+<p>공식 릴리즈 버전은 한글 검색이 지원이 안되더라. 다 만들고나서 멘붕하고 있었는데, 대부분 이럴 때 korean support보다 chinese support로 검색하면 원하는 답을 찾는 경우가 많았다.</p>
+
+<p>정말 능력이 좋아서 korean support 버전을 척척 만들어내면 좋겠지만, 나는 어디까지나 필요한 것을 잘 조합해서 쓰고 싶은 정도니깐.</p>
+
+<p>아래 chinese support 버전에서 lurn.min.js를 다운받아 사용해 보니 한글 검색도 잘 된다!</p>
+
+<p><a href="https://github.com/codepiano/lunr.js">lurn chinese support version</a></p>
+
+<p><br /></p>
+
+<p>언제나 할 때는 헤메다가, 다 하고 블로그로 쓰니 정말 쉬워보인다.</p>
+
+<p>–</p>
+
+<p>references</p>
+
+<ul>
+  <li><a href="http://jekyll.tips/jekyll-casts/jekyll-search-using-lunr-js/">jekyll.tips</a></li>
+  <li><a href="https://github.com/codepiano/lunr.js">lunr chinese support</a></li>
+</ul>
+
+
+  </div>
+</div>
+
+
+  <div id="disqus_thread"></div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+  /*
+  var disqus_config = function () {
+  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  */
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://sgwanlee.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<style type="text/css">
+  .post__desc {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #DAD9D9;
+  }
+  .post__title {
+    font-size: 1.6em;
+  }
+</style>
+
+<!-- <div class="gdn-ads">
+  <div class="gdn-ads-title">Advertisement</div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px"
+       data-ad-client="ca-pub-2507125479501117"
+       data-ad-slot="8695918038"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div> -->
+
+<!-- <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//house201.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ -->
+
+<!-- <div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2019/05/30/2017-02-22-rails-active-record-query-interface-frequent-using/">
+            
+            <small>30 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/dev/react/javascript/2019/05/28/manage-constants-in-javascript/">
+            Javascript에서 constants 관리하기
+            <small>28 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/dev/react/eslint/vscode/2019/05/09/eslint-setup/">
+            React + ESLint + VSCode
+            <small>09 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+ -->
+      </div>
+    </div>
+  </body>
+</html>

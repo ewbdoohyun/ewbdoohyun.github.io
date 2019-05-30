@@ -1,0 +1,12 @@
+http://guides.rubyonrails.org/active_record_validations.html#errors-base
+
+    errors.add(:base, :already_wrote_reviews)
+
+
+
+ko.yml
+    activerecord:
+    errors:  
+      models:
+        comment:
+          already_wrote_reviews: "리뷰를 이미 등록하셨습니다."

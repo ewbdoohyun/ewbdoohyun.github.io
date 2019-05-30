@@ -1,0 +1,45 @@
+https://egghead.io/lessons/react-getting-started-with-the-react-rails-gem
+
+https://github.com/reactjs/react-rails
+
+
+gem 설치 후에 서버 재시작하기.
+
+
+React element has to return only one element. You'll have to wrap both of your tags with another element tag.
+http://stackoverflow.com/questions/31284169/uncaught-error-parse-error-line-38-adjacent-jsx-elements-must-be-wrapped-in-a
+
+
+React props type
+https://facebook.github.io/react/docs/jsx-in-depth.html
+
+React.js에서 asset_path
+https://github.com/reactjs/react-rails/issues/211
+
+
+react-rails tutorial 영상
+https://egghead.io/lessons/react-getting-started-with-the-react-rails-gem
+
+react tutorial 영상
+https://egghead.io/lessons/react-hello-world-first-component
+
+deployment
+error: ActionView::Template::Error (No compiled asset for react-server.js, was it precompiled?)
+https://github.com/reactjs/react-rails/issues/443
+http://qiita.com/akirakudo/items/90d7ffa5726083e1db60
+
+
+todo:
+client side rendering으로 했을 때, 기존의 integration test가 fail이 난다.
+우선은 server side rendering으로 바꿔서, test 통과하도록 해둔 상태.
+
+jest는 뭐지?
+https://reactjsnews.com/setting-up-rails-for-react-and-jest
+
+여러가지 방법의 test들
+https://medium.com/about-codecademy/testing-with-reactjs-at-codecademy-2aec88cc4e36#.rmyj4wygc
+
+
+javascript에서 image_tag를 쓸 수 있게 해주는 gem
+https://github.com/rainchen/react-rails-img
+

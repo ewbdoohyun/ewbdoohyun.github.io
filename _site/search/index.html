@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Doohyun Kim &middot; Blog
+    
+  </title>
+  <!-- meta -->
+  <link rel="author" href="https://plus.google.com/u/0/+sglee"/>
+  <meta name="description" content="이성관 블로그">
+  <meta name="naver-site-verification" content="589ef55a64f45cb4651dbf19ef610ca67fa3bdab"/>
+
+  <!-- meta for facebook -->
+  <meta property="og:url" content="http://localhost:4000/search/"/>
+  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/sg-rails-sample-app/main.jpg"/>
+  <meta property="og:description" content="이성관 블로그">
+
+  <!-- CSS theme -->
+  <!-- <link rel="stylesheet"  href="/css/poole.css"> -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <!-- CSS custom -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+  <!-- Google Analytics Tag -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47572822-3', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+</head>
+
+
+  <body>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <!-- <label for="sidebar-checkbox" class="sidebar-toggle"></label> -->
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Doohyun Kim</a>
+            <!-- <small>Blog</small> -->
+          </h3>
+          <div class="search-box">
+            <form action="/search" method="get">
+              <input type="text" id="search-box" name="query" placeholder="search">
+            </form>
+          </div>
+          <div class="pull-right category-box">
+            <a href="/about" class="category-menu"><small>ABOUT</small></a>
+            <!-- <a href="/categories/dev" class="category-menu"><small>DEV</small></a> -->
+            <!-- <a href="/categories/biz" class="category-menu"><small>BIZ</small></a> -->
+            <a href="/categories/algorithm" class="category-menu"><small>ALROGITHM</small></a>
+            <a href="/categories/database" class="category-menu"><small>DATABASE</small></a>
+            <a href="/categories/frontend" class="category-menu"><small>FRONTEND</small></a>
+            <a href="/categories/backend" class="category-menu"><small>BACKEND</small></a>
+            <a href="/categories/growth" class="category-menu"><small>GROWTH</small></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div id="search-results"></div>
+
+<script>
+  window.store = {
+    
+      "2019-05-30-2017-02-22-rails-active-record-query-interface-frequent-using": {
+        "title": "",
+        "category": "[]",
+        "published_at" : "May 30, 19",
+        "url": "/2019/05/30/2017-02-22-rails-active-record-query-interface-frequent-using/"
+      }
+      ,
+    
+      "dev-react-javascript-2019-05-28-manage-constants-in-javascript": {
+        "title": "Javascript에서 constants 관리하기",
+        "category": "[&quot;dev&quot;, &quot;react&quot;, &quot;javascript&quot;]",
+        "published_at" : "May 28, 19",
+        "url": "/dev/react/javascript/2019/05/28/manage-constants-in-javascript/"
+      }
+      ,
+    
+      "dev-react-eslint-vscode-2019-05-09-eslint-setup": {
+        "title": "React + ESLint + VSCode",
+        "category": "[&quot;dev&quot;, &quot;react&quot;, &quot;eslint&quot;, &quot;vscode&quot;]",
+        "published_at" : "May 09, 19",
+        "url": "/dev/react/eslint/vscode/2019/05/09/eslint-setup/"
+      }
+      ,
+    
+      "dev-rails-2018-05-28-rails-habtm-different-table-name": {
+        "title": "Rails HABTM convention과 다른 table을 이용하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "May 28, 18",
+        "url": "/dev/rails/2018/05/28/rails-habtm-different-table-name/"
+      }
+      ,
+    
+      "dev-rails-2018-05-27-rails-dev-env": {
+        "title": "Rails 개발환경 설정 하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "May 27, 18",
+        "url": "/dev/rails/2018/05/27/rails-dev-env/"
+      }
+      ,
+    
+      "dev-aws-2018-05-27-copy-aws-rds-pg-to-local": {
+        "title": "AWS RDS를 로컬에 복사하기",
+        "category": "[&quot;dev&quot;, &quot;aws&quot;]",
+        "published_at" : "May 27, 18",
+        "url": "/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/"
+      }
+      ,
+    
+      "dev-google-chart-2018-05-06-google-chart": {
+        "title": "Google Chart 로 그래프 그리기",
+        "category": "[&quot;dev&quot;, &quot;google-chart&quot;]",
+        "published_at" : "May 06, 18",
+        "url": "/dev/google-chart/2018/05/06/google-chart/"
+      }
+      ,
+    
+      "dev-javascript-2017-04-14-javascript-namespace": {
+        "title": "Javascript - Namespace 사용하기",
+        "category": "[&quot;dev&quot;, &quot;javascript&quot;]",
+        "published_at" : "Apr 14, 17",
+        "url": "/dev/javascript/2017/04/14/javascript-namespace/"
+      }
+      ,
+    
+      "dev-rails-2017-04-07-rails-permanent-login": {
+        "title": "Rails - 로그인 유지하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Apr 07, 17",
+        "url": "/dev/rails/2017/04/07/rails-permanent-login/"
+      }
+      ,
+    
+      "2017-04-04-rails-error-unknown-format": {
+        "title": "Rails Error Unknown Format",
+        "category": "[]",
+        "published_at" : "Apr 04, 17",
+        "url": "/2017/04/04/rails-error-unknown-format/"
+      }
+      ,
+    
+      "dev-ux-2017-03-31-gmail-touch-region": {
+        "title": "Gmail Touch region 구현",
+        "category": "[&quot;dev&quot;, &quot;ux&quot;]",
+        "published_at" : "Mar 31, 17",
+        "url": "/dev/ux/2017/03/31/gmail-touch-region/"
+      }
+      ,
+    
+      "2017-03-27-rails-sortable-list": {
+        "title": "Rails Sortable List",
+        "category": "[]",
+        "published_at" : "Mar 27, 17",
+        "url": "/2017/03/27/rails-sortable-list/"
+      }
+      ,
+    
+      "dev-rails-2017-03-27-rails-controller-name-in-view": {
+        "title": "Rails - View에서 현재 controller 이름 사용하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Mar 27, 17",
+        "url": "/dev/rails/2017/03/27/rails-controller-name-in-view/"
+      }
+      ,
+    
+      "dev-rails-2017-03-27-rails-bug-current-page-no-route": {
+        "title": "Rails bug - current_page? No route matches",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Mar 27, 17",
+        "url": "/dev/rails/2017/03/27/rails-bug-current-page-no-route/"
+      }
+      ,
+    
+      "dev-rails-2017-03-03-rails-habtm": {
+        "title": "Rails - has_and_belongs_to_many",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Mar 03, 17",
+        "url": "/dev/rails/2017/03/03/rails-habtm/"
+      }
+      ,
+    
+      "dev-heroku-2017-03-02-heroku-no-app-option": {
+        "title": "Heroku - app option을 사용하라고 error 발생시",
+        "category": "[&quot;dev&quot;, &quot;heroku&quot;]",
+        "published_at" : "Mar 02, 17",
+        "url": "/dev/heroku/2017/03/02/heroku-no-app-option/"
+      }
+      ,
+    
+      "dev-rails-heroku-2017-03-01-heroku-rails-migration-when-release": {
+        "title": "Heroku - Deploy시에 자동으로 migration 하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;heroku&quot;]",
+        "published_at" : "Mar 01, 17",
+        "url": "/dev/rails/heroku/2017/03/01/heroku-rails-migration-when-release/"
+      }
+      ,
+    
+      "dev-rails-2017-02-28-how-to-disable-ssl-and-rails-force-ssl": {
+        "title": "Rails - SSL 제거시 발생한 문제 (config.force_ssl의 비밀)",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Feb 28, 17",
+        "url": "/dev/rails/2017/02/28/how-to-disable-ssl-and-rails-force-ssl/"
+      }
+      ,
+    
+      "dev-rails-2017-02-27-rails-datatable-pagination": {
+        "title": "Rails - jQuery DataTable pagination",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Feb 27, 17",
+        "url": "/dev/rails/2017/02/27/rails-datatable-pagination/"
+      }
+      ,
+    
+      "2017-02-27-rails-custom-layout": {
+        "title": "Rails Custom Layout",
+        "category": "[]",
+        "published_at" : "Feb 27, 17",
+        "url": "/2017/02/27/rails-custom-layout/"
+      }
+      ,
+    
+      "dev-rails-2017-02-22-rails-libreadline-error": {
+        "title": "Rails - libreadline 에러 해결하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Feb 22, 17",
+        "url": "/dev/rails/2017/02/22/rails-libreadline-error/"
+      }
+      ,
+    
+      "dev-jquery-2017-02-16-jquery-event": {
+        "title": "JQuery Event",
+        "category": "[&quot;dev&quot;, &quot;jquery&quot;]",
+        "published_at" : "Feb 16, 17",
+        "url": "/dev/jquery/2017/02/16/jquery-event/"
+      }
+      ,
+    
+      "dev-jekyll-2017-02-14-jekyll-search": {
+        "title": "Jekyll에 Search 기능 넣기 Lunrjs",
+        "category": "[&quot;dev&quot;, &quot;jekyll&quot;]",
+        "published_at" : "Feb 14, 17",
+        "url": "/dev/jekyll/2017/02/14/jekyll-search/"
+      }
+      ,
+    
+      "book-2017-2017-02-14-adapt": {
+        "title": "Adapt - Tim Harford",
+        "category": "[&quot;book&quot;, &quot;2017&quot;]",
+        "published_at" : "Feb 14, 17",
+        "url": "/book/2017/2017/02/14/adapt/"
+      }
+      ,
+    
+      "dev-rails-2017-02-13-rails-cache-per-user-role": {
+        "title": "Rails - 유저 role 별로 cache 사용",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Feb 13, 17",
+        "url": "/dev/rails/2017/02/13/rails-cache-per-user-role/"
+      }
+      ,
+    
+      "dev-heroku-2017-02-13-heroku-ssl-lets-encrypted": {
+        "title": "Heroku SSL 적용 - Let's encrypt CA",
+        "category": "[&quot;dev&quot;, &quot;heroku&quot;]",
+        "published_at" : "Feb 13, 17",
+        "url": "/dev/heroku/2017/02/13/heroku-ssl-lets-encrypted/"
+      }
+      ,
+    
+      "dev-rails-2017-02-09-omniauth-facebook": {
+        "title": "Omniauth Facebook",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Feb 09, 17",
+        "url": "/dev/rails/2017/02/09/omniauth-facebook/"
+      }
+      ,
+    
+      "2017-02-06-rails-4-2": {
+        "title": "Rails 4 2",
+        "category": "[]",
+        "published_at" : "Feb 06, 17",
+        "url": "/2017/02/06/rails-4-2/"
+      }
+      ,
+    
+      "dev-rails-2017-02-06-ngrok-test-local-app-in-mobile": {
+        "title": "Mobile에서 localhost 테스트하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Feb 06, 17",
+        "url": "/dev/rails/2017/02/06/ngrok-test-local-app-in-mobile/"
+      }
+      ,
+    
+      "2017-02-03-google-chart": {
+        "title": "Google Chart",
+        "category": "[]",
+        "published_at" : "Feb 03, 17",
+        "url": "/2017/02/03/google-chart/"
+      }
+      ,
+    
+      "2017-01-30-rails-cache": {
+        "title": "Rails Cache",
+        "category": "[]",
+        "published_at" : "Jan 30, 17",
+        "url": "/2017/01/30/rails-cache/"
+      }
+      ,
+    
+      "2017-01-30-caching-act-as-votable": {
+        "title": "Caching Act As Votable",
+        "category": "[]",
+        "published_at" : "Jan 30, 17",
+        "url": "/2017/01/30/caching-act-as-votable/"
+      }
+      ,
+    
+      "2017-01-27-rails-ujs-custom-event": {
+        "title": "Rails Ujs Custom Event",
+        "category": "[]",
+        "published_at" : "Jan 27, 17",
+        "url": "/2017/01/27/rails-ujs-custom-event/"
+      }
+      ,
+    
+      "2017-01-22-jquery-animate": {
+        "title": "Jquery Animate",
+        "category": "[]",
+        "published_at" : "Jan 22, 17",
+        "url": "/2017/01/22/jquery-animate/"
+      }
+      ,
+    
+      "2017-01-22-gem-week-of-month": {
+        "title": "Gem Week Of Month",
+        "category": "[]",
+        "published_at" : "Jan 22, 17",
+        "url": "/2017/01/22/gem-week-of-month/"
+      }
+      ,
+    
+      "dev-rails-ruby-2017-01-20-irb-encoding": {
+        "title": "irb, rails console에서의 한글 encoding 문제 해결",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;ruby&quot;]",
+        "published_at" : "Jan 20, 17",
+        "url": "/dev/rails/ruby/2017/01/20/irb-encoding/"
+      }
+      ,
+    
+      "dev-ruby-2017-01-20-install-rbenv": {
+        "title": "루비 버전 관리 - rbenv Mac 설치",
+        "category": "[&quot;dev&quot;, &quot;ruby&quot;]",
+        "published_at" : "Jan 20, 17",
+        "url": "/dev/ruby/2017/01/20/install-rbenv/"
+      }
+      ,
+    
+      "dev-git-2017-01-18-git-pull-remote-branch": {
+        "title": "Git - Remote branch로 local branch 만들기",
+        "category": "[&quot;dev&quot;, &quot;git&quot;]",
+        "published_at" : "Jan 18, 17",
+        "url": "/dev/git/2017/01/18/git-pull-remote-branch/"
+      }
+      ,
+    
+      "2017-01-17-subl-terminal-command": {
+        "title": "Subl Terminal Command",
+        "category": "[]",
+        "published_at" : "Jan 17, 17",
+        "url": "/2017/01/17/subl-terminal-command/"
+      }
+      ,
+    
+      "book-2017-2017-01-17-yamada-akio": {
+        "title": "생각좀 하고 살아라 - 야마다 아키오",
+        "category": "[&quot;book&quot;, &quot;2017&quot;]",
+        "published_at" : "Jan 17, 17",
+        "url": "/book/2017/2017/01/17/yamada-akio/"
+      }
+      ,
+    
+      "dev-rspec-2017-01-14-render-parital-rspec": {
+        "title": "Rspec - partial rendering 테스트 하기",
+        "category": "[&quot;dev&quot;, &quot;rspec&quot;]",
+        "published_at" : "Jan 14, 17",
+        "url": "/dev/rspec/2017/01/14/render-parital-rspec/"
+      }
+      ,
+    
+      "dev-jekyll-markdown-2017-01-14-newline-markdown": {
+        "title": "markdown에서 한줄 띄어쓰기",
+        "category": "[&quot;dev&quot;, &quot;jekyll&quot;, &quot;markdown&quot;]",
+        "published_at" : "Jan 14, 17",
+        "url": "/dev/jekyll/markdown/2017/01/14/newline-markdown/"
+      }
+      ,
+    
+      "dev-ruby-2017-01-13-ruby-sort": {
+        "title": "Ruby Sorting - nil값이 있는 경우",
+        "category": "[&quot;dev&quot;, &quot;ruby&quot;]",
+        "published_at" : "Jan 13, 17",
+        "url": "/dev/ruby/2017/01/13/ruby-sort/"
+      }
+      ,
+    
+      "book-2017-2017-01-13-sprint": {
+        "title": "Sprint - Jake Knapp",
+        "category": "[&quot;book&quot;, &quot;2017&quot;]",
+        "published_at" : "Jan 13, 17",
+        "url": "/book/2017/2017/01/13/sprint/"
+      }
+      ,
+    
+      "dev-heroku-2017-01-11-heroku-database-upgrade": {
+        "title": "Heroku database 업그레이드",
+        "category": "[&quot;dev&quot;, &quot;heroku&quot;]",
+        "published_at" : "Jan 11, 17",
+        "url": "/dev/heroku/2017/01/11/heroku-database-upgrade/"
+      }
+      ,
+    
+      "book-2017-2017-01-11-screw-it-lets-do-it": {
+        "title": "Screw it! Let's do it! - Richard Branson",
+        "category": "[&quot;book&quot;, &quot;2017&quot;]",
+        "published_at" : "Jan 11, 17",
+        "url": "/book/2017/2017/01/11/Screw-it-lets-do-it/"
+      }
+      ,
+    
+      "dev-ruby-2017-01-05-ruby-regex": {
+        "title": "Ruby Regex",
+        "category": "[&quot;dev&quot;, &quot;ruby&quot;]",
+        "published_at" : "Jan 05, 17",
+        "url": "/dev/ruby/2017/01/05/ruby-regex/"
+      }
+      ,
+    
+      "dev-heroku-2017-01-05-heroku-restart": {
+        "title": "Heroku 서버 재시작",
+        "category": "[&quot;dev&quot;, &quot;heroku&quot;]",
+        "published_at" : "Jan 05, 17",
+        "url": "/dev/heroku/2017/01/05/heroku-restart/"
+      }
+      ,
+    
+      "dev-rails-2016-12-31-rails-preload-nested-association": {
+        "title": "Preload/Eagerload Nest Association",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Dec 31, 16",
+        "url": "/dev/rails/2016/12/31/rails-preload-nested-association/"
+      }
+      ,
+    
+      "dev-rails-2016-12-31-jquery-append-prepend-after-before": {
+        "title": "jQuery Dom붙이기 한 방에 이해!! - append, prepend, after, before",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Dec 31, 16",
+        "url": "/dev/rails/2016/12/31/jquery-append-prepend-after-before/"
+      }
+      ,
+    
+      "2016-12-28-google-sheet-query-function": {
+        "title": "Google Sheet Query Function",
+        "category": "[]",
+        "published_at" : "Dec 28, 16",
+        "url": "/2016/12/28/google-sheet-query-function/"
+      }
+      ,
+    
+      "dev-git-2016-12-23-git-merge-vs-rebase": {
+        "title": "Git - merge vs. rebase",
+        "category": "[&quot;dev&quot;, &quot;git&quot;]",
+        "published_at" : "Dec 23, 16",
+        "url": "/dev/git/2016/12/23/git-merge-vs-rebase/"
+      }
+      ,
+    
+      "dev-javascript-2016-12-23-check-undefined": {
+        "title": "Javascript 'undefined' 체크",
+        "category": "[&quot;dev&quot;, &quot;javascript&quot;]",
+        "published_at" : "Dec 23, 16",
+        "url": "/dev/javascript/2016/12/23/check-undefined/"
+      }
+      ,
+    
+      "2016-12-19-bounce-vs-bounce-rate": {
+        "title": "Bounce Vs Bounce Rate",
+        "category": "[]",
+        "published_at" : "Dec 19, 16",
+        "url": "/2016/12/19/bounce-vs-bounce-rate/"
+      }
+      ,
+    
+      "dev-google-20analytics-2016-12-19-prevent-ghost-spam-in-google-analytics": {
+        "title": ".xyz 때문에 짜증이 나신다면 - GA에서 스팸제거하기",
+        "category": "[&quot;dev&quot;, &quot;google analytics&quot;]",
+        "published_at" : "Dec 19, 16",
+        "url": "/dev/google%20analytics/2016/12/19/prevent-ghost-spam-in-google-analytics/"
+      }
+      ,
+    
+      "dev-rails-pg-2016-12-14-postgresql-korean-sort": {
+        "title": "Postgresql 한글 정렬",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;pg&quot;]",
+        "published_at" : "Dec 14, 16",
+        "url": "/dev/rails/pg/2016/12/14/postgresql-korean-sort/"
+      }
+      ,
+    
+      "dev-google-20sheet-2016-12-14-google-sheet-return-blank-cell": {
+        "title": "Google Sheet - 함수에서 blank cell 반환하기",
+        "category": "[&quot;dev&quot;, &quot;google sheet&quot;]",
+        "published_at" : "Dec 14, 16",
+        "url": "/dev/google%20sheet/2016/12/14/google-sheet-return-blank-cell/"
+      }
+      ,
+    
+      "book-2016-2016-12-14-linchpin": {
+        "title": "린치핀 - 세스 고딘",
+        "category": "[&quot;book&quot;, &quot;2016&quot;]",
+        "published_at" : "Dec 14, 16",
+        "url": "/book/2016/2016/12/14/linchpin/"
+      }
+      ,
+    
+      "dev-rspec-2016-12-10-rspec-selective-test": {
+        "title": "Rspec - 원하는 테스트만 실행하기",
+        "category": "[&quot;dev&quot;, &quot;rspec&quot;]",
+        "published_at" : "Dec 10, 16",
+        "url": "/dev/rspec/2016/12/10/rspec-selective-test/"
+      }
+      ,
+    
+      "dev-rspec-2016-12-10-rspec-mock-referrer": {
+        "title": "Rspec 에서 referrer 설정하기",
+        "category": "[&quot;dev&quot;, &quot;rspec&quot;]",
+        "published_at" : "Dec 10, 16",
+        "url": "/dev/rspec/2016/12/10/rspec-mock-referrer/"
+      }
+      ,
+    
+      "dev-javascript-2016-12-09-javascript-encoding": {
+        "title": "Javascript Unicdoe/UTF-8 인코딩",
+        "category": "[&quot;dev&quot;, &quot;javascript&quot;]",
+        "published_at" : "Dec 09, 16",
+        "url": "/dev/javascript/2016/12/09/javascript-encoding/"
+      }
+      ,
+    
+      "2016-12-07-rspec": {
+        "title": "Rspec",
+        "category": "[]",
+        "published_at" : "Dec 07, 16",
+        "url": "/2016/12/07/rspec/"
+      }
+      ,
+    
+      "dev-rails-test-rspec-2016-12-06-rspec-controller": {
+        "title": "Rails Controller Test with Rspec",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;test&quot;, &quot;rspec&quot;]",
+        "published_at" : "Dec 06, 16",
+        "url": "/dev/rails/test/rspec/2016/12/06/rspec-controller/"
+      }
+      ,
+    
+      "biz-idea-2016-12-04-mind-storming": {
+        "title": "마인드 스토밍(mind storming) - 창의력을 기르는 방법",
+        "category": "[&quot;biz&quot;, &quot;idea&quot;]",
+        "published_at" : "Dec 04, 16",
+        "url": "/biz/idea/2016/12/04/mind-storming/"
+      }
+      ,
+    
+      "dev-rails-2016-12-02-vcr-webmocking": {
+        "title": "VCR - 빠른 3rd party API 테스트",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Dec 02, 16",
+        "url": "/dev/rails/2016/12/02/vcr-webmocking/"
+      }
+      ,
+    
+      "2016-12-02-rspec-style-guide": {
+        "title": "Rspec Style Guide",
+        "category": "[]",
+        "published_at" : "Dec 02, 16",
+        "url": "/2016/12/02/rspec-style-guide/"
+      }
+      ,
+    
+      "2016-12-02-how-to-test-crawling-codes": {
+        "title": "How To Test Crawling Codes",
+        "category": "[]",
+        "published_at" : "Dec 02, 16",
+        "url": "/2016/12/02/how-to-test-crawling-codes/"
+      }
+      ,
+    
+      "growth-measure-2016-12-01-google-sheet-google-analytics-addon": {
+        "title": "Google Sheet에서 Google Analytics add-on 사용하기",
+        "category": "[&quot;growth&quot;, &quot;Measure&quot;]",
+        "published_at" : "Dec 01, 16",
+        "url": "/growth/measure/2016/12/01/google-sheet-google-analytics-addon/"
+      }
+      ,
+    
+      "growth-measure-2016-12-01-google-sheet-function-for-building-dashboard": {
+        "title": "Google Sheet - 대시보드 만드는데 사용되는 function들",
+        "category": "[&quot;growth&quot;, &quot;Measure&quot;]",
+        "published_at" : "Dec 01, 16",
+        "url": "/growth/measure/2016/12/01/google-sheet-function-for-building-dashboard/"
+      }
+      ,
+    
+      "dev-heroku-2016-11-30-set-timezone-on-heroku": {
+        "title": "Heroku에서 Timezone 설정하기",
+        "category": "[&quot;dev&quot;, &quot;heroku&quot;]",
+        "published_at" : "Nov 30, 16",
+        "url": "/dev/heroku/2016/11/30/set-timezone-on-heroku/"
+      }
+      ,
+    
+      "dev-rails-test-2016-11-30-railscast-how-to-test": {
+        "title": "Integration test or Unit test",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;test&quot;]",
+        "published_at" : "Nov 30, 16",
+        "url": "/dev/rails/test/2016/11/30/railscast-how-to-test/"
+      }
+      ,
+    
+      "dev-rails-test-2016-11-30-rails-test-toc": {
+        "title": "Rails Test 0 Table of Contents",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;test&quot;]",
+        "published_at" : "Nov 30, 16",
+        "url": "/dev/rails/test/2016/11/30/rails-test-toc/"
+      }
+      ,
+    
+      "dev-rails-test-2016-11-30-rails-test-model": {
+        "title": "Rails Test 1 Model",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;test&quot;]",
+        "published_at" : "Nov 30, 16",
+        "url": "/dev/rails/test/2016/11/30/rails-test-model/"
+      }
+      ,
+    
+      "dev-jekyll-2016-11-30-jekyll-post-url": {
+        "title": "Jekyll에서 다른 post 링크를 넣는 방법",
+        "category": "[&quot;dev&quot;, &quot;jekyll&quot;]",
+        "published_at" : "Nov 30, 16",
+        "url": "/dev/jekyll/2016/11/30/jekyll-post-url/"
+      }
+      ,
+    
+      "dev-jekyll-2016-11-30-jekyll-forloop-index": {
+        "title": "Jekyll에서 forloop index 알아내기",
+        "category": "[&quot;dev&quot;, &quot;jekyll&quot;]",
+        "published_at" : "Nov 30, 16",
+        "url": "/dev/jekyll/2016/11/30/jekyll-forloop-index/"
+      }
+      ,
+    
+      "dev-rails-test-2016-11-30-factory-girl": {
+        "title": "Gem - Factory_girl",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;test&quot;]",
+        "published_at" : "Nov 30, 16",
+        "url": "/dev/rails/test/2016/11/30/factory_girl/"
+      }
+      ,
+    
+      "dev-rails-2016-11-28-nokogiri": {
+        "title": "Gem Nokogiri - 웹페이지 크롤링",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Nov 28, 16",
+        "url": "/dev/rails/2016/11/28/nokogiri/"
+      }
+      ,
+    
+      "biz-entrepreneurship-2016-11-18-first-question-to-start-business": {
+        "title": "사업을 시작하기전 해야 할 질문",
+        "category": "[&quot;biz&quot;, &quot;entrepreneurship&quot;]",
+        "published_at" : "Nov 18, 16",
+        "url": "/biz/entrepreneurship/2016/11/18/first-question-to-start-business/"
+      }
+      ,
+    
+      "biz-ec-84-b8-ec-9d-bc-ec-a6-88-2016-11-16-how-to-make-first-customer": {
+        "title": "첫 고객 만들기",
+        "category": "[&quot;biz&quot;, &quot;세일즈&quot;]",
+        "published_at" : "Nov 16, 16",
+        "url": "/biz/%EC%84%B8%EC%9D%BC%EC%A6%88/2016/11/16/how-to-make-first-customer/"
+      }
+      ,
+    
+      "book-2016-2016-11-14-the-psychology-of-selling": {
+        "title": "판매의 심리학 - 브라이언 트레이시",
+        "category": "[&quot;book&quot;, &quot;2016&quot;]",
+        "published_at" : "Nov 14, 16",
+        "url": "/book/2016/2016/11/14/the-psychology-of-selling/"
+      }
+      ,
+    
+      "dev-rails-2016-11-13-rails-new-line-in-text-area-input": {
+        "title": "Rails - text-area 줄바꿈 입력값 보여주기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Nov 13, 16",
+        "url": "/dev/rails/2016/11/13/rails-new-line-in-text-area-input/"
+      }
+      ,
+    
+      "dev-jekyll-seo-2016-11-13-jekyll-sitemap": {
+        "title": "Jekyll 이용한 Gibhub pag에서 sitemap 생성",
+        "category": "[&quot;dev&quot;, &quot;jekyll&quot;, &quot;seo&quot;]",
+        "published_at" : "Nov 13, 16",
+        "url": "/dev/jekyll/seo/2016/11/13/jekyll-sitemap/"
+      }
+      ,
+    
+      "dev-jekyll-2016-11-13-jekyll-disqus": {
+        "title": "Jekyll에 disqus 추가하기",
+        "category": "[&quot;dev&quot;, &quot;jekyll&quot;]",
+        "published_at" : "Nov 13, 16",
+        "url": "/dev/jekyll/2016/11/13/jekyll-disqus/"
+      }
+      ,
+    
+      "dev-rails-2016-11-12-rails-truncate": {
+        "title": "Rails - 20자 이상 자르고 말줄임표 붙이기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Nov 12, 16",
+        "url": "/dev/rails/2016/11/12/rails-truncate/"
+      }
+      ,
+    
+      "dev-rails-2016-11-12-rails-fast-asset-pipelie-with-sassc": {
+        "title": "Rails - dev 모드에서 sass 컴파일 속도 높이기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Nov 12, 16",
+        "url": "/dev/rails/2016/11/12/rails-fast-asset-pipelie-with-sassc/"
+      }
+      ,
+    
+      "dev-rails-2016-11-11-rails-gem-ratyrate": {
+        "title": "별점넣기 - Rails Gem Ratyrate",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Nov 11, 16",
+        "url": "/dev/rails/2016/11/11/rails-gem-ratyrate/"
+      }
+      ,
+    
+      "2016-11-09-seo-friendly-url": {
+        "title": "Seo Friendly Url",
+        "category": "[]",
+        "published_at" : "Nov 09, 16",
+        "url": "/2016/11/09/SEO-friendly-url/"
+      }
+      ,
+    
+      "growth-google-eb-84-a4-ec-9d-b4-eb-b2-84-eb-b8-94-eb-a1-9c-ea-b7-b8-2016-11-08-naver-blog-post-submit-google": {
+        "title": "네이버 블로그 - 구글 검색 등록",
+        "category": "[&quot;growth&quot;, &quot;Google&quot;, &quot;네이버블로그&quot;]",
+        "published_at" : "Nov 08, 16",
+        "url": "/growth/google/%EB%84%A4%EC%9D%B4%EB%B2%84%EB%B8%94%EB%A1%9C%EA%B7%B8/2016/11/08/naver-blog-post-submit-google/"
+      }
+      ,
+    
+      "dev-rails-2016-11-08-gem-act-as-votable": {
+        "title": "좋아요/싫어요 투표 기능 gem - acts_as_votable",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Nov 08, 16",
+        "url": "/dev/rails/2016/11/08/gem-act-as-votable/"
+      }
+      ,
+    
+      "dev-rails-2016-11-07-gem-act-as-commentable-with-threading": {
+        "title": "대댓글 기능 gem - act_as_commentable_with_threading",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Nov 07, 16",
+        "url": "/dev/rails/2016/11/07/gem-act-as-commentable-with-threading/"
+      }
+      ,
+    
+      "2016-11-07-jekyll-seo-search-engine-optimization": {
+        "title": "Jekyll Seo Search Engine Optimization",
+        "category": "[]",
+        "published_at" : "Nov 07, 16",
+        "url": "/2016/11/07/Jekyll-SEO-search-engine-optimization/"
+      }
+      ,
+    
+      "dev-css-2016-11-03-remove-webkit-padding-start": {
+        "title": "webkit-pading-start 제거하기",
+        "category": "[&quot;dev&quot;, &quot;css&quot;]",
+        "published_at" : "Nov 03, 16",
+        "url": "/dev/css/2016/11/03/remove-webkit-padding-start/"
+      }
+      ,
+    
+      "dev-heroku-2016-10-28-godaddy-heroku-dns-forwarding": {
+        "title": "Godaddy에서 Heroku로 DNS 설정하기",
+        "category": "[&quot;dev&quot;, &quot;heroku&quot;]",
+        "published_at" : "Oct 28, 16",
+        "url": "/dev/heroku/2016/10/28/godaddy-heroku-dns-forwarding/"
+      }
+      ,
+    
+      "dev-sublimetext-2016-10-25-sublimetext3-edit-multiple-lines": {
+        "title": "SublimeText3 - 여러 줄 한번에 수정하기",
+        "category": "[&quot;dev&quot;, &quot;sublimetext&quot;]",
+        "published_at" : "Oct 25, 16",
+        "url": "/dev/sublimetext/2016/10/25/sublimetext3-edit-multiple-lines/"
+      }
+      ,
+    
+      "dev-rails-2016-10-23-el-capitan-sourcetree-command-line-tool": {
+        "title": "Mac OS X 10.11(El capitan)에서 SourceTree CLT 설치 실패시",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Oct 23, 16",
+        "url": "/dev/rails/2016/10/23/el-capitan-sourcetree-command-line-tool/"
+      }
+      ,
+    
+      "dev-rails-2016-10-21-rails4-pg-string-array-form": {
+        "title": "Rails4에서 PG String Array type 사용하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Oct 21, 16",
+        "url": "/dev/rails/2016/10/21/rails4-pg-string-array-form/"
+      }
+      ,
+    
+      "dev-rails-2016-10-21-rails-turbolink-instagram-embed": {
+        "title": "Turbolink - 인스타그램 embed가 load되지 않을 때",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Oct 21, 16",
+        "url": "/dev/rails/2016/10/21/rails-turbolink-instagram-embed/"
+      }
+      ,
+    
+      "dev-rails-2016-10-07-sitemap": {
+        "title": "Sitemap",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Oct 07, 16",
+        "url": "/dev/rails/2016/10/07/sitemap/"
+      }
+      ,
+    
+      "dev-rails-sql-2016-09-28-duplicated-records-of-sql-when-using-limit-and-offset": {
+        "title": "Pagination - 다른 페이지에 같은 record가 나오는 문제",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;sql&quot;]",
+        "published_at" : "Sep 28, 16",
+        "url": "/dev/rails/sql/2016/09/28/duplicated-records-of-sql-when-using-limit-and-offset/"
+      }
+      ,
+    
+      "dev-rails-2016-09-27-kakao-sdk-with-turbolink": {
+        "title": "Turbolinks - Kakao sdk",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Sep 27, 16",
+        "url": "/dev/rails/2016/09/27/kakao-sdk-with-turbolink/"
+      }
+      ,
+    
+      "dev-rails-2016-09-23-omniauth": {
+        "title": "Omniauth",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Sep 23, 16",
+        "url": "/dev/rails/2016/09/23/omniauth/"
+      }
+      ,
+    
+      "dev-ruby-rails-2016-09-22-call-methods-only-if-exists": {
+        "title": "tip - nil이 아닌경우에 method를 실행",
+        "category": "[&quot;dev&quot;, &quot;ruby&quot;, &quot;rails&quot;]",
+        "published_at" : "Sep 22, 16",
+        "url": "/dev/ruby/rails/2016/09/22/call-methods-only-if-exists/"
+      }
+      ,
+    
+      "dev-rails-heroku-2016-09-21-heroku-database-dump-out": {
+        "title": "Heroku database로 local database 세팅하기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;heroku&quot;]",
+        "published_at" : "Sep 21, 16",
+        "url": "/dev/rails/heroku/2016/09/21/Heroku-database-dump-out/"
+      }
+      ,
+    
+      "2016-09-20-capybara-summary": {
+        "title": "Capybara Summary",
+        "category": "[]",
+        "published_at" : "Sep 20, 16",
+        "url": "/2016/09/20/capybara-summary/"
+      }
+      ,
+    
+      "dev-rails-2016-09-17-rails-set-development-database-as-postgresql": {
+        "title": "Development DB를 Postresql로 세팅",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Sep 17, 16",
+        "url": "/dev/rails/2016/09/17/rails-set-development-database-as-postgresql/"
+      }
+      ,
+    
+      "dev-rails-2016-09-13-rails4-nested-form": {
+        "title": "Rails4 - nested form",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Sep 13, 16",
+        "url": "/dev/rails/2016/09/13/Rails4-nested-form/"
+      }
+      ,
+    
+      "dev-rails-2016-09-10-user-login": {
+        "title": "Rails4 User Login - 처음부터",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Sep 10, 16",
+        "url": "/dev/rails/2016/09/10/user-login/"
+      }
+      ,
+    
+      "dev-sublimetext-2016-09-10-my-sublime-package-usges": {
+        "title": "Sublime Package",
+        "category": "[&quot;dev&quot;, &quot;sublimetext&quot;]",
+        "published_at" : "Sep 10, 16",
+        "url": "/dev/sublimetext/2016/09/10/my-sublime-package-usges/"
+      }
+      ,
+    
+      "dev-jekyll-2016-09-10-jekyll-tag-never-closed": {
+        "title": "Liquid syntax error - 'highlight' tag was never closed",
+        "category": "[&quot;dev&quot;, &quot;jekyll&quot;]",
+        "published_at" : "Sep 10, 16",
+        "url": "/dev/jekyll/2016/09/10/Jekyll-tag-never-closed/"
+      }
+      ,
+    
+      "dev-rails-google-20analytics-2016-09-09-turbolinks-google-analytics": {
+        "title": "Turbolinks &amp; Google analytics",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;google analytics&quot;]",
+        "published_at" : "Sep 09, 16",
+        "url": "/dev/rails/google%20analytics/2016/09/09/turbolinks-google-analytics/"
+      }
+      ,
+    
+      "dev-rails-2016-08-28-turbolinks-load-event": {
+        "title": "document ready &amp; Turbolinks",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 28, 16",
+        "url": "/dev/rails/2016/08/28/turbolinks-load-event/"
+      }
+      ,
+    
+      "dev-rails-2016-08-25-rails-active-model-serializer": {
+        "title": "Tips - Rails(레일즈) active model serializer",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 25, 16",
+        "url": "/dev/rails/2016/08/25/rails-active-model-serializer/"
+      }
+      ,
+    
+      "biz-pricing-2016-08-25-value-based-pricing": {
+        "title": "가치 기반 가격 (Value-based pricing)",
+        "category": "[&quot;biz&quot;, &quot;pricing&quot;]",
+        "published_at" : "Aug 25, 16",
+        "url": "/biz/pricing/2016/08/25/value-based-pricing/"
+      }
+      ,
+    
+      "dev-rails-bootstrap-2016-08-21-initial-settings-rails-bootstrap": {
+        "title": "Rails(레일즈) bootstrap 세팅.",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;, &quot;bootstrap&quot;]",
+        "published_at" : "Aug 21, 16",
+        "url": "/dev/rails/bootstrap/2016/08/21/initial-settings-rails-bootstrap/"
+      }
+      ,
+    
+      "dev-rails-2016-08-20-rails-scope": {
+        "title": "Rails(레일즈) scope",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 20, 16",
+        "url": "/dev/rails/2016/08/20/rails-scope/"
+      }
+      ,
+    
+      "dev-rails-2016-08-20-rails-guard": {
+        "title": "테스트 자동화 - guard",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 20, 16",
+        "url": "/dev/rails/2016/08/20/rails-guard/"
+      }
+      ,
+    
+      "dev-rails-2016-08-19-nil-empty-blank-present": {
+        "title": "nil?, empty?, blank? 그리고 present?",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 19, 16",
+        "url": "/dev/rails/2016/08/19/nil-empty-blank-present/"
+      }
+      ,
+    
+      "dev-rails-2016-08-19-import-css-in-scss": {
+        "title": "Sass 파일에서 css 파일 import",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 19, 16",
+        "url": "/dev/rails/2016/08/19/import-css-in-scss/"
+      }
+      ,
+    
+      "dev-git-2016-08-19-git-remove-staging-files": {
+        "title": "git local strorage에 staging 파일을 제거.",
+        "category": "[&quot;dev&quot;, &quot;git&quot;]",
+        "published_at" : "Aug 19, 16",
+        "url": "/dev/git/2016/08/19/git-remove-staging-files/"
+      }
+      ,
+    
+      "growth-cohort-2016-08-16-sql-for-cohort-analysis": {
+        "title": "SQL for Cohort analysis",
+        "category": "[&quot;growth&quot;, &quot;cohort&quot;]",
+        "published_at" : "Aug 16, 16",
+        "url": "/growth/cohort/2016/08/16/sql-for-cohort-analysis/"
+      }
+      ,
+    
+      "dev-jekyll-2016-08-14-jekyll-sub-category": {
+        "title": "Jekyll - category array를 sub-category처럼 사용하기",
+        "category": "[&quot;dev&quot;, &quot;jekyll&quot;]",
+        "published_at" : "Aug 14, 16",
+        "url": "/dev/jekyll/2016/08/14/jekyll-sub-category/"
+      }
+      ,
+    
+      "dev-rails-2016-08-13-integration-test": {
+        "title": "Rails Integration Test",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 13, 16",
+        "url": "/dev/rails/2016/08/13/integration-test/"
+      }
+      ,
+    
+      "dev-rails-2016-08-13-fast-test-with-guard-and-zeus": {
+        "title": "빠른 테스트 - Guard &amp; Zeus",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 13, 16",
+        "url": "/dev/rails/2016/08/13/fast-test-with-guard-and-zeus/"
+      }
+      ,
+    
+      "dev-rails-2016-08-11-naver-searchad-api-ruby": {
+        "title": "Ruby - Naver 검색광고 API",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Aug 11, 16",
+        "url": "/dev/rails/2016/08/11/naver-searchad-api-ruby/"
+      }
+      ,
+    
+      "dev-web-2016-07-29-chrome-video-tag": {
+        "title": "Chrome에서 video tag 사용",
+        "category": "[&quot;dev&quot;, &quot;web&quot;]",
+        "published_at" : "Jul 29, 16",
+        "url": "/dev/web/2016/07/29/chrome-video-tag/"
+      }
+      ,
+    
+      "dev-rails-2016-07-29-carrierwave-video-thumbnailer": {
+        "title": "Carrierwave video thumbnailer",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Jul 29, 16",
+        "url": "/dev/rails/2016/07/29/carrierwave-video-thumbnailer/"
+      }
+      ,
+    
+      "2016-07-26-single-uploader-multiple-content-type": {
+        "title": "Single Uploader Multiple Content Type",
+        "category": "[]",
+        "published_at" : "Jul 26, 16",
+        "url": "/2016/07/26/single-uploader-multiple-content-type/"
+      }
+      ,
+    
+      "dev-heroku-2016-07-25-heroku-multi-build-packs": {
+        "title": "Heroku에 ffmpeg 설치하기 (Multi buildpack 사용하기)",
+        "category": "[&quot;dev&quot;, &quot;heroku&quot;]",
+        "published_at" : "Jul 25, 16",
+        "url": "/dev/heroku/2016/07/25/Heroku-multi-build-packs/"
+      }
+      ,
+    
+      "dev-bootstrap-2016-07-24-bootrap-collapse": {
+        "title": "Bootstrap collapse의 event handler 사용하기",
+        "category": "[&quot;dev&quot;, &quot;bootstrap&quot;]",
+        "published_at" : "Jul 24, 16",
+        "url": "/dev/bootstrap/2016/07/24/bootrap-collapse/"
+      }
+      ,
+    
+      "dev-rails-2016-07-21-repopulate-non-model-form-field": {
+        "title": "model이 없는 form의 입력을 validation 이후에도 유지하기.",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Jul 21, 16",
+        "url": "/dev/rails/2016/07/21/repopulate-non-model-form-field/"
+      }
+      ,
+    
+      "dev-html-2016-07-19-set-viewport": {
+        "title": "모바일 Layout - View port",
+        "category": "[&quot;dev&quot;, &quot;html&quot;]",
+        "published_at" : "Jul 19, 16",
+        "url": "/dev/html/2016/07/19/set-viewport/"
+      }
+      ,
+    
+      "dev-rails-2016-07-18-rotate-image": {
+        "title": "EXIF 옵션에 따라 이미지 회전시키기",
+        "category": "[&quot;dev&quot;, &quot;rails&quot;]",
+        "published_at" : "Jul 18, 16",
+        "url": "/dev/rails/2016/07/18/rotate-image/"
+      }
+      
+    
+  };
+</script>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/search.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

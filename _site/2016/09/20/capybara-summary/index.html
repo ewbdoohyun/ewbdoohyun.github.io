@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Capybara Summary &middot; Doohyun Kim
+    
+  </title>
+  <!-- meta -->
+  <link rel="author" href="https://plus.google.com/u/0/+sglee"/>
+  <meta name="description" content="이성관 블로그">
+  <meta name="naver-site-verification" content="589ef55a64f45cb4651dbf19ef610ca67fa3bdab"/>
+
+  <!-- meta for facebook -->
+  <meta property="og:url" content="http://localhost:4000/2016/09/20/capybara-summary/"/>
+  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/sg-rails-sample-app/main.jpg"/>
+  <meta property="og:description" content="이성관 블로그">
+
+  <!-- CSS theme -->
+  <!-- <link rel="stylesheet"  href="/css/poole.css"> -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <!-- CSS custom -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+  <!-- Google Analytics Tag -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47572822-3', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+</head>
+
+
+  <body>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <!-- <label for="sidebar-checkbox" class="sidebar-toggle"></label> -->
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Doohyun Kim</a>
+            <!-- <small>Blog</small> -->
+          </h3>
+          <div class="search-box">
+            <form action="/search" method="get">
+              <input type="text" id="search-box" name="query" placeholder="search">
+            </form>
+          </div>
+          <div class="pull-right category-box">
+            <a href="/about" class="category-menu"><small>ABOUT</small></a>
+            <!-- <a href="/categories/dev" class="category-menu"><small>DEV</small></a> -->
+            <!-- <a href="/categories/biz" class="category-menu"><small>BIZ</small></a> -->
+            <a href="/categories/algorithm" class="category-menu"><small>ALROGITHM</small></a>
+            <a href="/categories/database" class="category-menu"><small>DATABASE</small></a>
+            <a href="/categories/frontend" class="category-menu"><small>FRONTEND</small></a>
+            <a href="/categories/backend" class="category-menu"><small>BACKEND</small></a>
+            <a href="/categories/growth" class="category-menu"><small>GROWTH</small></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post__title">Capybara Summary</h1>
+  <div class="post__desc">
+    <small class="post-date">Sep 20, 16</small>
+    
+  </div>
+  <div class="post-content">
+    <p>regex 사용</p>
+<ul>
+  <li><code class="highlighter-rouge">expect(page.text).to match(/regex/)</code></li>
+</ul>
+
+<p>select tag에서 option 선택</p>
+
+<p>http://stackoverflow.com/questions/20134085/how-to-select-option-in-drop-down-using-capybara</p>
+
+<h1 id="race-problem">Race problem</h1>
+
+<ul>
+  <li>AJAX로 database에 record를 생성하는 경우 하는 경우 race problem이 발생한다.</li>
+  <li>ajax가 완료될 때까지 기다리는 helper를 만들어서 사용한다.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># spec/support/wait_for_ajax.rb</span>
+<span class="k">module</span> <span class="nn">WaitForAjax</span>
+  <span class="k">def</span> <span class="nf">wait_for_ajax</span>
+    <span class="no">Timeout</span><span class="p">.</span><span class="nf">timeout</span><span class="p">(</span><span class="no">Capybara</span><span class="p">.</span><span class="nf">default_max_wait_time</span><span class="p">)</span> <span class="k">do</span>
+      <span class="kp">loop</span> <span class="k">until</span> <span class="n">finished_all_ajax_requests?</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">finished_all_ajax_requests?</span>
+    <span class="n">page</span><span class="p">.</span><span class="nf">evaluate_script</span><span class="p">(</span><span class="s1">'jQuery.active'</span><span class="p">).</span><span class="nf">zero?</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">include</span> <span class="no">WaitForAjax</span><span class="p">,</span> <span class="ss">type: :feature</span>
+<span class="k">end</span></code></pre></figure>
+
+<ul>
+  <li>사용법</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">expect</span><span class="p">{</span>
+  <span class="n">find</span><span class="p">(</span><span class="s1">'#create_button'</span><span class="p">).</span><span class="nf">click</span>
+  <span class="n">wait_for_ajax</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">change</span><span class="p">(</span><span class="no">Item</span><span class="p">,</span> <span class="ss">:count</span><span class="p">).</span><span class="nf">by</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+<h1 id="param을-제외한-url만-테스트">Param을 제외한 url만 테스트</h1>
+<p><code class="highlighter-rouge">expect(page).to have_current_path(people_path, only_path: true)</code></p>
+
+<h1 id="fill_in">Fill_in</h1>
+<ul>
+  <li>HTML
+<input id="name_input" /></li>
+  <li>spec
+fill_in “name_input”</li>
+</ul>
+
+<p>http://stackoverflow.com/questions/5228371/how-to-get-current-path-with-query-string-using-capybara</p>
+
+<p><a href="https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara">credit : thoughbot</a></p>
+
+  </div>
+</div>
+
+
+
+<style type="text/css">
+  .post__desc {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #DAD9D9;
+  }
+  .post__title {
+    font-size: 1.6em;
+  }
+</style>
+
+<!-- <div class="gdn-ads">
+  <div class="gdn-ads-title">Advertisement</div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px"
+       data-ad-client="ca-pub-2507125479501117"
+       data-ad-slot="8695918038"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div> -->
+
+<!-- <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//house201.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ -->
+
+<!-- <div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2019/05/30/2017-02-22-rails-active-record-query-interface-frequent-using/">
+            
+            <small>30 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/dev/react/javascript/2019/05/28/manage-constants-in-javascript/">
+            Javascript에서 constants 관리하기
+            <small>28 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/dev/react/eslint/vscode/2019/05/09/eslint-setup/">
+            React + ESLint + VSCode
+            <small>09 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+ -->
+      </div>
+    </div>
+  </body>
+</html>

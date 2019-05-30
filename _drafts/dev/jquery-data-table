@@ -1,0 +1,7 @@
+
+
+
+- thead/tbody가 필요하다.
+	http://stackoverflow.com/questions/25377637/datatables-cannot-read-property-mdata-of-undefined
+
+"iDisplayLength": 50 //처음 보여지는 row의 갯수

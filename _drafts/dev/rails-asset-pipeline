@@ -1,0 +1,14 @@
+
+
+- Rails 4.2
+	- `app/assets/javascripts`, `lib/assets/javascripts`, `vendor/assets/javascript` 에 있는 javascript 파일은 파일명으로 바로 접근 가능하다.
+    
+    app/assets/javascripts/home.js
+    lib/assets/javascripts/moovinator.js
+    vendor/assets/javascripts/slider.js
+    vendor/assets/somepackage/phonebox.js
+
+    //= require home
+    //= require moovinator
+    //= require slider
+    //= require phonebox

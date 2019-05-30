@@ -1,0 +1,9 @@
+#1
+
+heroku run rails c
+
+/app/vendor/bundle/ruby/2.2.0/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:274:in `require': No such file to load -- Base64 (LoadError)
+
+
+이유는 모르겠지만, 다시 한 번 배포하니 사라졌다.
+Heroku의 bug인듯.

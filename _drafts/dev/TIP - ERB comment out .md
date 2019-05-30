@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/8514946/how-do-i-comment-out-erb-in-rails

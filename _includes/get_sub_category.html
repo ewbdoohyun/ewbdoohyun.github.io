@@ -1,0 +1,11 @@
+{% assign sub_categories = "" | split: "" %}
+{% for post in site.categories[page.category] %}
+  {% for category in post.categories %}
+    {% if category != page.category %}
+    	{% assign downcase_category = category | downcase %}
+      {% assign sub_categories = sub_categories | push: downcase_category %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% assign sub_categories = sub_categories | uniq %}
+{% assign sub_categories = sub_categories | sort %}

@@ -1,0 +1,1 @@
+http://www.rubyinside.com/nethttp-cheat-sheet-2940.html

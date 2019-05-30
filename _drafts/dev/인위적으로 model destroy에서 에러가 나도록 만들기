@@ -1,0 +1,15 @@
+인위적으로 model destroy에서 에러가 나도록 만들기
+
+{% highlight ruby %}
+before_destroy do 
+    errors[:ABCERROR] = "ABC ERROR"
+    false
+end
+{% endhighlight %}
+
+{% highlight ruby %}
+if model.destroy
+else
+->>
+end
+{% endhighlight %}

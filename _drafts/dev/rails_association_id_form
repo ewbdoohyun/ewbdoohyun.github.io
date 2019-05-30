@@ -1,0 +1,8 @@
+
+- 새로 만들어지는 task를 current_user에게 속하도록
+- task.user_id 를 current_user.id로 만들기
+- task form에 hidden field로 user_id 추가, val: current_user.id 로 id값 보내기
+- strong parameter에 user_id를 permit
+
+hidden_field(:object, :field, :value => params[:requestval])
+http://apidock.com/rails/ActionView/Helpers/FormHelper/hidden_field

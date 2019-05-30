@@ -1,0 +1,1 @@
+http://www.justinweiss.com/articles/3-steps-to-fix-encoding-problems-in-ruby/

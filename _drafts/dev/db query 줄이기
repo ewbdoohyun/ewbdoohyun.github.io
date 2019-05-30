@@ -1,0 +1,11 @@
+
+
+#1 Pluck --> Eager loading & .map
+
+Controller에서 Eager loading
+View에서는 db query가 갈만한 method는 사용하지 않는다. 
+
+.pluck(:name).join(', ')
+
+
+=> .map { |n| n.name }.join(', ')

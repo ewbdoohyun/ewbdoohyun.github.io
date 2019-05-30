@@ -1,0 +1,3 @@
+x ||= "A"
+
+[ruby cookbook](https://www.safaribooksonline.com/library/view/ruby-cookbook/0596523696/ch05s04.html)

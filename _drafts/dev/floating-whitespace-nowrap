@@ -1,0 +1,2 @@
+floating div에 white-space:nowrap 을 안해주면
+글자사이의 space로 인해서 마지막 글자가 다음줄로 넘어가는 현상이 생긴다.

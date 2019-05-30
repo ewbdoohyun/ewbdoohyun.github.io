@@ -1,0 +1,76 @@
+Person.pluck(:id) #http://stackoverflow.com/questions/7911014/activerecord-find-and-only-return-selected-columns
+
+<%= fc.select :sub_menu, options_for_select(@sub_menus, @item.sub_menu.id) %>
+http://stackoverflow.com/questions/623458/rails-select-helper-default-selected-value-how
+http://apidock.com/rails/v3.2.1/ActionView/Helpers/FormOptionsHelper/options_for_select
+
+<%= fc.select :sub_menu, options_for_select(@sub_menus, @item.sub_menu.id), {}, class: "form-control" %>
+http://stackoverflow.com/questions/21338113/cant-add-class-on-select-form-helper-in-rails-4
+
+<%= form_for @item, :html => {class: "form-horizontal"} do |f| %>
+http://stackoverflow.com/questions/13144624/use-rails-form-for-but-set-custom-classes-attributes-on-form-element
+
+
+
+
+
+
+### strong paramter ###
+* controller
+def item_params
+    params.require(:item).permit(:npc, :nmc, :name, :brand, :comment, :url, sub_menus: [:id])
+  end
+
+* controller
+def create
+    @item = Item.create!(item_params.except(:sub_menus))
+    @item.sub_menu_id = item_params[:sub_menus][:id]
+    @item.save
+
+* form
+<%= f.fields_for :sub_menus do |sub_menu_builder| %>
+      <%= sub_menu_builder.label :sub_menus, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= sub_menu_builder.select :id, options_for_select(@sub_menus), {}, class: "form-control" %>
+      </div>
+    <% end %>
+
+* test
+test 'create properly' do
+    assert_difference 'Item.count' do
+      post items_path, item: {name: "A",
+                        npc: 1,
+                        nmc: 2,
+                        url: "http://parentingneedsmoney.com",
+                        comment: "A",
+                        sub_menu_attributes: {id: 1}}
+    end
+  end
+
+
+
+  #### link_to data attributes ####
+  http://stackoverflow.com/questions/8734722/rails-link-to-helper-with-data-attribute
+
+
+## Test
+- Controller test
+  - <HTTP_METHOD> <METHOD_NAME>
+    - post :create
+    - get :index
+
+
+[test antipattern](https://semaphoreci.com/blog/2014/02/11/rails-testing-antipatterns-controllers.html)
+[everday rails](http://everydayrails.com/2012/04/07/testing-series-rspec-controllers.html)
+
+
+
+### Access current controller and action name
+use these variables
+- `controller_name`
+- `action_name`
+
+
+
+
+###

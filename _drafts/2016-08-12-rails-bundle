@@ -1,0 +1,5 @@
+
+
+production 환경으로 설정된 gem을 제외하고 설치.
+
+bundle install --without production

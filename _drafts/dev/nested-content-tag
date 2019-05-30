@@ -1,0 +1,5 @@
+http://stackoverflow.com/questions/4205613/rails-nested-content-tag
+
+content_tag :div, class: "ABC" do
+
+end

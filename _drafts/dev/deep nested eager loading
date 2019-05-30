@@ -1,0 +1,8 @@
+deep nested eager loading
+http://stackoverflow.com/questions/30056163/eager-loading-in-deep-level-nested-association
+
+{% highlight ruby %}
+    @menus = Menu.includes(sub_menus: :items).where(category_id: session[:category_id]).order('menus.name collate "C" asc').order('items.nmc desc')
+{% endhighlight %}
+
+http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations

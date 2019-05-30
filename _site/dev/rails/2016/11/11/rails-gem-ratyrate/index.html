@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      별점넣기 - Rails Gem Ratyrate &middot; Doohyun Kim
+    
+  </title>
+  <!-- meta -->
+  <link rel="author" href="https://plus.google.com/u/0/+sglee"/>
+  <meta name="description" content="이성관 블로그">
+  <meta name="naver-site-verification" content="589ef55a64f45cb4651dbf19ef610ca67fa3bdab"/>
+
+  <!-- meta for facebook -->
+  <meta property="og:url" content="http://localhost:4000/dev/rails/2016/11/11/rails-gem-ratyrate/"/>
+  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/sg-rails-sample-app/main.jpg"/>
+  <meta property="og:description" content="이성관 블로그">
+
+  <!-- CSS theme -->
+  <!-- <link rel="stylesheet"  href="/css/poole.css"> -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <!-- CSS custom -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+  <!-- Google Analytics Tag -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47572822-3', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+</head>
+
+
+  <body>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <!-- <label for="sidebar-checkbox" class="sidebar-toggle"></label> -->
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Doohyun Kim</a>
+            <!-- <small>Blog</small> -->
+          </h3>
+          <div class="search-box">
+            <form action="/search" method="get">
+              <input type="text" id="search-box" name="query" placeholder="search">
+            </form>
+          </div>
+          <div class="pull-right category-box">
+            <a href="/about" class="category-menu"><small>ABOUT</small></a>
+            <!-- <a href="/categories/dev" class="category-menu"><small>DEV</small></a> -->
+            <!-- <a href="/categories/biz" class="category-menu"><small>BIZ</small></a> -->
+            <a href="/categories/algorithm" class="category-menu"><small>ALROGITHM</small></a>
+            <a href="/categories/database" class="category-menu"><small>DATABASE</small></a>
+            <a href="/categories/frontend" class="category-menu"><small>FRONTEND</small></a>
+            <a href="/categories/backend" class="category-menu"><small>BACKEND</small></a>
+            <a href="/categories/growth" class="category-menu"><small>GROWTH</small></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post__title">별점넣기 - Rails Gem Ratyrate</h1>
+  <div class="post__desc">
+    <small class="post-date">Nov 11, 16</small>
+    
+      
+        <small>dev</small>
+      
+    
+      
+        <small>rails</small>
+      
+    
+  </div>
+  <div class="post-content">
+    <p>리뷰에 별점을 넣기 위해서 Ratyrate gem을 사용했다. 사실, ruby-toolbox에서 찾아보면 제일 많은 다운로드 수를 기록한 rating gem은 Ajaxful-rating이지만, Rails4에서 제대로 동작하지 않더라.(<a href="https://github.com/edgarjs/ajaxful-rating/issues/100">gibhub issue</a>)</p>
+
+<p>Google 검색에서 ‘Rails gem rating’을 쳤을 때 상위에 나오는 <a href="https://github.com/wazery/ratyrate">Ratyrate</a>라는 gem을 사용하기로 했다. 우선 Ratyrate는 <a href="https://github.com/wbotelhos/raty">jQuery Raty</a>라는 플러그인을 wrapping한 gem이다.</p>
+
+<h3 id="설치">설치</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//Gemfile
+gem 'ratyrate'
+
+//Terminal
+rails g ratyrate user
+bin/rake db:migrate
+</code></pre></div></div>
+
+<h3 id="사용">사용</h3>
+
+<p>‘dimension’을 설정하여 여러개의 별점을 줄 수 있습니다. <a href="http://bebetem.com">베베템</a> 에는 하나의 별점만 필요해 “all” 이라는 dimension을 사용했습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Car &lt; ActiveRecord::Base
+    ratyrate_rateable "speed", "engine", "price"
+end
+
+
+class User &lt; ActiveRecord::Base
+    ratyrate_rater
+end
+</code></pre></div></div>
+
+<h4 id="view-helper">View Helper</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//@car의 'spped' dimension 대한 별점
+&lt;%= rating_for @car, 'speed' %&gt;
+
+//@car의 'speed' dimension 에 대한 특정 유저의 별점
+&lt;%= rating_for_user @car, user, 'speed' %&gt;
+</code></pre></div></div>
+
+<h4 id="view-helper---option">View Helper - Option</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//readOnly:
+&lt;%= rating_for @car, 'speed', readonly: true %&gt;
+</code></pre></div></div>
+
+<h4 id="model-method">Model method</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// car의 "speed"에 rate object list
+//dimesion이 없으면, dimension을 설정하지 않은 rate만 반환한다.
+//전체 rate를 반환하는 기능은 이 gem엔 없다.
+car.rates "speed"
+
+car.raters "speed"
+</code></pre></div></div>
+
+<h3 id="별모양-수정하기">별모양 수정하기</h3>
+
+<p><em>rating_for</em> 또는 <em>rating_for_user</em>에 Option을 사용해서 수정할 수 있다.</p>
+
+<p>gem에서는 starType 옵션을 제공하지 않지만, jquery raty plugin에서는 starType옵션을 제공합니다. 기본 starType은 <img />입니다.</p>
+
+<p>font-awesome을 이용하기 위해서 <em>jquery.raty.js</em>에 starType을 <i>로 변경합니다.</i></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//jquery.raty.js
+    _createStars: function() {
+        ...
+        // this.opt.path는 image의 path임.
+        // attrs = { class: i, src: this.opt.path + this.opt[name] };
+        attrs = { class: i, src: this.opt[name] };
+        ...
+        // $('&lt;' + this.opt.starType + ' /&gt;', attrs).appendTo(this);
+        $('&lt;i&gt;&lt;/i&gt;', attrs).appendTo(this);
+
+
+//_comment.html.erb
+
+&lt;%= rating_for_user @item, comment.user, 'overall', readonly: true, star_on: "fa fa-star fa-1x", star_off: "fa fa-star-o fa-1x", star_half: "fa fa-star-half-o fa-1x" %&gt;
+</code></pre></div></div>
+
+<h3 id="cache-업데이트">Cache 업데이트</h3>
+
+<p><em>update_rate_average</em> method를 통해서 cache model의 record가 생성/수정된다.
+Gem에서는 rate가 destroy될 때 이 method가 불리지 않는다. 이미 누군가 해결책을 <a href="https://gist.github.com/piyushbeli/8b92068ce72d28ed155a">github issue로</a> 올렸지만, 아직 반여되진 않았다. 전반적으로 잘 관리가 안되고 있는 느낌이다.</p>
+
+<p>cache인 <em>rating_caches</em> 는 gem에서 아래와 같이 선언되어 있다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dimensions.each do |dimension|
+    has_one "#{dimension}_average".to_sym, -&gt; { where dimension: dimension.to_s },
+          as: :cacheable, 
+          class_name: 'RatingCache',
+          dependent: :destroy
+</code></pre></div></div>
+
+<p><em>dependent: :destroy</em> 옵션이 있으니, Rate의 대상이 되는 객체를 삭제하면 RatingCache는 사라진다.</p>
+
+<p>문제는 Rate가 삭제될 때, RatingCache가 업데이트가 되지 않는다.
+아래와 같이 <em>update_rate_average</em>를 patch해서 사용하고 Rate가 삭제될 때 이 method를 불러주기로 했다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//config/ratyrate.rb
+module Ratyrate
+ def update_rate_average(stars, dimension=nil)
+    if average(dimension).nil?
+      send("create_#{average_assoc_name(dimension)}!", { avg: stars, qty: 1, dimension: dimension })
+    else
+      a = average(dimension)
+      a.qty = rates(dimension).count
+      //start - 추가된 부분
+      if a.qty == 0
+        a.avg = 0
+      else
+        a.avg = rates(dimension).average(:stars)
+      end
+      //end
+      a.save!(validate: false)
+    end
+  end
+end
+
+
+//Rate가 삭제되는 곳
+rate = Rate.find_by(rateable_id: self.id, rater_id: self.user.id)
+if rate
+    rate.destroy
+end
+self.update_rate_average(0, "overall")
+</code></pre></div></div>
+
+<h3 id="readonly-옵션이-제대로-안된다면">Readonly 옵션이 제대로 안된다면…</h3>
+
+<p>아무리 readonly 옵션을 넣어도, 적용이 안되더라.
+github에서 sourcecode를 봤는데, 전혀 이상할게 없었다.
+실제 설치된 Gem 폴더를 열어 코드를 확인해보니, Github에서 보이는것과 달랐다.
+버전을 확인해 보니 1.2.2alpha 버전이었다.</p>
+
+<p>Gem폴더 열기 (SublimeText가 subl로 symbolic link되어 있을 때)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//~/.bash_profile
+export BUNDLER_EDITOR=subl
+
+//Terminal
+bundle open ratyrate
+</code></pre></div></div>
+
+<p>Github에 나온 최신버전은 1.0.9이다.
+그런데 Gemfile에 1.0.9로 넣으니 등록되지 않은 버전이었다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//Gemfile
+gem 'ratyrate', "1.0.9"
+</code></pre></div></div>
+
+<p><a href="https://rubygems.org/gems/ratyrate/versions">rubygem.org</a>에 등록된 버전은 모두 1.2.0alpha 이후 버전이었다.
+음.. 뭔가 이상하지만, github주소를 넣어서 1.0.9를 설치하기로 했다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//Gemfile
+gem 'ratyrate', 'git: git://github.com/wazery/ratyrate.git
+</code></pre></div></div>
+
+<p>github주소로 설치된 버전은 1.2.0alpha지만, 이후에 readonly부분의 bug가 수정되어서, readonly가 제대로 동작한다.</p>
+
+<p><em>git@</em>으로 시작하는 private link를 사용하면 Heroku에서 빌드가 안된다. 알아두자.</p>
+
+<hr />
+
+
+  </div>
+</div>
+
+
+  <div id="disqus_thread"></div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+  /*
+  var disqus_config = function () {
+  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  */
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://sgwanlee.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<style type="text/css">
+  .post__desc {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #DAD9D9;
+  }
+  .post__title {
+    font-size: 1.6em;
+  }
+</style>
+
+<!-- <div class="gdn-ads">
+  <div class="gdn-ads-title">Advertisement</div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px"
+       data-ad-client="ca-pub-2507125479501117"
+       data-ad-slot="8695918038"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div> -->
+
+<!-- <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//house201.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ -->
+
+<!-- <div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2019/05/30/2017-02-22-rails-active-record-query-interface-frequent-using/">
+            
+            <small>30 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/dev/react/javascript/2019/05/28/manage-constants-in-javascript/">
+            Javascript에서 constants 관리하기
+            <small>28 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/dev/react/eslint/vscode/2019/05/09/eslint-setup/">
+            React + ESLint + VSCode
+            <small>09 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+ -->
+      </div>
+    </div>
+  </body>
+</html>
