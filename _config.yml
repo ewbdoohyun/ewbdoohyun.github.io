@@ -21,11 +21,11 @@ permalink: pretty
 # Setup
 title: Doohyun Kim
 tagline: "Blog"
-description: "이성관 블로그"
+description: "Developer Blog"
 url: http://ewbdoohyun.github.io
 
 author:
-  name: "SG Lee"
+  name: "Doohyun Kim"
   # url: https://twitter.com/sgwanlee
 
 paginate: 5

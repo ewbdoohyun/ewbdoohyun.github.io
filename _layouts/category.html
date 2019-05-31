@@ -4,7 +4,6 @@ layout: default
 
 {% include get_sub_category.html %}
 {% assign size = sub_categories | size %}
-
 {% if size == 0 %}
   empty ;)
 {% else %}
@@ -13,6 +12,7 @@ layout: default
   {% for category in sub_categories %}
     <div class="category">
       <a href="#{{category}}">{{category | upcase}} ({{ site.categories[category] | size }})</a>
+
     </div>
     {% for post in site.categories[category] %}
       <div class="post">

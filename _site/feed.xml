@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-30T11:59:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Doohyun Kim</title><subtitle>이성관 블로그</subtitle><author><name>SG Lee</name></author><entry><title type="html"></title><link href="http://localhost:4000/2019/05/30/2017-02-22-rails-active-record-query-interface-frequent-using/" rel="alternate" type="text/html" title="" /><published>2019-05-30T11:59:47+09:00</published><updated>2019-05-30T11:59:47+09:00</updated><id>http://localhost:4000/2019/05/30/2017-02-22-rails-active-record-query-interface-frequent-using</id><content type="html" xml:base="http://localhost:4000/2019/05/30/2017-02-22-rails-active-record-query-interface-frequent-using/">&lt;h2 id=&quot;find_each&quot;&gt;.find_each&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-31T09:08:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Doohyun Kim</title><subtitle>이성관 블로그</subtitle><author><name>SG Lee</name></author><entry><title type="html"></title><link href="http://localhost:4000/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using/" rel="alternate" type="text/html" title="" /><published>2019-05-31T09:08:20+09:00</published><updated>2019-05-31T09:08:20+09:00</updated><id>http://localhost:4000/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using</id><content type="html" xml:base="http://localhost:4000/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using/">&lt;h2 id=&quot;find_each&quot;&gt;.find_each&lt;/h2&gt;
 
 &lt;p&gt;모든 record에 대해서 일괄작업시 자주 사용&lt;/p&gt;
 
@@ -32,7 +32,80 @@ end
       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userStatesLabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/span&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;react&quot;, &quot;javascript&quot;]" /></entry><entry><title type="html">React + ESLint + VSCode</title><link href="http://localhost:4000/dev/react/eslint/vscode/2019/05/09/eslint-setup/" rel="alternate" type="text/html" title="React + ESLint + VSCode" /><published>2019-05-09T00:00:00+09:00</published><updated>2019-05-09T00:00:00+09:00</updated><id>http://localhost:4000/dev/react/eslint/vscode/2019/05/09/eslint-setup</id><content type="html" xml:base="http://localhost:4000/dev/react/eslint/vscode/2019/05/09/eslint-setup/">&lt;h2 id=&quot;vscode-eslint-설치&quot;&gt;VSCode eslint 설치&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;react&quot;, &quot;javascript&quot;]" /></entry><entry><title type="html">helmet을 통한 보안 강화</title><link href="http://localhost:4000/backend/nodejs/2019/05/19/helmet-security/" rel="alternate" type="text/html" title="helmet을 통한 보안 강화" /><published>2019-05-19T00:00:00+09:00</published><updated>2019-05-19T00:00:00+09:00</updated><id>http://localhost:4000/backend/nodejs/2019/05/19/helmet-security</id><content type="html" xml:base="http://localhost:4000/backend/nodejs/2019/05/19/helmet-security/">&lt;p&gt;Node를 사용하면서 Helmet을 통해 보안을 손쉽게 강화 할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add helmet 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(yarn을 더 좋아한다. (npm 보다는.))&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class App {
+    public app: GraphQLServer;
+    public pubSub: any;
+    constructor(){
+        this.pubSub = new PubSub;
+        this.pubSub.ee.setMaxListeners(99);
+        this.app = new GraphQLServer({
+            schema,
+            context: req =&amp;gt; {
+                const {connection: {context = null} = {} } = req;
+                return {
+                    req: req.request,
+                    pubSub: this.pubSub,
+                    context
+                }
+            }
+        });
+        this.middlewares();
+    }
+    private middlewares = () : void =&amp;gt; {
+        this.app.express.use(cors());
+        this.app.express.use(logger(&quot;dev&quot;));
+        this.app.express.use(helmet());
+    };
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음과 같이 사용하면 되고, default로 제공 되는 것 은 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;default option&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://helmetjs.github.io/docs/dns-prefetch-control&quot;&gt;dnsPrefetchControl&lt;/a&gt; controls browser DNS prefetching&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://helmetjs.github.io/docs/frameguard/&quot;&gt;frameguard&lt;/a&gt; to prevent clickjacking&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://helmetjs.github.io/docs/hide-powered-by&quot;&gt;hidePoweredBy&lt;/a&gt; to remove the X-Powered-By header&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://helmetjs.github.io/docs/hsts/&quot;&gt;hsts&lt;/a&gt; for HTTP Strict Transport Security&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://helmetjs.github.io/docs/ienoopen&quot;&gt;ieNoOpen&lt;/a&gt; sets X-Download-Options for IE8+&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://helmetjs.github.io/docs/dont-sniff-mimetype&quot;&gt;noSniff&lt;/a&gt; to keep clients from sniffing the MIME type&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://helmetjs.github.io/docs/xss-filter&quot;&gt;xssFilter&lt;/a&gt; adds some small XSS protections&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;외에도 다양한 option들이 존재하며, 기본적으로 다음과 같은 것들을 지원한다.&lt;/p&gt;
+
+&lt;p&gt;하나씩 뜯어 보자면&lt;/p&gt;
+
+&lt;p&gt;​	dnsPrefetchControl : 브라우저에서 사용자가 링크를 클릭 or 리소스 로드 전 요청하기 전 사전에 DNS 요청을 시작할 수 있다. 이는 클릭 했을 때 성능을 향상시키나, 방문하지 않은 것을 방문하는 것 처럼 여길 수 있다.&lt;/p&gt;
+
+&lt;p&gt;​	frameguard : 원하지 않는 것을 클릭하는 것을 막는다.&lt;/p&gt;
+
+&lt;p&gt;​	hidePoweredBy : X-Powered-by를 통해 서버에 어떤 기술이 적용 되는지 나타낼 수 있으며, 이를 숨겨준다. 덤으로 원할 경우 다른 것에 의해 구동 되는 것 처럼 보이게 할 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;​	hsts : Https 고정&lt;/p&gt;
+
+&lt;p&gt;​	ieNoOpen : 악성 HTML 다운로드가 Site Context에서 실행되는 것을 방지 할 수 있다.
+​	The &lt;code class=&quot;highlighter-rouge&quot;&gt;X-Download-Options&lt;/code&gt; header can be set to &lt;code class=&quot;highlighter-rouge&quot;&gt;noopen&lt;/code&gt;. This will prevent old versions of Internet Explorer from allowing malicious HTML downloads to be executed in the context of your site.&lt;/p&gt;
+
+&lt;p&gt;​	noSniff : 확장자 변환 공격을 방지 ( .jpg라는 파일을 열라고 수행하지만 해당 내용이 실제 html이라거나..)&lt;/p&gt;
+
+&lt;p&gt;​	xssFilter : Xss 공격 방지&lt;/p&gt;
+
+&lt;p&gt;How it works 탭에 각각에 대한 설명이 더욱 더 자세하게 나와 있으니 참고 하였으면 한다.
+(한가할 때 한 가지당 한 글로 정리해서 포스팅 해 보아야 겠다..)&lt;/p&gt;
+
+&lt;p&gt;출처 : https://www.npmjs.com/package/helmet&lt;/p&gt;</content><author><name>SG Lee</name></author><category term="[&quot;backend&quot;, &quot;nodejs&quot;]" /></entry><entry><title type="html">React + ESLint + VSCode</title><link href="http://localhost:4000/dev/react/eslint/vscode/2019/05/09/eslint-setup/" rel="alternate" type="text/html" title="React + ESLint + VSCode" /><published>2019-05-09T00:00:00+09:00</published><updated>2019-05-09T00:00:00+09:00</updated><id>http://localhost:4000/dev/react/eslint/vscode/2019/05/09/eslint-setup</id><content type="html" xml:base="http://localhost:4000/dev/react/eslint/vscode/2019/05/09/eslint-setup/">&lt;h2 id=&quot;vscode-eslint-설치&quot;&gt;VSCode eslint 설치&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;command + shift + p&lt;/li&gt;
@@ -152,20 +225,7 @@ npx install-peerdeps --dev eslint-config-airbnb
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;has_and_belongs_to_many :watching, :class_name=&amp;gt;&quot;Person&quot;, :join_table =&amp;gt; :watch_people_projects
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://tedhealey.blogspot.kr/2011/02/habtm-rails-with-different-table-name.html&quot;&gt;solution credit&lt;/a&gt;&lt;/p&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry><entry><title type="html">AWS RDS를 로컬에 복사하기</title><link href="http://localhost:4000/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/" rel="alternate" type="text/html" title="AWS RDS를 로컬에 복사하기" /><published>2018-05-27T00:00:00+09:00</published><updated>2018-05-27T00:00:00+09:00</updated><id>http://localhost:4000/dev/aws/2018/05/27/copy-aws-rds-pg-to-local</id><content type="html" xml:base="http://localhost:4000/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Change your database RDS instance security group to allow your machine to access it.
-Add your ip to the security group to acces the instance via Postgres.
-Make a copy of the database using pg_dump
-$ pg_dump -h &amp;lt;public dns&amp;gt; -U &amp;lt;my username&amp;gt; -f &amp;lt;name of dump file .sql&amp;gt; &amp;lt;name of my database&amp;gt;
-you will be asked for postgressql password.
-a dump file(.sql) will be created
-Restore that dump file to your local database.
-but you might need to drop the database and create it first
-$ psql -U &amp;lt;postgresql username&amp;gt; -d &amp;lt;database name&amp;gt; -f &amp;lt;dump file that you want to restore&amp;gt;
-the database is restored
-pg_restore -h &amp;lt;host&amp;gt; -U &amp;lt;username&amp;gt; -c -d &amp;lt;database name&amp;gt; &amp;lt;filename to be restored&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://gist.github.com/syafiqfaiz/5273cd41df6f08fdedeb96e12af70e3b&quot;&gt;solution credit&lt;/a&gt;&lt;/p&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;aws&quot;]" /></entry><entry><title type="html">Rails 개발환경 설정 하기</title><link href="http://localhost:4000/dev/rails/2018/05/27/rails-dev-env/" rel="alternate" type="text/html" title="Rails 개발환경 설정 하기" /><published>2018-05-27T00:00:00+09:00</published><updated>2018-05-27T00:00:00+09:00</updated><id>http://localhost:4000/dev/rails/2018/05/27/rails-dev-env</id><content type="html" xml:base="http://localhost:4000/dev/rails/2018/05/27/rails-dev-env/">&lt;h2 id=&quot;bundler-설치&quot;&gt;bundler 설치&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://tedhealey.blogspot.kr/2011/02/habtm-rails-with-different-table-name.html&quot;&gt;solution credit&lt;/a&gt;&lt;/p&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry><entry><title type="html">Rails 개발환경 설정 하기</title><link href="http://localhost:4000/dev/rails/2018/05/27/rails-dev-env/" rel="alternate" type="text/html" title="Rails 개발환경 설정 하기" /><published>2018-05-27T00:00:00+09:00</published><updated>2018-05-27T00:00:00+09:00</updated><id>http://localhost:4000/dev/rails/2018/05/27/rails-dev-env</id><content type="html" xml:base="http://localhost:4000/dev/rails/2018/05/27/rails-dev-env/">&lt;h2 id=&quot;bundler-설치&quot;&gt;bundler 설치&lt;/h2&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;gem: --no-rdoc --no-ri&quot; &amp;gt;&amp;gt; ~/.gemrc
 
 &amp;gt; gem install bundler
@@ -207,7 +267,20 @@ need configuration options.
     &lt;p&gt;sudo mkdir -p /etc/paths.d &amp;amp;&amp;amp;
 echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry><entry><title type="html">Google Chart 로 그래프 그리기</title><link href="http://localhost:4000/dev/google-chart/2018/05/06/google-chart/" rel="alternate" type="text/html" title="Google Chart 로 그래프 그리기" /><published>2018-05-06T00:00:00+09:00</published><updated>2018-05-06T00:00:00+09:00</updated><id>http://localhost:4000/dev/google-chart/2018/05/06/google-chart</id><content type="html" xml:base="http://localhost:4000/dev/google-chart/2018/05/06/google-chart/">&lt;h2 id=&quot;gem-google_visualr&quot;&gt;Gem ‘google_visualr’&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry><entry><title type="html">AWS RDS를 로컬에 복사하기</title><link href="http://localhost:4000/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/" rel="alternate" type="text/html" title="AWS RDS를 로컬에 복사하기" /><published>2018-05-27T00:00:00+09:00</published><updated>2018-05-27T00:00:00+09:00</updated><id>http://localhost:4000/dev/aws/2018/05/27/copy-aws-rds-pg-to-local</id><content type="html" xml:base="http://localhost:4000/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Change your database RDS instance security group to allow your machine to access it.
+Add your ip to the security group to acces the instance via Postgres.
+Make a copy of the database using pg_dump
+$ pg_dump -h &amp;lt;public dns&amp;gt; -U &amp;lt;my username&amp;gt; -f &amp;lt;name of dump file .sql&amp;gt; &amp;lt;name of my database&amp;gt;
+you will be asked for postgressql password.
+a dump file(.sql) will be created
+Restore that dump file to your local database.
+but you might need to drop the database and create it first
+$ psql -U &amp;lt;postgresql username&amp;gt; -d &amp;lt;database name&amp;gt; -f &amp;lt;dump file that you want to restore&amp;gt;
+the database is restored
+pg_restore -h &amp;lt;host&amp;gt; -U &amp;lt;username&amp;gt; -c -d &amp;lt;database name&amp;gt; &amp;lt;filename to be restored&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/syafiqfaiz/5273cd41df6f08fdedeb96e12af70e3b&quot;&gt;solution credit&lt;/a&gt;&lt;/p&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;aws&quot;]" /></entry><entry><title type="html">Google Chart 로 그래프 그리기</title><link href="http://localhost:4000/dev/google-chart/2018/05/06/google-chart/" rel="alternate" type="text/html" title="Google Chart 로 그래프 그리기" /><published>2018-05-06T00:00:00+09:00</published><updated>2018-05-06T00:00:00+09:00</updated><id>http://localhost:4000/dev/google-chart/2018/05/06/google-chart</id><content type="html" xml:base="http://localhost:4000/dev/google-chart/2018/05/06/google-chart/">&lt;h2 id=&quot;gem-google_visualr&quot;&gt;Gem ‘google_visualr’&lt;/h2&gt;
 
 &lt;p&gt;Google chart를 사용할 수 있는 gem이 여러개 있는데, 그중에 google_visualr를 사용한 이유는 ‘stepped_area_chart’ 같은
 새로운 chart를 지원하고 있는 gem이어서 선택하게 되었다.&lt;/p&gt;
@@ -306,22 +379,4 @@ header.add_to_checklist();      // from b.js
 
 &lt;p&gt;&lt;a href=&quot;https://www.railstutorial.org/book/advanced_login&quot;&gt;https://www.railstutorial.org/book/advanced_login&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://railscasts.com/episodes/274-remember-me-reset-password&quot;&gt;http://railscasts.com/episodes/274-remember-me-reset-password&lt;/a&gt;&lt;/p&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry><entry><title type="html">Rails Error Unknown Format</title><link href="http://localhost:4000/2017/04/04/rails-error-unknown-format/" rel="alternate" type="text/html" title="Rails Error Unknown Format" /><published>2017-04-04T00:00:00+09:00</published><updated>2017-04-04T00:00:00+09:00</updated><id>http://localhost:4000/2017/04/04/rails-error-unknown-format</id><content type="html" xml:base="http://localhost:4000/2017/04/04/rails-error-unknown-format/">&lt;p&gt;ActionController::UnknownFormat&lt;/p&gt;
-
-&lt;p&gt;(before)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;resources :items do
-    collection do 
-      post :check
-    end
-  end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;(after)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;resources :items do
-    member do 
-      post :check
-    end
-  end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>SG Lee</name></author></entry></feed>
+&lt;p&gt;&lt;a href=&quot;http://railscasts.com/episodes/274-remember-me-reset-password&quot;&gt;http://railscasts.com/episodes/274-remember-me-reset-password&lt;/a&gt;&lt;/p&gt;</content><author><name>SG Lee</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry></feed>
