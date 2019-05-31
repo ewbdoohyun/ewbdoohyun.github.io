@@ -11,7 +11,7 @@
 
   <title>
     
-      helmet을 통한 보안 강화 &middot; Doohyun Kim
+      Why I Select github.io ( 왜 나는 github로 기술 블로그를 정착하였는가.) &middot; Doohyun Kim
     
   </title>
   <!-- meta -->
@@ -20,7 +20,7 @@
   <meta name="naver-site-verification" content="589ef55a64f45cb4651dbf19ef610ca67fa3bdab"/>
 
   <!-- meta for facebook -->
-  <meta property="og:url" content="http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security/"/>
+  <meta property="og:url" content="http://ewbdoohyun.github.io/personal/etc/2019/04/01/select_blog/"/>
   <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/sg-rails-sample-app/main.jpg"/>
   <meta property="og:description" content="Developer Blog">
 
@@ -90,119 +90,66 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post__title">helmet을 통한 보안 강화</h1>
+  <h1 class="post__title">Why I Select github.io ( 왜 나는 github로 기술 블로그를 정착하였는가.)</h1>
   <div class="post__desc">
-    <small class="post-date">May 19, 19</small>
+    <small class="post-date">Apr 01, 19</small>
     
       
-        <small>backend</small>
+        <small>personal</small>
       
     
       
-        <small>nodejs</small>
+        <small>etc</small>
       
     
   </div>
   <div class="post-content">
-    <p>Node를 사용하면서 Helmet을 통해 보안을 손쉽게 강화 할 수 있다.</p>
+    <p>여러 타입을 사용 및 고려한 후기입니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add helmet 
-</code></pre></div></div>
+<p>1) Naver Blog
+  장점 : 네이버</p>
 
-<p>(yarn을 더 좋아한다. (npm 보다는.))</p>
+<p>단점 : 네이버</p>
 
-<p>​</p>
+<p>2) Tistory
+  장점 : 많은 사람들이 쓰고 있고, 초대장이 사라진지 오래. 카카오 산하인 만큼 신경써서   업데이트를 해 주는 느낌</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class App {
-    public app: GraphQLServer;
-    public pubSub: any;
-    constructor(){
-        this.pubSub = new PubSub;
-        this.pubSub.ee.setMaxListeners(99);
-        this.app = new GraphQLServer({
-            schema,
-            context: req =&gt; {
-                const {connection: {context = null} = {} } = req;
-                return {
-                    req: req.request,
-                    pubSub: this.pubSub,
-                    context
-                }
-            }
-        });
-        this.middlewares();
-    }
-    private middlewares = () : void =&gt; {
-        this.app.express.use(cors());
-        this.app.express.use(logger("dev"));
-        this.app.express.use(helmet());
-    };
+<p>3) Wordpress (설치형)</p>
 
-}
-</code></pre></div></div>
+<hr />
+<p>해당 까지는 1차적으로 고려 하였고, 처음 정착했던 곳은 다음과 같다.</p>
 
-<p>다음과 같이 사용하면 되고, default로 제공 되는 것 은 다음과 같다.</p>
+<ol>
+  <li>Wordpress (개인 서버)<br />
+  장점<br />
+ 호스팅 비용이 들지 않음 (개인서버이기 때문)<br />
+ 강력한 커스터마이징 기능<br />
+  단점<br />
+ 개인 서버 (유지보수가 귀찮을 수 있음)<br />
+ 호스팅이나 검색 등록 등 자질구레하게 할 일들이 많음<br /></li>
+</ol>
 
-<p>default option</p>
-
+<p>워드프레스 개인 서버용으로 사용 중 불편한 사항들이 발생했는데.</p>
 <ul>
-  <li><a href="https://helmetjs.github.io/docs/dns-prefetch-control">dnsPrefetchControl</a> controls browser DNS prefetching</li>
-  <li><a href="https://helmetjs.github.io/docs/frameguard/">frameguard</a> to prevent clickjacking</li>
-  <li><a href="https://helmetjs.github.io/docs/hide-powered-by">hidePoweredBy</a> to remove the X-Powered-By header</li>
-  <li><a href="https://helmetjs.github.io/docs/hsts/">hsts</a> for HTTP Strict Transport Security</li>
-  <li><a href="https://helmetjs.github.io/docs/ienoopen">ieNoOpen</a> sets X-Download-Options for IE8+</li>
-  <li><a href="https://helmetjs.github.io/docs/dont-sniff-mimetype">noSniff</a> to keep clients from sniffing the MIME type</li>
-  <li><a href="https://helmetjs.github.io/docs/xss-filter">xssFilter</a> adds some small XSS protections</li>
+  <li>개인 서버를 24시간 유지하여야 하는 점.</li>
+  <li>서버를 사용하지 않을 때 절전 모드로 사용 중이어서 접속 속도가 마음에 들지 않음</li>
+  <li>사용중이던 하드를 재활용 한 서버가 언제 죽을? 지 모르는 불안함</li>
+  <li>무언가 고쳐보려고 할 때 개발자 친화적이지 않다!</li>
 </ul>
 
-<p>외에도 다양한 option들이 존재하며, 기본적으로 다음과 같은 것들을 지원한다.</p>
+<p>이 중 마지막 두개가 제일 큰 점이었는데, 워드프레스를 공부하며 커스터마이징을 하자니 너무 불필요한 리소스가 낭비되는 것 같았고, 배운 지식에 대한 확장성 또한 떨어지는 것 같았다.</p>
 
-<p>하나씩 뜯어 보자면</p>
+<p>그래서 이전했습니다!</p>
 
-<p>​	dnsPrefetchControl : 브라우저에서 사용자가 링크를 클릭 or 리소스 로드 전 요청하기 전 사전에 DNS 요청을 시작할 수 있다. 이는 클릭 했을 때 성능을 향상시키나, 방문하지 않은 것을 방문하는 것 처럼 여길 수 있다.</p>
+<p>Github blog
+  Jekyll 를 이용하고 있으며, 현재 centrarium 테마를 확장 / 변형하여 하고 있습니다.<br />
+  무엇보다 마음이 드는 점은, Github을 유용하게 사용하고 있는데, Github을 통해 관리하는 만큼, 더 손이 많이 가게 되는 점이 있네요. 처음 Tistory나 Wordpress를 사용하였을 때는 사실 손이 잘 가지 않더라고요.</p>
 
-<p>​	frameguard : 원하지 않는 것을 클릭하는 것을 막는다.</p>
-
-<p>​	hidePoweredBy : X-Powered-by를 통해 서버에 어떤 기술이 적용 되는지 나타낼 수 있으며, 이를 숨겨준다. 덤으로 원할 경우 다른 것에 의해 구동 되는 것 처럼 보이게 할 수도 있다.</p>
-
-<p>​	hsts : Https 고정</p>
-
-<p>​	ieNoOpen : 악성 HTML 다운로드가 Site Context에서 실행되는 것을 방지 할 수 있다.
-​	The <code class="highlighter-rouge">X-Download-Options</code> header can be set to <code class="highlighter-rouge">noopen</code>. This will prevent old versions of Internet Explorer from allowing malicious HTML downloads to be executed in the context of your site.</p>
-
-<p>​	noSniff : 확장자 변환 공격을 방지 ( .jpg라는 파일을 열라고 수행하지만 해당 내용이 실제 html이라거나..)</p>
-
-<p>​	xssFilter : Xss 공격 방지</p>
-
-<p>How it works 탭에 각각에 대한 설명이 더욱 더 자세하게 나와 있으니 참고 하였으면 한다.
-(한가할 때 한 가지당 한 글로 정리해서 포스팅 해 보아야 겠다..)</p>
-
-<p>출처 : https://www.npmjs.com/package/helmet</p>
+<p>Markdown에 대한 진입장벽만 이겨내신다면 생산성에도 영향이 크게 없을 듯 싶습니다.</p>
 
   </div>
 </div>
 
-
-  <div id="disqus_thread"></div>
-  <script>
-
-  /**
-  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-  /*
-  var disqus_config = function () {
-  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
-  */
-  (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
-  s.src = 'https://sgwanlee.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
-  })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 <style type="text/css">
@@ -266,18 +213,18 @@ s.setAttribute('data-timestamp', +new Date());
     
       <li>
         <h3>
-          <a href="/server/etc/2019/05/16/ssl/">
-            SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache
-            <small>16 May 2019</small>
+          <a href="/backend/nodejs/2019/05/19/helmet-security/">
+            helmet을 통한 보안 강화
+            <small>19 May 2019</small>
           </a>
         </h3>
       </li>
     
       <li>
         <h3>
-          <a href="/etc/2019/04/21/svn_to_git/">
-            Svn에서 Git으로의 이전기
-            <small>21 Apr 2019</small>
+          <a href="/server/etc/2019/05/16/ssl/">
+            SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache
+            <small>16 May 2019</small>
           </a>
         </h3>
       </li>

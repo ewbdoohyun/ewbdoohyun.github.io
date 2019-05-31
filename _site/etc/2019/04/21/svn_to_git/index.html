@@ -11,7 +11,7 @@
 
   <title>
     
-      helmet을 통한 보안 강화 &middot; Doohyun Kim
+      Svn에서 Git으로의 이전기 &middot; Doohyun Kim
     
   </title>
   <!-- meta -->
@@ -20,7 +20,7 @@
   <meta name="naver-site-verification" content="589ef55a64f45cb4651dbf19ef610ca67fa3bdab"/>
 
   <!-- meta for facebook -->
-  <meta property="og:url" content="http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security/"/>
+  <meta property="og:url" content="http://ewbdoohyun.github.io/etc/2019/04/21/svn_to_git/"/>
   <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/sg-rails-sample-app/main.jpg"/>
   <meta property="og:description" content="Developer Blog">
 
@@ -90,119 +90,73 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post__title">helmet을 통한 보안 강화</h1>
+  <h1 class="post__title">Svn에서 Git으로의 이전기</h1>
   <div class="post__desc">
-    <small class="post-date">May 19, 19</small>
+    <small class="post-date">Apr 21, 19</small>
     
       
-        <small>backend</small>
-      
-    
-      
-        <small>nodejs</small>
+        <small>ETC</small>
       
     
   </div>
   <div class="post-content">
-    <p>Node를 사용하면서 Helmet을 통해 보안을 손쉽게 강화 할 수 있다.</p>
+    <p>Svn에서 Git으로 이전하는 법은 가장 유명한 방법으로는 2가지가 있다.<br />
+git-svn 과 svn2git</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add helmet 
-</code></pre></div></div>
+<p>git-svn의 경우 git에서 제공하고 있고, svn2git은 ruby로 만들어진 서드파티 같은 느낌임.<br /></p>
 
-<p>(yarn을 더 좋아한다. (npm 보다는.))</p>
+<p>https://viastudio.com/migrate-svn-git/</p>
 
-<p>​</p>
+<p>window 환경에서 svn2git을 하기엔 이것저것 해야 할 게 많아서 git-svn으로 시도하기로 함.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class App {
-    public app: GraphQLServer;
-    public pubSub: any;
-    constructor(){
-        this.pubSub = new PubSub;
-        this.pubSub.ee.setMaxListeners(99);
-        this.app = new GraphQLServer({
-            schema,
-            context: req =&gt; {
-                const {connection: {context = null} = {} } = req;
-                return {
-                    req: req.request,
-                    pubSub: this.pubSub,
-                    context
-                }
-            }
-        });
-        this.middlewares();
-    }
-    private middlewares = () : void =&gt; {
-        this.app.express.use(cors());
-        this.app.express.use(logger("dev"));
-        this.app.express.use(helmet());
-    };
+<p>최초 시도 : 
+git svn clone svn://dev.docircle.com/trumpia_web/trunk<br />
+git svn clone -s svn://dev.docircle.com/trumpia_web<br /></p>
 
-}
-</code></pre></div></div>
+<p>-s 옵션은 optional하긴 하지만, 한번 더 실패하기 싫어서 같이 걸어줌.</p>
 
-<p>다음과 같이 사용하면 되고, default로 제공 되는 것 은 다음과 같다.</p>
+<p>merge 로그를 만들 때 전략적으로 해주는 느낌인 것 같은데.. 참고만 하면 좋을듯,.</p>
 
-<p>default option</p>
+<p>https://www.atlassian.com/git/tutorials/using-branches/merge-strategy</p>
 
-<ul>
-  <li><a href="https://helmetjs.github.io/docs/dns-prefetch-control">dnsPrefetchControl</a> controls browser DNS prefetching</li>
-  <li><a href="https://helmetjs.github.io/docs/frameguard/">frameguard</a> to prevent clickjacking</li>
-  <li><a href="https://helmetjs.github.io/docs/hide-powered-by">hidePoweredBy</a> to remove the X-Powered-By header</li>
-  <li><a href="https://helmetjs.github.io/docs/hsts/">hsts</a> for HTTP Strict Transport Security</li>
-  <li><a href="https://helmetjs.github.io/docs/ienoopen">ieNoOpen</a> sets X-Download-Options for IE8+</li>
-  <li><a href="https://helmetjs.github.io/docs/dont-sniff-mimetype">noSniff</a> to keep clients from sniffing the MIME type</li>
-  <li><a href="https://helmetjs.github.io/docs/xss-filter">xssFilter</a> adds some small XSS protections</li>
-</ul>
+<p>진행 도중 도중</p>
 
-<p>외에도 다양한 option들이 존재하며, 기본적으로 다음과 같은 것들을 지원한다.</p>
+<p>Connection reset by peer: Can’t read from connection: Connection reset by peer at C:/Program Files/Git/
+mingw64/share/perl5/Git/SVN/Ra.pm line 312.</p>
 
-<p>하나씩 뜯어 보자면</p>
+<p>이라는 에러가 뜨는걸 볼수 있다.
+stack overflow에서 확인 해 보니
+https://stackoverflow.com/questions/5551200/git-svn-clone-chokes-on-moved-directories
+“Connection reset by peer” means that the SVN server closed the connection at this point. <br />
+왠지는 모르겠지만 svn server에 connection이 
+You can resume by issuing “git svn fetch” in the newly created directory.</p>
 
-<p>​	dnsPrefetchControl : 브라우저에서 사용자가 링크를 클릭 or 리소스 로드 전 요청하기 전 사전에 DNS 요청을 시작할 수 있다. 이는 클릭 했을 때 성능을 향상시키나, 방문하지 않은 것을 방문하는 것 처럼 여길 수 있다.</p>
+<p>git svn fetch –fetch-all 로 진행 한 결과  어느정도 진행이 되다가 다른 에러 발생<br />
+r540 = 8c77dd73e55fc960d5cbdafbc180528c947c5975 (refs/remotes/git-svn)<br />
+rev-parse –git-path svn: command returned error: 127
+이 때 다시 fetch를 하면 다음 것이 진행이 되는데… 계속 끊긴다. 무언가 잘못된 것이 있었을 것이다 하고 찾아보니<br />
+https://stackoverflow.com/questions/50842991/ <br />
+command-returned-error127-while-executing-git-svn-clone-command <br /></p>
 
-<p>​	frameguard : 원하지 않는 것을 클릭하는 것을 막는다.</p>
+<p>git svn gc 를 해 주면 좋다고 한다.</p>
 
-<p>​	hidePoweredBy : X-Powered-by를 통해 서버에 어떤 기술이 적용 되는지 나타낼 수 있으며, 이를 숨겨준다. 덤으로 원할 경우 다른 것에 의해 구동 되는 것 처럼 보이게 할 수도 있다.</p>
+<p>— 이건 명령을 실행하는게 아니라 옵션을 키는거라서, 진행도중 자동으로 gc를 해 줌..<br />
+( gc는 로그를 최적화 하기 위함인데, 최적화 하지 않으면 무언가가 꼬이는 듯 하다. 하지만 그에대한 설명이 없어서…)</p>
 
-<p>​	hsts : Https 고정</p>
+<p>Fail case: gc를 진행하고 fetch를 계속 진행하자 다음과 같은 문제가 나왔다.
+Checksum mismatch: onlineSignup/script/script_signin.js 78a77ebf462792b8fff07b2600d652f8281a6fc6<br />
+expected: 58f86f60f75207646e2b37abee61b0f4<br />
+     got: 2a4c0da51dd4648d4330b9c17cb8dbe9</p>
 
-<p>​	ieNoOpen : 악성 HTML 다운로드가 Site Context에서 실행되는 것을 방지 할 수 있다.
-​	The <code class="highlighter-rouge">X-Download-Options</code> header can be set to <code class="highlighter-rouge">noopen</code>. This will prevent old versions of Internet Explorer from allowing malicious HTML downloads to be executed in the context of your site.</p>
+<p>이리저리 해결해 보려다가 결국 새롭게 시도했음..<br />
+gc를 키라는 말도 있고 rebase를 하라는 사람도 있고 말은 많은데.. 정상적으로 되는게 없었음..<br />
+같은 삽질 하지 말고 한번에 옵션을 잘 거는걸 추천합니다.<br /></p>
 
-<p>​	noSniff : 확장자 변환 공격을 방지 ( .jpg라는 파일을 열라고 수행하지만 해당 내용이 실제 html이라거나..)</p>
-
-<p>​	xssFilter : Xss 공격 방지</p>
-
-<p>How it works 탭에 각각에 대한 설명이 더욱 더 자세하게 나와 있으니 참고 하였으면 한다.
-(한가할 때 한 가지당 한 글로 정리해서 포스팅 해 보아야 겠다..)</p>
-
-<p>출처 : https://www.npmjs.com/package/helmet</p>
+<p>Ps2. 회사 리비전이 67000인가 그런데… 일주일 넘게 걸립니다…사실 그냥 버리고 Git으로 가도 되지만 미련이 남아서 한겁니다.</p>
 
   </div>
 </div>
 
-
-  <div id="disqus_thread"></div>
-  <script>
-
-  /**
-  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-  /*
-  var disqus_config = function () {
-  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
-  */
-  (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
-  s.src = 'https://sgwanlee.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
-  })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 <style type="text/css">
@@ -266,18 +220,18 @@ s.setAttribute('data-timestamp', +new Date());
     
       <li>
         <h3>
-          <a href="/server/etc/2019/05/16/ssl/">
-            SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache
-            <small>16 May 2019</small>
+          <a href="/backend/nodejs/2019/05/19/helmet-security/">
+            helmet을 통한 보안 강화
+            <small>19 May 2019</small>
           </a>
         </h3>
       </li>
     
       <li>
         <h3>
-          <a href="/etc/2019/04/21/svn_to_git/">
-            Svn에서 Git으로의 이전기
-            <small>21 Apr 2019</small>
+          <a href="/server/etc/2019/05/16/ssl/">
+            SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache
+            <small>16 May 2019</small>
           </a>
         </h3>
       </li>

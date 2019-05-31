@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Svn에서 Git으로의 이전기"
+date:   2019-04-20 22:43:59
+author: Danny Kim
+categories: ETC
+tags:	svn git migration
+---
+
+Svn에서 Git으로 이전하는 법은 가장 유명한 방법으로는 2가지가 있다.<br>
+git-svn 과 svn2git
+
+git-svn의 경우 git에서 제공하고 있고, svn2git은 ruby로 만들어진 서드파티 같은 느낌임.<br>
+
+https://viastudio.com/migrate-svn-git/
+
+window 환경에서 svn2git을 하기엔 이것저것 해야 할 게 많아서 git-svn으로 시도하기로 함.
+
+최초 시도 : 
+git svn clone svn://dev.docircle.com/trumpia_web/trunk<br>
+git svn clone -s svn://dev.docircle.com/trumpia_web<br>
+
+-s 옵션은 optional하긴 하지만, 한번 더 실패하기 싫어서 같이 걸어줌.
+
+merge 로그를 만들 때 전략적으로 해주는 느낌인 것 같은데.. 참고만 하면 좋을듯,.
+
+https://www.atlassian.com/git/tutorials/using-branches/merge-strategy
+
+진행 도중 도중
+
+Connection reset by peer: Can't read from connection: Connection reset by peer at C:/Program Files/Git/
+mingw64/share/perl5/Git/SVN/Ra.pm line 312.
+
+이라는 에러가 뜨는걸 볼수 있다.
+stack overflow에서 확인 해 보니
+https://stackoverflow.com/questions/5551200/git-svn-clone-chokes-on-moved-directories
+"Connection reset by peer" means that the SVN server closed the connection at this point. <br>
+왠지는 모르겠지만 svn server에 connection이 
+You can resume by issuing "git svn fetch" in the newly created directory.
+
+git svn fetch --fetch-all 로 진행 한 결과  어느정도 진행이 되다가 다른 에러 발생<br>
+r540 = 8c77dd73e55fc960d5cbdafbc180528c947c5975 (refs/remotes/git-svn)<br>
+rev-parse --git-path svn: command returned error: 127
+이 때 다시 fetch를 하면 다음 것이 진행이 되는데... 계속 끊긴다. 무언가 잘못된 것이 있었을 것이다 하고 찾아보니<br>
+https://stackoverflow.com/questions/50842991/ <br>
+command-returned-error127-while-executing-git-svn-clone-command <br>
+
+git svn gc 를 해 주면 좋다고 한다. 
+
+--- 이건 명령을 실행하는게 아니라 옵션을 키는거라서, 진행도중 자동으로 gc를 해 줌..<br>
+( gc는 로그를 최적화 하기 위함인데, 최적화 하지 않으면 무언가가 꼬이는 듯 하다. 하지만 그에대한 설명이 없어서...)
+
+Fail case: gc를 진행하고 fetch를 계속 진행하자 다음과 같은 문제가 나왔다.
+Checksum mismatch: onlineSignup/script/script_signin.js 78a77ebf462792b8fff07b2600d652f8281a6fc6<br>
+expected: 58f86f60f75207646e2b37abee61b0f4<br>
+     got: 2a4c0da51dd4648d4330b9c17cb8dbe9
+
+이리저리 해결해 보려다가 결국 새롭게 시도했음..<br>
+gc를 키라는 말도 있고 rebase를 하라는 사람도 있고 말은 많은데.. 정상적으로 되는게 없었음..<br>
+같은 삽질 하지 말고 한번에 옵션을 잘 거는걸 추천합니다.<br>
+
+Ps2. 회사 리비전이 67000인가 그런데... 일주일 넘게 걸립니다...사실 그냥 버리고 Git으로 가도 되지만 미련이 남아서 한겁니다.

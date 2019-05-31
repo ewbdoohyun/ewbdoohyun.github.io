@@ -1,4 +1,0 @@
-http://betterspecs.org/ko/
-
-
-

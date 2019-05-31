@@ -1,0 +1,88 @@
+---
+layout: post
+title:  "SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache"
+categories: [server, etc]
+---
+
+사내 시스템이 리셀러를 구성할 수 있게 되어 있다.
+
+이 때 고객에게서 SSL 파일을 받아서 우리측 Server에 세팅하는데 문제는 제각각으로 파일이 온다는 것에 있다.
+
+작성자는 자동화해서 특정 파일 패턴 ( crt, bundle, key ) 에 대해 자동화를 해 놓았는데, 가끔 다른 패턴에 대한 요청이 있어 정리해 놓는 것이다.                                                                                                                                                                                                                                                      
+
+```
+<VirtualHost *:443>
+        ServerName {servername}.com
+        ServerAlias www.{servername}.com
+        # optional
+		Include {configuraeion file}
+        SSLCertificateFile "{certfilename}.crt"
+        SSLCertificateKeyFile "{keyfilename}.key"
+        SSLCertificateChainFile "{bundlefilename}.crt"
+</VirtualHost>
+<Directory "{fileDireactory}">
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+```
+
+
+
+SSLCertificateKeyFile : Private Key
+
+SSLCertificateChainFile : 2.4.8 버전 이후라면 SSLCACertificateFile 를 사용해야 한다. Deprecated 는 Deprecated 되었다고 한다. 업데이트를 할 일이 있다면 다음과 같이 표기하는것이 더 나을 수도 있다.
+
+```
+<IfVersion < 2.4.8>
+  SSLCertificateChainFile "{bundlename}"
+</IfVersion>
+<IfVersion >= 2.4.8>
+  SSLCACertificateFile "{bundlename}"
+</IfVersion>
+```
+
+가끔 crt만 무더기로 오고 bundle이 없는 경우가 있는데... 당황하지 말고 COMODORSADomainValidationSecureServerCA 와 COMODORSAAddTrustCA, AddTrustExternalCARoot 세 파일을 합쳐주자. ( 순서를 맞춰야 한다. )
+
+```
+cat www_example_com.crt COMODORSADomainValidationSecureServerCA.crt  COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt > ssl-bundle.crt
+
+```
+
+이 중  root chain은 broweser에 의해 실려 온다고 하니 사실상 다음과 같이 해도 상관은 없다.
+
+```
+cat domain_com.crt SectigoRSADomainValidationSecureServerCA.crt USERTrustRSAAddTrustCA.crt > tls.crt
+```
+
+
+
+pfx에 대한 변환  ( openssl 필요 )
+
+```
+openssl pkcs12 -in {filename}.pfx -clcerts -nokeys -out {filename}.crt
+
+openssl pkcs12 -in {key}.pfx  -nocerts -out {encrypted_key_name}.crt
+openssl rsa -in {encrypted_key_name}.key -out {decrypted_key_name}.key
+```
+
+
+
+bundle file은 인증서 사이트 별 공통이기 때문에 생략한다.
+
+
+
+openssl pkcs12 -in {filename}.pfx  -nocerts -out {outfilename}.cert
+
+
+
+재시작 해서 https로 접속하면 ( cache 삭제 해야 함, private tap 추천 )
+
+
+
+도움받은 곳.
+
+<https://luckyyowu.tistory.com/364>
+<https://gist.github.com/gangsta/9d011dc0da614db27d5b22ed2044799f>
+

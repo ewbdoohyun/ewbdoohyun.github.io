@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "rsync 사용법 및 core 문제 해결"
+categories: [server, etc]
+---
+
+현재 재직중인 곳에선 배포를 jenkins를 이용하여 rsync 배포를 하고 있다.
+
+여러개의 서버를 동시에 사용하고 있기 때문인데, 문제가 있던 사항이 있어 기록해 둔다.
+
+단순히 개념을 정리해 보자면
+rsync란 : n개의 site의 file & directory의 동기화를 위한 unix util이다.
+
+구동 방식은 tcp (default 873 port ) & ssh 중에 선택하여 사용 가능하며, 방화벽 문제가 있기 때문에 ssh를 사용하는 것이 좀 더 나은 방안이라고 생각이 든다.
+
+대략적인 사용법은
+
+Usage: rsync [OPTION]… SRC [SRC]… DEST<br>
+  or   rsync [OPTION]… SRC [SRC]… [USER@]HOST:DEST<br>
+  or   rsync [OPTION]… SRC [SRC]… [USER@]HOST::DEST<br>
+  or   rsync [OPTION]… SRC [SRC]… rsync://[USER@]HOST[:PORT]/DEST<br>
+  or   rsync [OPTION]… [USER@]HOST:SRC [DEST]<br>
+  or   rsync [OPTION]… [USER@]HOST::SRC [DEST]<br>
+  or   rsync [OPTION]… rsync://[USER@]HOST[:PORT]/SRC [DEST]<br><br>
+와 같이 사용 가능하다.<br>
+일반적으로 -avz옵션을 많이들 사용하는데<br><br>
+-a, –archive               archive mode; equals -rlptgoD (no -H,-A,-X) (   -l : symbolic link, -p : permission, -t timestamp , -g : group, -o owner, -d device, ) 등의 보존을 한다.<br>
+-v, –verbose               increase verbosity ( 설명 증가 )<br>
+-z, –compress              compress file data during the transfer  ( 전송중 압축 사용)<br><br>
+정도로 이해를 하면 좋을 듯 싶다.
+—–
+서비스 중이 사이트에서 이미지 배포가 정상적으로 이루어지지 않고 있었는데, svn상에서 정상적으로 업데이트 된 것은 확인이 되었으나, 배포가 정상적으로 이루어지지 못하고 있었다.<br>
+의외로 문제는 단순했다.<br>
+이미지를 모아놓는 폴더를 새롭게 만들었는데 이름이 images/core/* 의 구조를 가지고 있었는데, rsync 에서는 core라는 단어를 default로 exclude 시켜놓은 것이었다.<br>
+
+https://superuser.com/questions/388249/why-does-rsync-skip-a-sub-folder-named-core<br>
+해결책은 명시적으로  –include “core” 를 해 주게 되면 해결이 가능했다.<br>
+끝<br>

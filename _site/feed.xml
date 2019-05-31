@@ -1,38 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://ewbdoohyun.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://ewbdoohyun.github.io/" rel="alternate" type="text/html" /><updated>2019-05-31T09:10:00+09:00</updated><id>http://ewbdoohyun.github.io/feed.xml</id><title type="html">Doohyun Kim</title><subtitle>Developer Blog</subtitle><author><name>Doohyun Kim</name></author><entry><title type="html"></title><link href="http://ewbdoohyun.github.io/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using/" rel="alternate" type="text/html" title="" /><published>2019-05-31T09:10:00+09:00</published><updated>2019-05-31T09:10:00+09:00</updated><id>http://ewbdoohyun.github.io/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using</id><content type="html" xml:base="http://ewbdoohyun.github.io/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using/">&lt;h2 id=&quot;find_each&quot;&gt;.find_each&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://ewbdoohyun.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://ewbdoohyun.github.io/" rel="alternate" type="text/html" /><updated>2019-05-31T09:18:02+09:00</updated><id>http://ewbdoohyun.github.io/feed.xml</id><title type="html">Doohyun Kim</title><subtitle>Developer Blog</subtitle><author><name>Doohyun Kim</name></author><entry><title type="html">JavaScript Closure의 실 사용으로 보는 의미 ( 클로저 사용법 )</title><link href="http://ewbdoohyun.github.io/frontend/javascript/2019/05/21/javascript-closure/" rel="alternate" type="text/html" title="JavaScript Closure의 실 사용으로 보는 의미 ( 클로저 사용법 )" /><published>2019-05-21T00:00:00+09:00</published><updated>2019-05-21T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/frontend/javascript/2019/05/21/javascript-closure</id><content type="html" xml:base="http://ewbdoohyun.github.io/frontend/javascript/2019/05/21/javascript-closure/">&lt;p&gt;클로저의 설명으로 내부함수가 외부 함수의 맥락에 접근 할 수 있는 것을 가르킨다고 많이들 설명한다.
+하지만 단지 그 설명만으로 개인적으로 처음 클로저를 이해하는데 의아한 점이 많았으며, 좀 더 본인에게 와 닿는 설명을 위해 작성한다. ( 또한 내가 잊지 않기 위해)&lt;/p&gt;
 
-&lt;p&gt;모든 record에 대해서 일괄작업시 자주 사용&lt;/p&gt;
+&lt;p&gt;아, 클로저라는 것이 그럴수도 있겠구나라고 생각은 들지만, 그래서 클로저를 왜 쓰고, 중요하며 어디에 좋은데? 라고 설명하기에는 너무 기능적인 측면에서 설명하지 않았나 싶다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Item.find_each do |i|
-    i.update_weekly_ranks
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Doohyun Kim</name></author></entry><entry><title type="html">Javascript에서 constants 관리하기</title><link href="http://ewbdoohyun.github.io/dev/react/javascript/2019/05/28/manage-constants-in-javascript/" rel="alternate" type="text/html" title="Javascript에서 constants 관리하기" /><published>2019-05-28T00:00:00+09:00</published><updated>2019-05-28T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/dev/react/javascript/2019/05/28/manage-constants-in-javascript</id><content type="html" xml:base="http://ewbdoohyun.github.io/dev/react/javascript/2019/05/28/manage-constants-in-javascript/">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/components/users/constants.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;물론 결과적으로 하는 말이 다르지 않지만,  내부가 외부의 접근이 아니라 조금 다르게 표현을 해 보자.&lt;/p&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userStatesActive&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userStatesInActive&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userStatesLabels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userStatesActive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;active user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userStatesActive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;active user&quot;&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeAdder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ 	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`X value = &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;userStatesActive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;userStatesInActive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;userStatesLabels&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeAdder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeAdder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//클로저에 x와 y의 환경이 저장됨&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;/// add5의 정의는 다음과 같이 되는 것이다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// function(z){&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// y = 100;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// //x 는 숨겨져 나타나지 앖음&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//	return x + y + z;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// }&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 107 (x:5 + y:100 + z:2)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 112 (x:10 + y:100 + z:2)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//함수 실행 시 클로저에 저장된 x, y값에 접근하여 값을 계산&lt;/span&gt;
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/components/users/userStates.jsx&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;위와 같은 상황에서 makeAdder(5) 의 리턴인 add5는 function(z) 를 가지고 있는 것이다. 다만! 이 와중에 외부 함수의 scope가 죽지 않고 살아 있는 것이며, 외부 함수에 접근할 수 있을 뿐이다. 정도면 되지 않을까.&lt;/p&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userStatesLabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./constants'&lt;/span&gt;
+&lt;p&gt;그렇다면 설명이 조금 더 매끄럽게 이어질 수 있을 것 같다.&lt;/p&gt;
 
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;p&gt;실용적으로 클로저는 다음과 같은 이점을 가질 수 있다.&lt;/p&gt;
 
-  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userStatesLabels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/span&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;ol&gt;
+  &lt;li&gt;외부에서 접근이 불가능한 private variable 의 접근 (get method 처럼) 사용할 수 있다.&lt;/li&gt;
+  &lt;li&gt;data를 control 하는 method를 연동시키기 좋다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1 에 대한 것은… java의 encapsulation 개념을 보는 게 더 명확하게 이해 할 수 있고
+2 에 대한 예제는 MDN을 그대로 따 왔다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeSizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fontSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'px'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;dev&quot;, &quot;react&quot;, &quot;javascript&quot;]" /></entry><entry><title type="html">helmet을 통한 보안 강화</title><link href="http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security/" rel="alternate" type="text/html" title="helmet을 통한 보안 강화" /><published>2019-05-19T00:00:00+09:00</published><updated>2019-05-19T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security</id><content type="html" xml:base="http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security/">&lt;p&gt;Node를 사용하면서 Helmet을 통해 보안을 손쉽게 강화 할 수 있다.&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeSizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size14&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeSizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size16&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeSizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'size-12'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'size-14'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'size-16'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;끝&lt;/p&gt;
+
+&lt;p&gt;출처 https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures&lt;/p&gt;</content><author><name>Doohyun Kim</name></author></entry><entry><title type="html">helmet을 통한 보안 강화</title><link href="http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security/" rel="alternate" type="text/html" title="helmet을 통한 보안 강화" /><published>2019-05-19T00:00:00+09:00</published><updated>2019-05-19T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security</id><content type="html" xml:base="http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security/">&lt;p&gt;Node를 사용하면서 Helmet을 통해 보안을 손쉽게 강화 할 수 있다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add helmet 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -105,278 +135,299 @@ end
 &lt;p&gt;How it works 탭에 각각에 대한 설명이 더욱 더 자세하게 나와 있으니 참고 하였으면 한다.
 (한가할 때 한 가지당 한 글로 정리해서 포스팅 해 보아야 겠다..)&lt;/p&gt;
 
-&lt;p&gt;출처 : https://www.npmjs.com/package/helmet&lt;/p&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;backend&quot;, &quot;nodejs&quot;]" /></entry><entry><title type="html">React + ESLint + VSCode</title><link href="http://ewbdoohyun.github.io/dev/react/eslint/vscode/2019/05/09/eslint-setup/" rel="alternate" type="text/html" title="React + ESLint + VSCode" /><published>2019-05-09T00:00:00+09:00</published><updated>2019-05-09T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/dev/react/eslint/vscode/2019/05/09/eslint-setup</id><content type="html" xml:base="http://ewbdoohyun.github.io/dev/react/eslint/vscode/2019/05/09/eslint-setup/">&lt;h2 id=&quot;vscode-eslint-설치&quot;&gt;VSCode eslint 설치&lt;/h2&gt;
+&lt;p&gt;출처 : https://www.npmjs.com/package/helmet&lt;/p&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;backend&quot;, &quot;nodejs&quot;]" /></entry><entry><title type="html">SSL Cert 인증서 reformatting ( crt , bundle , pfx ) for apache</title><link href="http://ewbdoohyun.github.io/server/etc/2019/05/16/ssl/" rel="alternate" type="text/html" title="SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache" /><published>2019-05-16T00:00:00+09:00</published><updated>2019-05-16T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/server/etc/2019/05/16/%20ssl</id><content type="html" xml:base="http://ewbdoohyun.github.io/server/etc/2019/05/16/ssl/">&lt;p&gt;사내 시스템이 리셀러를 구성할 수 있게 되어 있다.&lt;/p&gt;
+
+&lt;p&gt;이 때 고객에게서 SSL 파일을 받아서 우리측 Server에 세팅하는데 문제는 제각각으로 파일이 온다는 것에 있다.&lt;/p&gt;
+
+&lt;p&gt;작성자는 자동화해서 특정 파일 패턴 ( crt, bundle, key ) 에 대해 자동화를 해 놓았는데, 가끔 다른 패턴에 대한 요청이 있어 정리해 놓는 것이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;VirtualHost *:443&amp;gt;
+        ServerName {servername}.com
+        ServerAlias www.{servername}.com
+        # optional
+		Include {configuraeion file}
+        SSLCertificateFile &quot;{certfilename}.crt&quot;
+        SSLCertificateKeyFile &quot;{keyfilename}.key&quot;
+        SSLCertificateChainFile &quot;{bundlefilename}.crt&quot;
+&amp;lt;/VirtualHost&amp;gt;
+&amp;lt;Directory &quot;{fileDireactory}&quot;&amp;gt;
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+&amp;lt;/Directory&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;SSLCertificateKeyFile : Private Key&lt;/p&gt;
+
+&lt;p&gt;SSLCertificateChainFile : 2.4.8 버전 이후라면 SSLCACertificateFile 를 사용해야 한다. Deprecated 는 Deprecated 되었다고 한다. 업데이트를 할 일이 있다면 다음과 같이 표기하는것이 더 나을 수도 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;IfVersion &amp;lt; 2.4.8&amp;gt;
+  SSLCertificateChainFile &quot;{bundlename}&quot;
+&amp;lt;/IfVersion&amp;gt;
+&amp;lt;IfVersion &amp;gt;= 2.4.8&amp;gt;
+  SSLCACertificateFile &quot;{bundlename}&quot;
+&amp;lt;/IfVersion&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;가끔 crt만 무더기로 오고 bundle이 없는 경우가 있는데… 당황하지 말고 COMODORSADomainValidationSecureServerCA 와 COMODORSAAddTrustCA, AddTrustExternalCARoot 세 파일을 합쳐주자. ( 순서를 맞춰야 한다. )&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat www_example_com.crt COMODORSADomainValidationSecureServerCA.crt  COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt &amp;gt; ssl-bundle.crt
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 중  root chain은 broweser에 의해 실려 온다고 하니 사실상 다음과 같이 해도 상관은 없다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat domain_com.crt SectigoRSADomainValidationSecureServerCA.crt USERTrustRSAAddTrustCA.crt &amp;gt; tls.crt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;pfx에 대한 변환  ( openssl 필요 )&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;openssl pkcs12 -in {filename}.pfx -clcerts -nokeys -out {filename}.crt
+
+openssl pkcs12 -in {key}.pfx  -nocerts -out {encrypted_key_name}.crt
+openssl rsa -in {encrypted_key_name}.key -out {decrypted_key_name}.key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;bundle file은 인증서 사이트 별 공통이기 때문에 생략한다.&lt;/p&gt;
+
+&lt;p&gt;openssl pkcs12 -in {filename}.pfx  -nocerts -out {outfilename}.cert&lt;/p&gt;
+
+&lt;p&gt;재시작 해서 https로 접속하면 ( cache 삭제 해야 함, private tap 추천 )&lt;/p&gt;
+
+&lt;p&gt;도움받은 곳.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://luckyyowu.tistory.com/364&quot;&gt;https://luckyyowu.tistory.com/364&lt;/a&gt;
+&lt;a href=&quot;https://gist.github.com/gangsta/9d011dc0da614db27d5b22ed2044799f&quot;&gt;https://gist.github.com/gangsta/9d011dc0da614db27d5b22ed2044799f&lt;/a&gt;&lt;/p&gt;</content><author><name>Doohyun Kim</name></author></entry><entry><title type="html">Svn에서 Git으로의 이전기</title><link href="http://ewbdoohyun.github.io/etc/2019/04/21/svn_to_git/" rel="alternate" type="text/html" title="Svn에서 Git으로의 이전기" /><published>2019-04-21T07:43:59+09:00</published><updated>2019-04-21T07:43:59+09:00</updated><id>http://ewbdoohyun.github.io/etc/2019/04/21/svn_to_git</id><content type="html" xml:base="http://ewbdoohyun.github.io/etc/2019/04/21/svn_to_git/">&lt;p&gt;Svn에서 Git으로 이전하는 법은 가장 유명한 방법으로는 2가지가 있다.&lt;br /&gt;
+git-svn 과 svn2git&lt;/p&gt;
+
+&lt;p&gt;git-svn의 경우 git에서 제공하고 있고, svn2git은 ruby로 만들어진 서드파티 같은 느낌임.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;https://viastudio.com/migrate-svn-git/&lt;/p&gt;
+
+&lt;p&gt;window 환경에서 svn2git을 하기엔 이것저것 해야 할 게 많아서 git-svn으로 시도하기로 함.&lt;/p&gt;
+
+&lt;p&gt;최초 시도 : 
+git svn clone svn://dev.docircle.com/trumpia_web/trunk&lt;br /&gt;
+git svn clone -s svn://dev.docircle.com/trumpia_web&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;-s 옵션은 optional하긴 하지만, 한번 더 실패하기 싫어서 같이 걸어줌.&lt;/p&gt;
+
+&lt;p&gt;merge 로그를 만들 때 전략적으로 해주는 느낌인 것 같은데.. 참고만 하면 좋을듯,.&lt;/p&gt;
+
+&lt;p&gt;https://www.atlassian.com/git/tutorials/using-branches/merge-strategy&lt;/p&gt;
+
+&lt;p&gt;진행 도중 도중&lt;/p&gt;
+
+&lt;p&gt;Connection reset by peer: Can’t read from connection: Connection reset by peer at C:/Program Files/Git/
+mingw64/share/perl5/Git/SVN/Ra.pm line 312.&lt;/p&gt;
+
+&lt;p&gt;이라는 에러가 뜨는걸 볼수 있다.
+stack overflow에서 확인 해 보니
+https://stackoverflow.com/questions/5551200/git-svn-clone-chokes-on-moved-directories
+“Connection reset by peer” means that the SVN server closed the connection at this point. &lt;br /&gt;
+왠지는 모르겠지만 svn server에 connection이 
+You can resume by issuing “git svn fetch” in the newly created directory.&lt;/p&gt;
+
+&lt;p&gt;git svn fetch –fetch-all 로 진행 한 결과  어느정도 진행이 되다가 다른 에러 발생&lt;br /&gt;
+r540 = 8c77dd73e55fc960d5cbdafbc180528c947c5975 (refs/remotes/git-svn)&lt;br /&gt;
+rev-parse –git-path svn: command returned error: 127
+이 때 다시 fetch를 하면 다음 것이 진행이 되는데… 계속 끊긴다. 무언가 잘못된 것이 있었을 것이다 하고 찾아보니&lt;br /&gt;
+https://stackoverflow.com/questions/50842991/ &lt;br /&gt;
+command-returned-error127-while-executing-git-svn-clone-command &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;git svn gc 를 해 주면 좋다고 한다.&lt;/p&gt;
+
+&lt;p&gt;— 이건 명령을 실행하는게 아니라 옵션을 키는거라서, 진행도중 자동으로 gc를 해 줌..&lt;br /&gt;
+( gc는 로그를 최적화 하기 위함인데, 최적화 하지 않으면 무언가가 꼬이는 듯 하다. 하지만 그에대한 설명이 없어서…)&lt;/p&gt;
+
+&lt;p&gt;Fail case: gc를 진행하고 fetch를 계속 진행하자 다음과 같은 문제가 나왔다.
+Checksum mismatch: onlineSignup/script/script_signin.js 78a77ebf462792b8fff07b2600d652f8281a6fc6&lt;br /&gt;
+expected: 58f86f60f75207646e2b37abee61b0f4&lt;br /&gt;
+     got: 2a4c0da51dd4648d4330b9c17cb8dbe9&lt;/p&gt;
+
+&lt;p&gt;이리저리 해결해 보려다가 결국 새롭게 시도했음..&lt;br /&gt;
+gc를 키라는 말도 있고 rebase를 하라는 사람도 있고 말은 많은데.. 정상적으로 되는게 없었음..&lt;br /&gt;
+같은 삽질 하지 말고 한번에 옵션을 잘 거는걸 추천합니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ps2. 회사 리비전이 67000인가 그런데… 일주일 넘게 걸립니다…사실 그냥 버리고 Git으로 가도 되지만 미련이 남아서 한겁니다.&lt;/p&gt;</content><author><name>Danny Kim</name></author><category term="svn" /><category term="git" /><category term="migration" /></entry><entry><title type="html">React Fragment와 div</title><link href="http://ewbdoohyun.github.io/frontend/react/2019/04/21/react_fragment/" rel="alternate" type="text/html" title="React Fragment와 div" /><published>2019-04-21T00:00:00+09:00</published><updated>2019-04-21T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/frontend/react/2019/04/21/react_fragment</id><content type="html" xml:base="http://ewbdoohyun.github.io/frontend/react/2019/04/21/react_fragment/">&lt;p&gt;React Fragment와 div&lt;/p&gt;
+
+&lt;p&gt;Code들을 보게 되면 가끔 다음과 같은 것들을 볼 수 있을 것입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-react highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppContainer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Fragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ChildA&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ChildB&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Fragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 이유는 하나만 리턴이 가능한 특성에서, 여러 값을 불필요한 div로 묶지 않고 해결 하기 위해 나온 방법입니다.&lt;/p&gt;
+
+&lt;p&gt;Fragment없이 구현을 하려면 다음과 같이 구현해야 하는데.&lt;/p&gt;
+
+&lt;div class=&quot;language-react highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Columns&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;World&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 이유는 하나만 리턴이 되려면 무언가로 묶어야 하는데, 이 경우 Column을 각각 사용하거나, 혹은 위와 같이 하나의 div로 묶어야만 합니다.&lt;/p&gt;
+
+&lt;p&gt;발생할 수 있는 문제는&lt;/p&gt;
+
+&lt;div class=&quot;language-react highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Table&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Columns&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;가 render 된다면 tr 아래 td가 아닌 div가 들어가기 때문입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-react highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;World&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;command + shift + p&lt;/li&gt;
-  &lt;li&gt;Install Extensions&lt;/li&gt;
-  &lt;li&gt;Search ‘ESLint’&lt;/li&gt;
-  &lt;li&gt;Click Install&lt;/li&gt;
+  &lt;li&gt;다음과 같이 output이 뽑혀져 나오면 당황스럽겟죠.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;저장시-eslint-자동-고침-설정&quot;&gt;저장시 eslint 자동 고침 설정&lt;/h2&gt;
+&lt;p&gt;PS. 그리고 지금은 다음과 같은 것들도 지원을 한다고 합니다!&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;command + ,&lt;/li&gt;
-  &lt;li&gt;Search ‘ESLint’&lt;/li&gt;
-  &lt;li&gt;Turn on auto fix on save&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;eslint-config-airbnb-적용&quot;&gt;eslint-config-airbnb 적용&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Package 확인
-npm info &quot;eslint-config-airbnb@latest&quot; peerDependencies
-// with CRA v2.0
-npm install eslint-config-airbnb --save
-// without CRA
-npx install-peerdeps --dev eslint-config-airbnb
+&lt;div class=&quot;language-react highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Columns&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;World&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;출처&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//reactjs.org/docs/fragments.html#short-syntax&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;eslint-config-prettier-적용&quot;&gt;eslint-config-prettier 적용&lt;/h2&gt;
+&lt;p&gt;출처 : &lt;a href=&quot;https://reactjs.org/docs/fragments.html&quot;&gt;https://reactjs.org/docs/fragments.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Doohyun Kim</name></author></entry><entry><title type="html">Why I Select github.io ( 왜 나는 github로 기술 블로그를 정착하였는가.)</title><link href="http://ewbdoohyun.github.io/personal/etc/2019/04/01/select_blog/" rel="alternate" type="text/html" title="Why I Select github.io ( 왜 나는 github로 기술 블로그를 정착하였는가.)" /><published>2019-04-01T00:00:00+09:00</published><updated>2019-04-01T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/personal/etc/2019/04/01/select_blog</id><content type="html" xml:base="http://ewbdoohyun.github.io/personal/etc/2019/04/01/select_blog/">&lt;p&gt;여러 타입을 사용 및 고려한 후기입니다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install eslint-config-prettier --save
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;1) Naver Blog
+  장점 : 네이버&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.eslintrc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;단점 : 네이버&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  extends: [
-    prettier
-  ]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;2) Tistory
+  장점 : 많은 사람들이 쓰고 있고, 초대장이 사라진지 오래. 카카오 산하인 만큼 신경써서   업데이트를 해 주는 느낌&lt;/p&gt;
 
-&lt;h2 id=&quot;eslint-config&quot;&gt;eslint config&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.eslintrc&lt;/code&gt; 파일 생성&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-    jest: true
-  },
-  extends: [
-    &quot;eslint:recommended&quot;,
-    &quot;plugin:react/recommended&quot;,
-    &quot;airbnb&quot;,
-    &quot;prettier&quot;,
-    &quot;prettier/babel&quot;,
-    &quot;prettier/react&quot;,
-    &quot;prettier/standard&quot;,
-    &quot;prettier/unicorn&quot;,
-    &quot;prettier/vue&quot;
-  ],
-  globals: {
-    Atomics: &quot;readonly&quot;,
-    SharedArrayBuffer: &quot;readonly&quot;
-  },
-  parser: &quot;babel-eslint&quot;,
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 2018,
-    sourceType: &quot;module&quot;
-  },
-  plugins: [&quot;react&quot;],
-  rules: {
-    &quot;react/prefer-stateless-function&quot;: 0,
-    &quot;import/no-named-as-default&quot;: 0,
-    &quot;react/jsx-filename-extension&quot;: 0,
-    &quot;import/no-extraneous-dependencies&quot;: [2, { devDependencies: true }]
-  }
-};
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;특정-lint-rule-제거하기&quot;&gt;특정 lint rule 제거하기&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.eslintrc&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; rules: {
-    &quot;react/prefer-stateless-function&quot;: 0,
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;dev-save-module-이-project-외부에-있다고-나올-때&quot;&gt;dev save module 이 project 외부에 있다고 나올 때&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  rules: {
-    &quot;import/no-extraneous-dependencies&quot;: [2, { devDependencies: true }]
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;jest-사용시-it-이-undefined-로-나올-때&quot;&gt;Jest 사용시, ‘it’ 이 undefined 로 나올 때&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  env: {
-    jest: true
-  },
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;document-undefined&quot;&gt;document undefined&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  env: {
-    browser: true
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;3) Wordpress (설치형)&lt;/p&gt;
 
 &lt;hr /&gt;
-
-&lt;p&gt;credit : &lt;a href=&quot;https://velog.io/@velopert/eslint-and-prettier-in-react&quot;&gt;Velopert-리액트 프로젝트에 ESLint 와 Prettier 끼얹기&lt;/a&gt;&lt;/p&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;dev&quot;, &quot;react&quot;, &quot;eslint&quot;, &quot;vscode&quot;]" /></entry><entry><title type="html">Rails HABTM convention과 다른 table을 이용하기</title><link href="http://ewbdoohyun.github.io/dev/rails/2018/05/28/rails-habtm-different-table-name/" rel="alternate" type="text/html" title="Rails HABTM convention과 다른 table을 이용하기" /><published>2018-05-28T00:00:00+09:00</published><updated>2018-05-28T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/dev/rails/2018/05/28/rails-habtm-different-table-name</id><content type="html" xml:base="http://ewbdoohyun.github.io/dev/rails/2018/05/28/rails-habtm-different-table-name/">&lt;h1 id=&quot;0&quot;&gt;0&lt;/h1&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;has_and_belongs_to_many :watching, :class_name=&amp;gt;&quot;Person&quot;, :join_table =&amp;gt; :watch_people_projects
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://tedhealey.blogspot.kr/2011/02/habtm-rails-with-different-table-name.html&quot;&gt;solution credit&lt;/a&gt;&lt;/p&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry><entry><title type="html">Rails 개발환경 설정 하기</title><link href="http://ewbdoohyun.github.io/dev/rails/2018/05/27/rails-dev-env/" rel="alternate" type="text/html" title="Rails 개발환경 설정 하기" /><published>2018-05-27T00:00:00+09:00</published><updated>2018-05-27T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/dev/rails/2018/05/27/rails-dev-env</id><content type="html" xml:base="http://ewbdoohyun.github.io/dev/rails/2018/05/27/rails-dev-env/">&lt;h2 id=&quot;bundler-설치&quot;&gt;bundler 설치&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;gem: --no-rdoc --no-ri&quot; &amp;gt;&amp;gt; ~/.gemrc
-
-&amp;gt; gem install bundler
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;gem-설치&quot;&gt;gem 설치&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; bundle install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;gem-설치---pg-관련-에러&quot;&gt;gem 설치 - PG 관련 에러&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Installing pg 0.17.1 with native extensions
-Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
-
-/Users/sgwanlee/.rbenv/versions/2.2.5/bin/ruby -r ./siteconf20180527-43505-1g6vboj.rb. extconf.rb
-checking for pg_config... no
-No pg_config... trying anyway. If building fails, please try again with
- --with-pg-config=/path/to/pg_config
-checking for libpq-fe.h... no
-Can't find the 'libpq-fe.h header
-*** extconf.rb failed ***
-Could not create Makefile due to some reason, probably lack of necessary
-libraries and/or headers.  Check the mkmf.log file for more details.  You may
-need configuration options.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/19625487/impossible-to-install-pg-gem-on-my-mac-with-mavericks&quot;&gt;solution&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;해당 까지는 1차적으로 고려 하였고, 처음 정착했던 곳은 다음과 같다.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://postgresapp.com/&quot;&gt;postgresql.app&lt;/a&gt; 사용하고&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;아래와 같이 pg gem 설치&lt;/p&gt;
-
-    &lt;p&gt;gem install pg -v 0.17.1 – –with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;postgresql cli command&lt;/p&gt;
-
-    &lt;p&gt;sudo mkdir -p /etc/paths.d &amp;amp;&amp;amp;
-echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry><entry><title type="html">AWS RDS를 로컬에 복사하기</title><link href="http://ewbdoohyun.github.io/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/" rel="alternate" type="text/html" title="AWS RDS를 로컬에 복사하기" /><published>2018-05-27T00:00:00+09:00</published><updated>2018-05-27T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/dev/aws/2018/05/27/copy-aws-rds-pg-to-local</id><content type="html" xml:base="http://ewbdoohyun.github.io/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Change your database RDS instance security group to allow your machine to access it.
-Add your ip to the security group to acces the instance via Postgres.
-Make a copy of the database using pg_dump
-$ pg_dump -h &amp;lt;public dns&amp;gt; -U &amp;lt;my username&amp;gt; -f &amp;lt;name of dump file .sql&amp;gt; &amp;lt;name of my database&amp;gt;
-you will be asked for postgressql password.
-a dump file(.sql) will be created
-Restore that dump file to your local database.
-but you might need to drop the database and create it first
-$ psql -U &amp;lt;postgresql username&amp;gt; -d &amp;lt;database name&amp;gt; -f &amp;lt;dump file that you want to restore&amp;gt;
-the database is restored
-pg_restore -h &amp;lt;host&amp;gt; -U &amp;lt;username&amp;gt; -c -d &amp;lt;database name&amp;gt; &amp;lt;filename to be restored&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://gist.github.com/syafiqfaiz/5273cd41df6f08fdedeb96e12af70e3b&quot;&gt;solution credit&lt;/a&gt;&lt;/p&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;dev&quot;, &quot;aws&quot;]" /></entry><entry><title type="html">Google Chart 로 그래프 그리기</title><link href="http://ewbdoohyun.github.io/dev/google-chart/2018/05/06/google-chart/" rel="alternate" type="text/html" title="Google Chart 로 그래프 그리기" /><published>2018-05-06T00:00:00+09:00</published><updated>2018-05-06T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/dev/google-chart/2018/05/06/google-chart</id><content type="html" xml:base="http://ewbdoohyun.github.io/dev/google-chart/2018/05/06/google-chart/">&lt;h2 id=&quot;gem-google_visualr&quot;&gt;Gem ‘google_visualr’&lt;/h2&gt;
-
-&lt;p&gt;Google chart를 사용할 수 있는 gem이 여러개 있는데, 그중에 google_visualr를 사용한 이유는 ‘stepped_area_chart’ 같은
-새로운 chart를 지원하고 있는 gem이어서 선택하게 되었다.&lt;/p&gt;
-
-&lt;p&gt;사용법은 간단한데,&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;datatable에 data를 넣고&lt;/li&gt;
-  &lt;li&gt;option을 설정하고&lt;/li&gt;
-  &lt;li&gt;원하는 차트 class의 object를 만들 때, data_table과 option을 넘겨주고&lt;/li&gt;
-  &lt;li&gt;view에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;render_chart&lt;/code&gt;를&lt;/li&gt;
+  &lt;li&gt;Wordpress (개인 서버)&lt;br /&gt;
+  장점&lt;br /&gt;
+ 호스팅 비용이 들지 않음 (개인서버이기 때문)&lt;br /&gt;
+ 강력한 커스터마이징 기능&lt;br /&gt;
+  단점&lt;br /&gt;
+ 개인 서버 (유지보수가 귀찮을 수 있음)&lt;br /&gt;
+ 호스팅이나 검색 등록 등 자질구레하게 할 일들이 많음&lt;br /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;controller&gt;
+&lt;p&gt;워드프레스 개인 서버용으로 사용 중 불편한 사항들이 발생했는데.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;개인 서버를 24시간 유지하여야 하는 점.&lt;/li&gt;
+  &lt;li&gt;서버를 사용하지 않을 때 절전 모드로 사용 중이어서 접속 속도가 마음에 들지 않음&lt;/li&gt;
+  &lt;li&gt;사용중이던 하드를 재활용 한 서버가 언제 죽을? 지 모르는 불안함&lt;/li&gt;
+  &lt;li&gt;무언가 고쳐보려고 할 때 개발자 친화적이지 않다!&lt;/li&gt;
+&lt;/ul&gt;
 
-    data_table = GoogleVisualr::DataTable.new
-    data_table.new_column('string', 'date')
-    data_table.new_column('number', 'rank')
+&lt;p&gt;이 중 마지막 두개가 제일 큰 점이었는데, 워드프레스를 공부하며 커스터마이징을 하자니 너무 불필요한 리소스가 낭비되는 것 같았고, 배운 지식에 대한 확장성 또한 떨어지는 것 같았다.&lt;/p&gt;
 
-    data_table.add_rows(rows)
+&lt;p&gt;그래서 이전했습니다!&lt;/p&gt;
 
-    option = {...}
+&lt;p&gt;Github blog
+  Jekyll 를 이용하고 있으며, 현재 centrarium 테마를 확장 / 변형하여 하고 있습니다.&lt;br /&gt;
+  무엇보다 마음이 드는 점은, Github을 유용하게 사용하고 있는데, Github을 통해 관리하는 만큼, 더 손이 많이 가게 되는 점이 있네요. 처음 Tistory나 Wordpress를 사용하였을 때는 사실 손이 잘 가지 않더라고요.&lt;/p&gt;
 
-    @chart = GoogleVisualr::Interactive::SteppedAreaChart.new(data_table, option)
+&lt;p&gt;Markdown에 대한 진입장벽만 이겨내신다면 생산성에도 영향이 크게 없을 듯 싶습니다.&lt;/p&gt;</content><author><name>Doohyun Kim</name></author></entry><entry><title type="html">rsync 사용법 및 core 문제 해결</title><link href="http://ewbdoohyun.github.io/server/etc/2019/01/03/rsync_use/" rel="alternate" type="text/html" title="rsync 사용법 및 core 문제 해결" /><published>2019-01-03T00:00:00+09:00</published><updated>2019-01-03T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/server/etc/2019/01/03/rsync_use</id><content type="html" xml:base="http://ewbdoohyun.github.io/server/etc/2019/01/03/rsync_use/">&lt;p&gt;현재 재직중인 곳에선 배포를 jenkins를 이용하여 rsync 배포를 하고 있다.&lt;/p&gt;
 
-    respond_to do |format|
-      format.js
-    end
+&lt;p&gt;여러개의 서버를 동시에 사용하고 있기 때문인데, 문제가 있던 사항이 있어 기록해 둔다.&lt;/p&gt;
 
+&lt;p&gt;단순히 개념을 정리해 보자면
+rsync란 : n개의 site의 file &amp;amp; directory의 동기화를 위한 unix util이다.&lt;/p&gt;
 
-&lt;view&gt;
-	
-	$('.item-ranks__chart').append('&amp;lt;%= j render_chart(@chart, &quot;item-ranks__chart&quot;) %&amp;gt;');
+&lt;p&gt;구동 방식은 tcp (default 873 port ) &amp;amp; ssh 중에 선택하여 사용 가능하며, 방화벽 문제가 있기 때문에 ssh를 사용하는 것이 좀 더 나은 방안이라고 생각이 든다.&lt;/p&gt;
 
+&lt;p&gt;대략적인 사용법은&lt;/p&gt;
 
----
-&lt;/view&gt;&lt;/controller&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;dev&quot;, &quot;google-chart&quot;]" /></entry><entry><title type="html">Javascript - Namespace 사용하기</title><link href="http://ewbdoohyun.github.io/dev/javascript/2017/04/14/javascript-namespace/" rel="alternate" type="text/html" title="Javascript - Namespace 사용하기" /><published>2017-04-14T00:00:00+09:00</published><updated>2017-04-14T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/dev/javascript/2017/04/14/javascript-namespace</id><content type="html" xml:base="http://ewbdoohyun.github.io/dev/javascript/2017/04/14/javascript-namespace/">&lt;h2 id=&quot;anti-pattern--glbal-variable&quot;&gt;Anti-Pattern : glbal variable&lt;/h2&gt;
+&lt;p&gt;Usage: rsync [OPTION]… SRC [SRC]… DEST&lt;br /&gt;
+  or   rsync [OPTION]… SRC [SRC]… [USER@]HOST:DEST&lt;br /&gt;
+  or   rsync [OPTION]… SRC [SRC]… [USER@]HOST::DEST&lt;br /&gt;
+  or   rsync [OPTION]… SRC [SRC]… rsync://[USER@]HOST[:PORT]/DEST&lt;br /&gt;
+  or   rsync [OPTION]… [USER@]HOST:SRC [DEST]&lt;br /&gt;
+  or   rsync [OPTION]… [USER@]HOST::SRC [DEST]&lt;br /&gt;
+  or   rsync [OPTION]… rsync://[USER@]HOST[:PORT]/SRC [DEST]&lt;br /&gt;&lt;br /&gt;
+와 같이 사용 가능하다.&lt;br /&gt;
+일반적으로 -avz옵션을 많이들 사용하는데&lt;br /&gt;&lt;br /&gt;
+-a, –archive               archive mode; equals -rlptgoD (no -H,-A,-X) (   -l : symbolic link, -p : permission, -t timestamp , -g : group, -o owner, -d device, ) 등의 보존을 한다.&lt;br /&gt;
+-v, –verbose               increase verbosity ( 설명 증가 )&lt;br /&gt;
+-z, –compress              compress file data during the transfer  ( 전송중 압축 사용)&lt;br /&gt;&lt;br /&gt;
+정도로 이해를 하면 좋을 듯 싶다.
+—–
+서비스 중이 사이트에서 이미지 배포가 정상적으로 이루어지지 않고 있었는데, svn상에서 정상적으로 업데이트 된 것은 확인이 되었으나, 배포가 정상적으로 이루어지지 못하고 있었다.&lt;br /&gt;
+의외로 문제는 단순했다.&lt;br /&gt;
+이미지를 모아놓는 폴더를 새롭게 만들었는데 이름이 images/core/* 의 구조를 가지고 있었는데, rsync 에서는 core라는 단어를 default로 exclude 시켜놓은 것이었다.&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;당연시 되어야 될 click event가 동자하지 않았다.
-이유는 다른 파일이지만 같은 함수명을 사용하였기 때문!&lt;/p&gt;
+&lt;p&gt;https://superuser.com/questions/388249/why-does-rsync-skip-a-sub-folder-named-core&lt;br /&gt;
+해결책은 명시적으로  –include “core” 를 해 주게 되면 해결이 가능했다.&lt;br /&gt;
+끝&lt;br /&gt;&lt;/p&gt;</content><author><name>Doohyun Kim</name></author></entry><entry><title type="html">[Oracle] Materialized View의 Exception ( ORA-12034 )</title><link href="http://ewbdoohyun.github.io/database/oracle/2018/12/03/materialized_view/" rel="alternate" type="text/html" title="[Oracle] Materialized View의 Exception ( ORA-12034 )" /><published>2018-12-03T00:00:00+09:00</published><updated>2018-12-03T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/database/oracle/2018/12/03/materialized_view</id><content type="html" xml:base="http://ewbdoohyun.github.io/database/oracle/2018/12/03/materialized_view/">&lt;p&gt;일단 Materialized View에 대하여 짧게 언급하고 지나가겠습니다.
+Materialized View는 일반 View와는 다르게, 물리적인 데이터를 실제로 가지고 있는 View입니다.
+일반적으로 우리가 생각하고 있는 View는 물리적으로 존재하는 데이터가 아닙니다. 하나 이상의 테이블의 결과를 논리적인 형태로 풀어놓은 것에 불과한 것이죠.
+다만, 쿼리의 사용 양, 매번 Select해 오기에는 부하가 클 경우 실제 데이터로 만들어, 이를 사용하도록 하는 것을 Materialized View 라 합니다. 이것에 대한 갱신 주기, 방식 등등을 정하여 좀 더 쾌적한 사용을 할 수 있도록 해 주는데 있습니다.
+좀 더 상세한 설명은 http://www.gurubee.net/lecture/1857 를 참조하시면 될 듯 싶습니다.
+(차후 업데이트 예정)
+—
+현 운영 중인 곳에서 구체화된 뷰 에서 자동으로 새로고침이 되지 못하는 문제가 발생하였습니다.
+현재 운영중인 Database에서는 특정 시간별로 FAST 방식을 통해 일정 시간마다 새로 고침을 해 주고 있는데요.&lt;/p&gt;
 
-&lt;p&gt;모든 함수를 전역변수로 설정해서 사용했기에 일어나는 문제다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42507943/55311240-59850800-549d-11e9-80b2-12d69fb0c22b.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//a.js
-var add_to_checklist = function(){
-    $('.footer__checklist__link').click( function(e) {
-        e.preventDefault();
-        console.log(&quot;A&quot;);
-    });
-}
+&lt;p&gt;모종의 이유로  로그의 timeline이 꼬였다고 하고 있는데.&lt;/p&gt;
 
-//b.js
-var add_to_checklist = function(){
-    $('.header__checklist__link').click( function(e) {
-        e.preventDefault();
-        console.log(&quot;B&quot;);
-    });
-}
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42507943/55311337-9bae4980-549d-11e9-9980-2c38aeca40d5.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
-// event handling
-add_to_checklist();     // not working.
-                        // from a.js? from b.js?
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;현재 사이트는 Fast 방식으로 운영하고 있습니다.
+ 새로 고침을 스케줄링과 관련없이 새롭게 시작하려고 하니&lt;/p&gt;
 
-&lt;h2 id=&quot;namespace&quot;&gt;NameSpace&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42507943/55311343-9fda6700-549d-11e9-87bf-aee188dce64b.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;NameSpace를 설정하면, 같은 함수명을 사용해도 겹치지 않게 사용할 수 있다.
-사실 Javascript 코드 양이 얼마 되지 않을 것 같아서 NameSpace를 사용하지 않았는데
-이런 저런 기능들을 붙이다 보니 어느 덧 파일수도 늘어나고, 어떤 함수명을 썼는지도 기억하지 못하게 된 것.&lt;/p&gt;
+&lt;p&gt;한글화가 되어 있지만, 내용상 보았을 떄 Fast와 Complete 옵션만 적용 한 것으로 나와 있습니다.
+FAST로는 해당 증상의 해결이 어렵습니다.
+( Timeline이 꼬여있기 떄문에, Fast 옵션으로는 해당증상을 해결할 수 없다. 변경된 일부만 시도되기 때문에.)
+Complete로 다시 돌린 후 원래대로 Fast로 돌아가도록 해 둡니다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//a.js
-var footer = {
-    add_to_checklist : function(){
-        $('.footer__checklist__link').click( function(e) {
-            e.preventDefault();
-            console.log(&quot;A&quot;);
-        });
-    }
-}
+&lt;p&gt;stack overflow에서”Complete Refresh” means you truncate entire materialized view and insert new data. 라는 표현을 사용하는데, 이보다 적절한 한글말을 찾지 못해 본문 그대로 인용합니다.
+Fast 방법이 문제가 생길 수 있는 환경이라면 Fast + 실패시 Complete로 돌 수 있는 Force로 설정해 두는 것도 좋은 방법입니다. ( 문제가 되었던 곳은 개발서버 쪽이였기 때문에, 증상 확인을 위해 그대로 Fast로 사용하고 있습니다.)&lt;/p&gt;
 
-//b.js
-var header = {
-    add_to_checklist : function(){
-        $('.header__checklist__link').click( function(e) {
-            e.preventDefault();
-            console.log(&quot;B&quot;);
-        });
-    }
-}
-
-//event handling
-footer.add_to_checklist();      // from a.js
-header.add_to_checklist();      // from b.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;dev&quot;, &quot;javascript&quot;]" /></entry><entry><title type="html">Rails - 로그인 유지하기</title><link href="http://ewbdoohyun.github.io/dev/rails/2017/04/07/rails-permanent-login/" rel="alternate" type="text/html" title="Rails - 로그인 유지하기" /><published>2017-04-07T00:00:00+09:00</published><updated>2017-04-07T00:00:00+09:00</updated><id>http://ewbdoohyun.github.io/dev/rails/2017/04/07/rails-permanent-login</id><content type="html" xml:base="http://ewbdoohyun.github.io/dev/rails/2017/04/07/rails-permanent-login/">&lt;p&gt;나중에 시간이 나면 글을 다시 적기로 하고, reference만 우선 남겨준다&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.railstutorial.org/book/advanced_login&quot;&gt;https://www.railstutorial.org/book/advanced_login&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://railscasts.com/episodes/274-remember-me-reset-password&quot;&gt;http://railscasts.com/episodes/274-remember-me-reset-password&lt;/a&gt;&lt;/p&gt;</content><author><name>Doohyun Kim</name></author><category term="[&quot;dev&quot;, &quot;rails&quot;]" /></entry></feed>
+&lt;p&gt;참조한 곳들.
+http://www.gurubee.net/lecture/1857
+https://stackoverflow.com/questions/41465445/what-is-the-difference-between-complete-refresh-and-fast-refresh-in-materialized
+https://docs.oracle.com/database/121/DWHSG/basicmv.htm#DWHSG-GUID-A7AE8E5D-68A5-4519-81EB-252EAAF0ADFF&lt;/p&gt;</content><author><name>Doohyun Kim</name></author></entry></feed>
