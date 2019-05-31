@@ -1,10 +1,8 @@
 ---
 layout: post
+comments: true
 title:  "Svn에서 Git으로의 이전기"
-date:   2019-04-20 22:43:59
-author: Danny Kim
-categories: ETC
-tags:	svn git migration
+category: [server, etc]
 ---
 
 Svn에서 Git으로 이전하는 법은 가장 유명한 방법으로는 2가지가 있다.<br>

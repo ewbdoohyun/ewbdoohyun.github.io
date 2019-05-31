@@ -1,7 +1,8 @@
 ---
 layout: post
+comments: true
 title:  "JavaScript Closure의 실 사용으로 보는 의미 ( 클로저 사용법 )"
-categories: [frontend, javascript]
+category: [frontend, javascript]
 ---
 
 클로저의 설명으로 내부함수가 외부 함수의 맥락에 접근 할 수 있는 것을 가르킨다고 많이들 설명한다.

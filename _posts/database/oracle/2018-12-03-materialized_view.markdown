@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  "[Oracle] Materialized View의 Exception ( ORA-12034 )"
-categories: [database, oracle]
+category: [database, oracle]
 ---
 
 일단 Materialized View에 대하여 짧게 언급하고 지나가겠습니다.

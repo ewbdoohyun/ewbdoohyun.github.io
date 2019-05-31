@@ -1,7 +1,8 @@
 ---
 layout: post
+comments: true
 title:  "SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache"
-categories: [server, etc]
+category: [server, etc]
 ---
 
 사내 시스템이 리셀러를 구성할 수 있게 되어 있다.

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Doohyun Kim &middot; Blog
+    
+  </title>
+  <!-- meta -->
+  <link rel="author" href="https://plus.google.com/u/0/+sglee"/>
+  <meta name="description" content="Developer Blog">
+  <meta name="naver-site-verification" content="589ef55a64f45cb4651dbf19ef610ca67fa3bdab"/>
+
+  <!-- meta for facebook -->
+  <meta property="og:url" content="http://localhost:4000/categories/server/"/>
+  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/sg-rails-sample-app/main.jpg"/>
+  <meta property="og:description" content="Developer Blog">
+
+  <!-- CSS theme -->
+  <!-- <link rel="stylesheet"  href="/css/poole.css"> -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <!-- CSS custom -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+  <!-- Google Analytics Tag -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47572822-3', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+</head>
+
+
+  <body>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <!-- <label for="sidebar-checkbox" class="sidebar-toggle"></label> -->
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Doohyun Kim</a>
+            <!-- <small>Blog</small> -->
+          </h3>
+          <div class="search-box">
+            <form action="/search" method="get">
+              <input type="text" id="search-box" name="query" placeholder="search">
+            </form>
+          </div>
+          <div class="pull-right category-box">
+            <a href="/about" class="category-menu"><small>ABOUT</small></a>
+            <!-- <a href="/categories/dev" class="category-menu"><small>DEV</small></a> -->
+            <!-- <a href="/categories/biz" class="category-menu"><small>BIZ</small></a> -->
+            <a href="/categories/algorithm" class="category-menu"><small>ALROGITHM</small></a>
+            <a href="/categories/database" class="category-menu"><small>DATABASE</small></a>
+            <a href="/categories/server" class="category-menu"><small>SERVER</small></a>
+            <a href="/categories/frontend" class="category-menu"><small>FRONTEND</small></a>
+            <a href="/categories/backend" class="category-menu"><small>BACKEND</small></a>
+            <a href="/categories/personal" class="category-menu"><small>PERSONAL</small></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+
+
+
+
+
+
+  <div class="posts post-list">
+  
+    <div class="category">
+      <a href="#etc">ETC (4)</a>
+
+    </div>
+    
+      <div class="post">
+        <h4 class="post-title">
+          <a href="/server/etc/2019/05/16/ssl/">
+            SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache
+          </a>
+        </h4>
+        <div class="post-description">
+          <small><span class="post-date">16 May 2019</span></small>
+        </div>
+        <!-- <p>사내 시스템이 리셀러를 구성할 수 있게 되어 있다.</p>
+
+<p>이 때 고객에게서 SSL 파일을 받아서 우리측 Server에 세팅하는데 문제는 제각각으로 파일이 온다는 것에 있다.</p>
+
+<p>작성자는 자동화해서 특정 파일 패턴 ( crt, bundle, key ) 에 대해 자동화를 해 놓았는데, 가끔 다른 패턴에 대한 요청이 있어 정리해 놓는 것이다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;VirtualHost *:443&gt;
+        ServerName {servername}.com
+        ServerAlias www.{servername}.com
+        # optional
+		Include {configuraeion file}
+        SSLCertificateFile "{certfilename}.crt"
+        SSLCertificateKeyFile "{keyfilename}.key"
+        SSLCertificateChainFile "{bundlefilename}.crt"
+&lt;/VirtualHost&gt;
+&lt;Directory "{fileDireactory}"&gt;
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+&lt;/Directory&gt;
+</code></pre></div></div>
+
+<p>SSLCertificateKeyFile : Private Key</p>
+
+<p>SSLCertificateChainFile : 2.4.8 버전 이후라면 SSLCACertificateFile 를 사용해야 한다. Deprecated 는 Deprecated 되었다고 한다. 업데이트를 할 일이 있다면 다음과 같이 표기하는것이 더 나을 수도 있다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IfVersion &lt; 2.4.8&gt;
+  SSLCertificateChainFile "{bundlename}"
+&lt;/IfVersion&gt;
+&lt;IfVersion &gt;= 2.4.8&gt;
+  SSLCACertificateFile "{bundlename}"
+&lt;/IfVersion&gt;
+</code></pre></div></div>
+
+<p>가끔 crt만 무더기로 오고 bundle이 없는 경우가 있는데… 당황하지 말고 COMODORSADomainValidationSecureServerCA 와 COMODORSAAddTrustCA, AddTrustExternalCARoot 세 파일을 합쳐주자. ( 순서를 맞춰야 한다. )</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat www_example_com.crt COMODORSADomainValidationSecureServerCA.crt  COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt &gt; ssl-bundle.crt
+
+</code></pre></div></div>
+
+<p>이 중  root chain은 broweser에 의해 실려 온다고 하니 사실상 다음과 같이 해도 상관은 없다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat domain_com.crt SectigoRSADomainValidationSecureServerCA.crt USERTrustRSAAddTrustCA.crt &gt; tls.crt
+</code></pre></div></div>
+
+<p>pfx에 대한 변환  ( openssl 필요 )</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl pkcs12 -in {filename}.pfx -clcerts -nokeys -out {filename}.crt
+
+openssl pkcs12 -in {key}.pfx  -nocerts -out {encrypted_key_name}.crt
+openssl rsa -in {encrypted_key_name}.key -out {decrypted_key_name}.key
+</code></pre></div></div>
+
+<p>bundle file은 인증서 사이트 별 공통이기 때문에 생략한다.</p>
+
+<p>openssl pkcs12 -in {filename}.pfx  -nocerts -out {outfilename}.cert</p>
+
+<p>재시작 해서 https로 접속하면 ( cache 삭제 해야 함, private tap 추천 )</p>
+
+<p>도움받은 곳.</p>
+
+<p><a href="https://luckyyowu.tistory.com/364">https://luckyyowu.tistory.com/364</a>
+<a href="https://gist.github.com/gangsta/9d011dc0da614db27d5b22ed2044799f">https://gist.github.com/gangsta/9d011dc0da614db27d5b22ed2044799f</a></p>
+
+ -->
+      </div>
+    
+      <div class="post">
+        <h4 class="post-title">
+          <a href="/server/etc/2019/04/20/svn_to_git/">
+            Svn에서 Git으로의 이전기
+          </a>
+        </h4>
+        <div class="post-description">
+          <small><span class="post-date">20 Apr 2019</span></small>
+        </div>
+        <!-- <p>Svn에서 Git으로 이전하는 법은 가장 유명한 방법으로는 2가지가 있다.<br />
+git-svn 과 svn2git</p>
+
+<p>git-svn의 경우 git에서 제공하고 있고, svn2git은 ruby로 만들어진 서드파티 같은 느낌임.<br /></p>
+
+<p>https://viastudio.com/migrate-svn-git/</p>
+
+<p>window 환경에서 svn2git을 하기엔 이것저것 해야 할 게 많아서 git-svn으로 시도하기로 함.</p>
+
+<p>최초 시도 : 
+git svn clone svn://dev.docircle.com/trumpia_web/trunk<br />
+git svn clone -s svn://dev.docircle.com/trumpia_web<br /></p>
+
+<p>-s 옵션은 optional하긴 하지만, 한번 더 실패하기 싫어서 같이 걸어줌.</p>
+
+<p>merge 로그를 만들 때 전략적으로 해주는 느낌인 것 같은데.. 참고만 하면 좋을듯,.</p>
+
+<p>https://www.atlassian.com/git/tutorials/using-branches/merge-strategy</p>
+
+<p>진행 도중 도중</p>
+
+<p>Connection reset by peer: Can’t read from connection: Connection reset by peer at C:/Program Files/Git/
+mingw64/share/perl5/Git/SVN/Ra.pm line 312.</p>
+
+<p>이라는 에러가 뜨는걸 볼수 있다.
+stack overflow에서 확인 해 보니
+https://stackoverflow.com/questions/5551200/git-svn-clone-chokes-on-moved-directories
+“Connection reset by peer” means that the SVN server closed the connection at this point. <br />
+왠지는 모르겠지만 svn server에 connection이 
+You can resume by issuing “git svn fetch” in the newly created directory.</p>
+
+<p>git svn fetch –fetch-all 로 진행 한 결과  어느정도 진행이 되다가 다른 에러 발생<br />
+r540 = 8c77dd73e55fc960d5cbdafbc180528c947c5975 (refs/remotes/git-svn)<br />
+rev-parse –git-path svn: command returned error: 127
+이 때 다시 fetch를 하면 다음 것이 진행이 되는데… 계속 끊긴다. 무언가 잘못된 것이 있었을 것이다 하고 찾아보니<br />
+https://stackoverflow.com/questions/50842991/ <br />
+command-returned-error127-while-executing-git-svn-clone-command <br /></p>
+
+<p>git svn gc 를 해 주면 좋다고 한다.</p>
+
+<p>— 이건 명령을 실행하는게 아니라 옵션을 키는거라서, 진행도중 자동으로 gc를 해 줌..<br />
+( gc는 로그를 최적화 하기 위함인데, 최적화 하지 않으면 무언가가 꼬이는 듯 하다. 하지만 그에대한 설명이 없어서…)</p>
+
+<p>Fail case: gc를 진행하고 fetch를 계속 진행하자 다음과 같은 문제가 나왔다.
+Checksum mismatch: onlineSignup/script/script_signin.js 78a77ebf462792b8fff07b2600d652f8281a6fc6<br />
+expected: 58f86f60f75207646e2b37abee61b0f4<br />
+     got: 2a4c0da51dd4648d4330b9c17cb8dbe9</p>
+
+<p>이리저리 해결해 보려다가 결국 새롭게 시도했음..<br />
+gc를 키라는 말도 있고 rebase를 하라는 사람도 있고 말은 많은데.. 정상적으로 되는게 없었음..<br />
+같은 삽질 하지 말고 한번에 옵션을 잘 거는걸 추천합니다.<br /></p>
+
+<p>Ps2. 회사 리비전이 67000인가 그런데… 일주일 넘게 걸립니다…사실 그냥 버리고 Git으로 가도 되지만 미련이 남아서 한겁니다.</p>
+ -->
+      </div>
+    
+      <div class="post">
+        <h4 class="post-title">
+          <a href="/personal/etc/2019/04/01/select_blog/">
+            Why I Select github.io ( 왜 나는 github로 기술 블로그를 정착하였는가.)
+          </a>
+        </h4>
+        <div class="post-description">
+          <small><span class="post-date">01 Apr 2019</span></small>
+        </div>
+        <!-- <p>여러 타입을 사용 및 고려한 후기입니다.</p>
+
+<p>1) Naver Blog
+  장점 : 네이버</p>
+
+<p>단점 : 네이버</p>
+
+<p>2) Tistory
+  장점 : 많은 사람들이 쓰고 있고, 초대장이 사라진지 오래. 카카오 산하인 만큼 신경써서   업데이트를 해 주는 느낌</p>
+
+<p>3) Wordpress (설치형)</p>
+
+<hr />
+<p>해당 까지는 1차적으로 고려 하였고, 처음 정착했던 곳은 다음과 같다.</p>
+
+<ol>
+  <li>Wordpress (개인 서버)<br />
+  장점<br />
+ 호스팅 비용이 들지 않음 (개인서버이기 때문)<br />
+ 강력한 커스터마이징 기능<br />
+  단점<br />
+ 개인 서버 (유지보수가 귀찮을 수 있음)<br />
+ 호스팅이나 검색 등록 등 자질구레하게 할 일들이 많음<br /></li>
+</ol>
+
+<p>워드프레스 개인 서버용으로 사용 중 불편한 사항들이 발생했는데.</p>
+<ul>
+  <li>개인 서버를 24시간 유지하여야 하는 점.</li>
+  <li>서버를 사용하지 않을 때 절전 모드로 사용 중이어서 접속 속도가 마음에 들지 않음</li>
+  <li>사용중이던 하드를 재활용 한 서버가 언제 죽을? 지 모르는 불안함</li>
+  <li>무언가 고쳐보려고 할 때 개발자 친화적이지 않다!</li>
+</ul>
+
+<p>이 중 마지막 두개가 제일 큰 점이었는데, 워드프레스를 공부하며 커스터마이징을 하자니 너무 불필요한 리소스가 낭비되는 것 같았고, 배운 지식에 대한 확장성 또한 떨어지는 것 같았다.</p>
+
+<p>그래서 이전했습니다!</p>
+
+<p>Github blog
+  Jekyll 를 이용하고 있으며, 현재 centrarium 테마를 확장 / 변형하여 하고 있습니다.<br />
+  무엇보다 마음이 드는 점은, Github을 유용하게 사용하고 있는데, Github을 통해 관리하는 만큼, 더 손이 많이 가게 되는 점이 있네요. 처음 Tistory나 Wordpress를 사용하였을 때는 사실 손이 잘 가지 않더라고요.</p>
+
+<p>Markdown에 대한 진입장벽만 이겨내신다면 생산성에도 영향이 크게 없을 듯 싶습니다.</p>
+ -->
+      </div>
+    
+      <div class="post">
+        <h4 class="post-title">
+          <a href="/server/etc/2019/01/03/rsync_use/">
+            rsync 사용법 및 core 문제 해결
+          </a>
+        </h4>
+        <div class="post-description">
+          <small><span class="post-date">03 Jan 2019</span></small>
+        </div>
+        <!-- <p>현재 재직중인 곳에선 배포를 jenkins를 이용하여 rsync 배포를 하고 있다.</p>
+
+<p>여러개의 서버를 동시에 사용하고 있기 때문인데, 문제가 있던 사항이 있어 기록해 둔다.</p>
+
+<p>단순히 개념을 정리해 보자면
+rsync란 : n개의 site의 file &amp; directory의 동기화를 위한 unix util이다.</p>
+
+<p>구동 방식은 tcp (default 873 port ) &amp; ssh 중에 선택하여 사용 가능하며, 방화벽 문제가 있기 때문에 ssh를 사용하는 것이 좀 더 나은 방안이라고 생각이 든다.</p>
+
+<p>대략적인 사용법은</p>
+
+<p>Usage: rsync [OPTION]… SRC [SRC]… DEST<br />
+  or   rsync [OPTION]… SRC [SRC]… [USER@]HOST:DEST<br />
+  or   rsync [OPTION]… SRC [SRC]… [USER@]HOST::DEST<br />
+  or   rsync [OPTION]… SRC [SRC]… rsync://[USER@]HOST[:PORT]/DEST<br />
+  or   rsync [OPTION]… [USER@]HOST:SRC [DEST]<br />
+  or   rsync [OPTION]… [USER@]HOST::SRC [DEST]<br />
+  or   rsync [OPTION]… rsync://[USER@]HOST[:PORT]/SRC [DEST]<br /><br />
+와 같이 사용 가능하다.<br />
+일반적으로 -avz옵션을 많이들 사용하는데<br /><br />
+-a, –archive               archive mode; equals -rlptgoD (no -H,-A,-X) (   -l : symbolic link, -p : permission, -t timestamp , -g : group, -o owner, -d device, ) 등의 보존을 한다.<br />
+-v, –verbose               increase verbosity ( 설명 증가 )<br />
+-z, –compress              compress file data during the transfer  ( 전송중 압축 사용)<br /><br />
+정도로 이해를 하면 좋을 듯 싶다.
+—–
+서비스 중이 사이트에서 이미지 배포가 정상적으로 이루어지지 않고 있었는데, svn상에서 정상적으로 업데이트 된 것은 확인이 되었으나, 배포가 정상적으로 이루어지지 못하고 있었다.<br />
+의외로 문제는 단순했다.<br />
+이미지를 모아놓는 폴더를 새롭게 만들었는데 이름이 images/core/* 의 구조를 가지고 있었는데, rsync 에서는 core라는 단어를 default로 exclude 시켜놓은 것이었다.<br /></p>
+
+<p>https://superuser.com/questions/388249/why-does-rsync-skip-a-sub-folder-named-core<br />
+해결책은 명시적으로  –include “core” 를 해 주게 되면 해결이 가능했다.<br />
+끝<br /></p>
+ -->
+      </div>
+    
+  
+  </div>
+
+
+
+
+
+<!--   <div class="category-posts-container">
+    
+    <div class="category-posts">
+      <h2 id="etc">etc</h2>
+      <ul>
+        
+          <a href="/server/etc/2019/05/16/ssl/" class="category-post">
+            <li>
+              SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache
+              <small>16 May 2019</small>
+            </li></a>
+        
+          <a href="/server/etc/2019/04/20/svn_to_git/" class="category-post">
+            <li>
+              Svn에서 Git으로의 이전기
+              <small>20 Apr 2019</small>
+            </li></a>
+        
+          <a href="/personal/etc/2019/04/01/select_blog/" class="category-post">
+            <li>
+              Why I Select github.io ( 왜 나는 github로 기술 블로그를 정착하였는가.)
+              <small>01 Apr 2019</small>
+            </li></a>
+        
+          <a href="/server/etc/2019/01/03/rsync_use/" class="category-post">
+            <li>
+              rsync 사용법 및 core 문제 해결
+              <small>03 Jan 2019</small>
+            </li></a>
+        
+      </ul>
+    </div>
+    
+  </div> -->
+
+      </div>
+    </div>
+  </body>
+</html>

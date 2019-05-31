@@ -1,7 +1,8 @@
 ---
 layout: post
+comments: true
 title:  "Why I Select github.io ( 왜 나는 github로 기술 블로그를 정착하였는가.)"
-categories: [personal, etc]
+category: [personal, etc]
 ---
 
 여러 타입을 사용 및 고려한 후기입니다.

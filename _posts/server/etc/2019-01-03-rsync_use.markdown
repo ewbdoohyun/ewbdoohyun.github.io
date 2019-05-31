@@ -1,7 +1,8 @@
 ---
 layout: post
+comments: true
 title:  "rsync 사용법 및 core 문제 해결"
-categories: [server, etc]
+category: [server, etc]
 ---
 
 현재 재직중인 곳에선 배포를 jenkins를 이용하여 rsync 배포를 하고 있다.

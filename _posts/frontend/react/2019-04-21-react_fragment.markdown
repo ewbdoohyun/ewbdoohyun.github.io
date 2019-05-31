@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  "React Fragment와 div"
-categories: [frontend, react]
+category: [frontend, react]
 ---
 
 React Fragment와 div
