@@ -2,21 +2,21 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Doohyun Kim</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2019-05-31T09:08:20+09:00</updated>
- <id>http://localhost:4000</id>
+ <link href="http://ewbdoohyun.github.io/atom.xml" rel="self"/>
+ <link href="http://ewbdoohyun.github.io/"/>
+ <updated>2019-05-31T09:10:00+09:00</updated>
+ <id>http://ewbdoohyun.github.io</id>
  <author>
-   <name>SG Lee</name>
+   <name>Doohyun Kim</name>
    <email></email>
  </author>
 
  
  <entry>
    <title></title>
-   <link href="http://localhost:4000/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using/"/>
-   <updated>2019-05-31T09:08:20+09:00</updated>
-   <id>http://localhost:4000/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using</id>
+   <link href="http://ewbdoohyun.github.io/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using/"/>
+   <updated>2019-05-31T09:10:00+09:00</updated>
+   <id>http://ewbdoohyun.github.io/2019/05/31/2017-02-22-rails-active-record-query-interface-frequent-using</id>
    <content type="html">&lt;h2 id=&quot;find_each&quot;&gt;.find_each&lt;/h2&gt;
 
 &lt;p&gt;모든 record에 대해서 일괄작업시 자주 사용&lt;/p&gt;
@@ -31,9 +31,9 @@ end
  
  <entry>
    <title>Javascript에서 constants 관리하기</title>
-   <link href="http://localhost:4000/dev/react/javascript/2019/05/28/manage-constants-in-javascript/"/>
+   <link href="http://ewbdoohyun.github.io/dev/react/javascript/2019/05/28/manage-constants-in-javascript/"/>
    <updated>2019-05-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/react/javascript/2019/05/28/manage-constants-in-javascript</id>
+   <id>http://ewbdoohyun.github.io/dev/react/javascript/2019/05/28/manage-constants-in-javascript</id>
    <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/components/users/constants.js&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userStatesActive&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -67,9 +67,9 @@ end
  
  <entry>
    <title>helmet을 통한 보안 강화</title>
-   <link href="http://localhost:4000/backend/nodejs/2019/05/19/helmet-security/"/>
+   <link href="http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security/"/>
    <updated>2019-05-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/backend/nodejs/2019/05/19/helmet-security</id>
+   <id>http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security</id>
    <content type="html">&lt;p&gt;Node를 사용하면서 Helmet을 통해 보안을 손쉽게 강화 할 수 있다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add helmet 
@@ -149,9 +149,9 @@ end
  
  <entry>
    <title>React + ESLint + VSCode</title>
-   <link href="http://localhost:4000/dev/react/eslint/vscode/2019/05/09/eslint-setup/"/>
+   <link href="http://ewbdoohyun.github.io/dev/react/eslint/vscode/2019/05/09/eslint-setup/"/>
    <updated>2019-05-09T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/react/eslint/vscode/2019/05/09/eslint-setup</id>
+   <id>http://ewbdoohyun.github.io/dev/react/eslint/vscode/2019/05/09/eslint-setup</id>
    <content type="html">&lt;h2 id=&quot;vscode-eslint-설치&quot;&gt;VSCode eslint 설치&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -273,9 +273,9 @@ npx install-peerdeps --dev eslint-config-airbnb
  
  <entry>
    <title>Rails HABTM convention과 다른 table을 이용하기</title>
-   <link href="http://localhost:4000/dev/rails/2018/05/28/rails-habtm-different-table-name/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2018/05/28/rails-habtm-different-table-name/"/>
    <updated>2018-05-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2018/05/28/rails-habtm-different-table-name</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2018/05/28/rails-habtm-different-table-name</id>
    <content type="html">&lt;h1 id=&quot;0&quot;&gt;0&lt;/h1&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;has_and_belongs_to_many :watching, :class_name=&amp;gt;&quot;Person&quot;, :join_table =&amp;gt; :watch_people_projects
@@ -288,9 +288,9 @@ npx install-peerdeps --dev eslint-config-airbnb
  
  <entry>
    <title>Rails 개발환경 설정 하기</title>
-   <link href="http://localhost:4000/dev/rails/2018/05/27/rails-dev-env/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2018/05/27/rails-dev-env/"/>
    <updated>2018-05-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2018/05/27/rails-dev-env</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2018/05/27/rails-dev-env</id>
    <content type="html">&lt;h2 id=&quot;bundler-설치&quot;&gt;bundler 설치&lt;/h2&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;gem: --no-rdoc --no-ri&quot; &amp;gt;&amp;gt; ~/.gemrc
 
@@ -340,9 +340,9 @@ echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/pat
  
  <entry>
    <title>AWS RDS를 로컬에 복사하기</title>
-   <link href="http://localhost:4000/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/"/>
+   <link href="http://ewbdoohyun.github.io/dev/aws/2018/05/27/copy-aws-rds-pg-to-local/"/>
    <updated>2018-05-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/aws/2018/05/27/copy-aws-rds-pg-to-local</id>
+   <id>http://ewbdoohyun.github.io/dev/aws/2018/05/27/copy-aws-rds-pg-to-local</id>
    <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Change your database RDS instance security group to allow your machine to access it.
 Add your ip to the security group to acces the instance via Postgres.
 Make a copy of the database using pg_dump
@@ -363,9 +363,9 @@ pg_restore -h &amp;lt;host&amp;gt; -U &amp;lt;username&amp;gt; -c -d &amp;lt;dat
  
  <entry>
    <title>Google Chart 로 그래프 그리기</title>
-   <link href="http://localhost:4000/dev/google-chart/2018/05/06/google-chart/"/>
+   <link href="http://ewbdoohyun.github.io/dev/google-chart/2018/05/06/google-chart/"/>
    <updated>2018-05-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/google-chart/2018/05/06/google-chart</id>
+   <id>http://ewbdoohyun.github.io/dev/google-chart/2018/05/06/google-chart</id>
    <content type="html">&lt;h2 id=&quot;gem-google_visualr&quot;&gt;Gem ‘google_visualr’&lt;/h2&gt;
 
 &lt;p&gt;Google chart를 사용할 수 있는 gem이 여러개 있는데, 그중에 google_visualr를 사용한 이유는 ‘stepped_area_chart’ 같은
@@ -408,9 +408,9 @@ pg_restore -h &amp;lt;host&amp;gt; -U &amp;lt;username&amp;gt; -c -d &amp;lt;dat
  
  <entry>
    <title>Javascript - Namespace 사용하기</title>
-   <link href="http://localhost:4000/dev/javascript/2017/04/14/javascript-namespace/"/>
+   <link href="http://ewbdoohyun.github.io/dev/javascript/2017/04/14/javascript-namespace/"/>
    <updated>2017-04-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/javascript/2017/04/14/javascript-namespace</id>
+   <id>http://ewbdoohyun.github.io/dev/javascript/2017/04/14/javascript-namespace</id>
    <content type="html">&lt;h2 id=&quot;anti-pattern--glbal-variable&quot;&gt;Anti-Pattern : glbal variable&lt;/h2&gt;
 
 &lt;p&gt;당연시 되어야 될 click event가 동자하지 않았다.
@@ -477,9 +477,9 @@ header.add_to_checklist();      // from b.js
  
  <entry>
    <title>Rails - 로그인 유지하기</title>
-   <link href="http://localhost:4000/dev/rails/2017/04/07/rails-permanent-login/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/04/07/rails-permanent-login/"/>
    <updated>2017-04-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/04/07/rails-permanent-login</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/04/07/rails-permanent-login</id>
    <content type="html">&lt;p&gt;나중에 시간이 나면 글을 다시 적기로 하고, reference만 우선 남겨준다&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.railstutorial.org/book/advanced_login&quot;&gt;https://www.railstutorial.org/book/advanced_login&lt;/a&gt;&lt;/p&gt;
@@ -491,9 +491,9 @@ header.add_to_checklist();      // from b.js
  
  <entry>
    <title>Rails Error Unknown Format</title>
-   <link href="http://localhost:4000/2017/04/04/rails-error-unknown-format/"/>
+   <link href="http://ewbdoohyun.github.io/2017/04/04/rails-error-unknown-format/"/>
    <updated>2017-04-04T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/04/04/rails-error-unknown-format</id>
+   <id>http://ewbdoohyun.github.io/2017/04/04/rails-error-unknown-format</id>
    <content type="html">
 &lt;p&gt;ActionController::UnknownFormat&lt;/p&gt;
 
@@ -519,9 +519,9 @@ header.add_to_checklist();      // from b.js
  
  <entry>
    <title>Gmail Touch region 구현</title>
-   <link href="http://localhost:4000/dev/ux/2017/03/31/gmail-touch-region/"/>
+   <link href="http://ewbdoohyun.github.io/dev/ux/2017/03/31/gmail-touch-region/"/>
    <updated>2017-03-31T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/ux/2017/03/31/gmail-touch-region</id>
+   <id>http://ewbdoohyun.github.io/dev/ux/2017/03/31/gmail-touch-region</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/17553501_10158514881355327_4577364518862071458_n.jpg?oh=4d3823b9caed401fb6c309ef86199598&amp;amp;oe=59535369&quot; alt=&quot;gmail-touch-region&quot; /&gt;
 padding으로 size를 잡고
 negative margin으로 layout을 수정함&lt;/p&gt;
@@ -530,9 +530,9 @@ negative margin으로 layout을 수정함&lt;/p&gt;
  
  <entry>
    <title>Rails Sortable List</title>
-   <link href="http://localhost:4000/2017/03/27/rails-sortable-list/"/>
+   <link href="http://ewbdoohyun.github.io/2017/03/27/rails-sortable-list/"/>
    <updated>2017-03-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/03/27/rails-sortable-list</id>
+   <id>http://ewbdoohyun.github.io/2017/03/27/rails-sortable-list</id>
    <content type="html">
 &lt;p&gt;http://railscasts.com/episodes/147-sortable-lists?autoplay=true&lt;/p&gt;
 </content>
@@ -540,9 +540,9 @@ negative margin으로 layout을 수정함&lt;/p&gt;
  
  <entry>
    <title>Rails - View에서 현재 controller 이름 사용하기</title>
-   <link href="http://localhost:4000/dev/rails/2017/03/27/rails-controller-name-in-view/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/03/27/rails-controller-name-in-view/"/>
    <updated>2017-03-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/03/27/rails-controller-name-in-view</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/03/27/rails-controller-name-in-view</id>
    <content type="html">&lt;p&gt;controller에 따라서 뭔가 분기가 필요할 때.&lt;/p&gt;
 
 &lt;p&gt;Rails는 &lt;code class=&quot;highlighter-rouge&quot;&gt;controller_name&lt;/code&gt;이라는 variable에 현재 controller 이름을 저장하고 있다.&lt;/p&gt;
@@ -557,9 +557,9 @@ negative margin으로 layout을 수정함&lt;/p&gt;
  
  <entry>
    <title>Rails bug - current_page? No route matches</title>
-   <link href="http://localhost:4000/dev/rails/2017/03/27/rails-bug-current-page-no-route/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/03/27/rails-bug-current-page-no-route/"/>
    <updated>2017-03-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/03/27/rails-bug-current-page-no-route</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/03/27/rails-bug-current-page-no-route</id>
    <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;current_page?&lt;/code&gt; 사용시 No route 에러 발생&lt;/p&gt;
 
 &lt;p&gt;error
@@ -580,9 +580,9 @@ negative margin으로 layout을 수정함&lt;/p&gt;
  
  <entry>
    <title>Rails - has_and_belongs_to_many</title>
-   <link href="http://localhost:4000/dev/rails/2017/03/03/rails-habtm/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/03/03/rails-habtm/"/>
    <updated>2017-03-03T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/03/03/rails-habtm</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/03/03/rails-habtm</id>
    <content type="html">&lt;h2 id=&quot;option&quot;&gt;Option&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://guides.rubyonrails.org/association_basics.html#scopes-for-has-and-belongs-to-many-distinct&quot;&gt;distinct&lt;/a&gt;
@@ -640,9 +640,9 @@ user = FactoryGirl.create(:user, :companies =&amp;gt; [company])
  
  <entry>
    <title>Heroku - app option을 사용하라고 error 발생시</title>
-   <link href="http://localhost:4000/dev/heroku/2017/03/02/heroku-no-app-option/"/>
+   <link href="http://ewbdoohyun.github.io/dev/heroku/2017/03/02/heroku-no-app-option/"/>
    <updated>2017-03-02T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/heroku/2017/03/02/heroku-no-app-option</id>
+   <id>http://ewbdoohyun.github.io/dev/heroku/2017/03/02/heroku-no-app-option</id>
    <content type="html">&lt;p&gt;heroku cli를 세팅하는 경우에, 다음과 같은 error가 나올 때가 있음.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Run this command from inside an app folder or specify which app to use with --app APP
@@ -668,9 +668,9 @@ remote
  
  <entry>
    <title>Heroku - Deploy시에 자동으로 migration 하기</title>
-   <link href="http://localhost:4000/dev/rails/heroku/2017/03/01/heroku-rails-migration-when-release/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/heroku/2017/03/01/heroku-rails-migration-when-release/"/>
    <updated>2017-03-01T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/heroku/2017/03/01/heroku-rails-migration-when-release</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/heroku/2017/03/01/heroku-rails-migration-when-release</id>
    <content type="html">&lt;p&gt;Profile 을 root directory에 추가&lt;/p&gt;
 
 &lt;p&gt;Procfile&lt;/p&gt;
@@ -687,9 +687,9 @@ remote
  
  <entry>
    <title>Rails - SSL 제거시 발생한 문제 (config.force_ssl의 비밀)</title>
-   <link href="http://localhost:4000/dev/rails/2017/02/28/how-to-disable-ssl-and-rails-force-ssl/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/02/28/how-to-disable-ssl-and-rails-force-ssl/"/>
    <updated>2017-02-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/02/28/how-to-disable-ssl-and-rails-force-ssl</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/02/28/how-to-disable-ssl-and-rails-force-ssl</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/17776530/disabling-ssl-for-a-heroku-app&quot;&gt;stackoverflow - Disabling SSL for a Heroku App&lt;/a&gt; 에 모든 credit이 있습니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;문제와-현상&quot;&gt;문제와 현상&lt;/h2&gt;
@@ -737,9 +737,9 @@ private
  
  <entry>
    <title>Rails - jQuery DataTable pagination</title>
-   <link href="http://localhost:4000/dev/rails/2017/02/27/rails-datatable-pagination/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/02/27/rails-datatable-pagination/"/>
    <updated>2017-02-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/02/27/rails-datatable-pagination</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/02/27/rails-datatable-pagination</id>
    <content type="html">&lt;p&gt;params로 넘어오는 값이 &lt;a href=&quot;https://github.com/railscasts/340-datatables/blob/master/store-after/app/datatables/products_datatable.rb&quot;&gt;railscast github source&lt;/a&gt;와 좀 바뀐게 있다.&lt;/p&gt;
 
 &lt;p&gt;params[:sSearch] –&amp;gt; params[:search][:value]
@@ -758,9 +758,9 @@ params[:sSortDir_0] –&amp;gt; params[:order][‘0’][‘dir’]&lt;/p&gt;
  
  <entry>
    <title>Rails Custom Layout</title>
-   <link href="http://localhost:4000/2017/02/27/rails-custom-layout/"/>
+   <link href="http://ewbdoohyun.github.io/2017/02/27/rails-custom-layout/"/>
    <updated>2017-02-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/02/27/rails-custom-layout</id>
+   <id>http://ewbdoohyun.github.io/2017/02/27/rails-custom-layout</id>
    <content type="html">
 &lt;ul&gt;
   &lt;li&gt;일반 사용자와 Admin 사용자의 UI는 매우 다름&lt;/li&gt;
@@ -776,9 +776,9 @@ params[:sSortDir_0] –&amp;gt; params[:order][‘0’][‘dir’]&lt;/p&gt;
  
  <entry>
    <title>Rails - libreadline 에러 해결하기</title>
-   <link href="http://localhost:4000/dev/rails/2017/02/22/rails-libreadline-error/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/02/22/rails-libreadline-error/"/>
    <updated>2017-02-22T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/02/22/rails-libreadline-error</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/02/22/rails-libreadline-error</id>
    <content type="html">&lt;h2 id=&quot;환경&quot;&gt;환경&lt;/h2&gt;
 
 &lt;p&gt;rails 4.2.6
@@ -844,9 +844,9 @@ git clone &amp;lt;git repository&amp;gt; bebetem
  
  <entry>
    <title>JQuery Event</title>
-   <link href="http://localhost:4000/dev/jquery/2017/02/16/jquery-event/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jquery/2017/02/16/jquery-event/"/>
    <updated>2017-02-16T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jquery/2017/02/16/jquery-event</id>
+   <id>http://ewbdoohyun.github.io/dev/jquery/2017/02/16/jquery-event</id>
    <content type="html">&lt;h2 id=&quot;event-삭제--unbind--off&quot;&gt;Event 삭제 / unbind / off&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$(selector).off('event_name');
@@ -876,9 +876,9 @@ $(selector).off('mouseenter mouseleave')
  
  <entry>
    <title>Jekyll에 Search 기능 넣기 Lunrjs</title>
-   <link href="http://localhost:4000/dev/jekyll/2017/02/14/jekyll-search/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jekyll/2017/02/14/jekyll-search/"/>
    <updated>2017-02-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jekyll/2017/02/14/jekyll-search</id>
+   <id>http://ewbdoohyun.github.io/dev/jekyll/2017/02/14/jekyll-search</id>
    <content type="html">&lt;p&gt;house201 블로그는 jekyll을 이용해서 만들었다.
 다 좋은데 static page 기반이라 검색이 안된다는게 조금은 불만.&lt;/p&gt;
 
@@ -1018,9 +1018,9 @@ layout: default
  
  <entry>
    <title>Adapt - Tim Harford</title>
-   <link href="http://localhost:4000/book/2017/2017/02/14/adapt/"/>
+   <link href="http://ewbdoohyun.github.io/book/2017/2017/02/14/adapt/"/>
    <updated>2017-02-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/book/2017/2017/02/14/adapt</id>
+   <id>http://ewbdoohyun.github.io/book/2017/2017/02/14/adapt</id>
    <content type="html">&lt;p&gt;비니지스/일상생활 적응 세 가지 원칙&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1034,9 +1034,9 @@ layout: default
  
  <entry>
    <title>Rails - 유저 role 별로 cache 사용</title>
-   <link href="http://localhost:4000/dev/rails/2017/02/13/rails-cache-per-user-role/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/02/13/rails-cache-per-user-role/"/>
    <updated>2017-02-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/02/13/rails-cache-per-user-role</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/02/13/rails-cache-per-user-role</id>
    <content type="html">&lt;h2 id=&quot;유저-role--일반-유저와-admin-유저&quot;&gt;유저 role : 일반 유저와 admin 유저&lt;/h2&gt;
 
 &lt;p&gt;Rails의 cache는 4.0부터 key based cache를 지원합니다&lt;/p&gt;
@@ -1082,9 +1082,9 @@ layout: default
  
  <entry>
    <title>Heroku SSL 적용 - Let's encrypt CA</title>
-   <link href="http://localhost:4000/dev/heroku/2017/02/13/heroku-ssl-lets-encrypted/"/>
+   <link href="http://ewbdoohyun.github.io/dev/heroku/2017/02/13/heroku-ssl-lets-encrypted/"/>
    <updated>2017-02-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/heroku/2017/02/13/heroku-ssl-lets-encrypted</id>
+   <id>http://ewbdoohyun.github.io/dev/heroku/2017/02/13/heroku-ssl-lets-encrypted</id>
    <content type="html">&lt;h2 id=&quot;무료-ssl-certificate&quot;&gt;무료 SSL certificate&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://letsencrypt.org/&quot;&gt;let’s encrypt&lt;/a&gt; 에서 무료 SSL certificate 을 발급받을 수 있다.&lt;/p&gt;
@@ -1246,9 +1246,9 @@ brew install certbot        // cerbot 재설치
  
  <entry>
    <title>Omniauth Facebook</title>
-   <link href="http://localhost:4000/dev/rails/2017/02/09/omniauth-facebook/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/02/09/omniauth-facebook/"/>
    <updated>2017-02-09T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/02/09/omniauth-facebook</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/02/09/omniauth-facebook</id>
    <content type="html">&lt;h2 id=&quot;codes&quot;&gt;Codes&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://coderwall.com/p/bsfitw/ruby-on-rails-4-authentication-with-facebook-and-omniauth&quot;&gt;coderwall.com&lt;/a&gt; 참고&lt;/p&gt;
@@ -1294,9 +1294,9 @@ page:fetch –&amp;gt; turbolinks:request-start&lt;/p&gt;
  
  <entry>
    <title>Rails 4 2</title>
-   <link href="http://localhost:4000/2017/02/06/rails-4-2/"/>
+   <link href="http://ewbdoohyun.github.io/2017/02/06/rails-4-2/"/>
    <updated>2017-02-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/02/06/rails-4-2</id>
+   <id>http://ewbdoohyun.github.io/2017/02/06/rails-4-2</id>
    <content type="html">
 &lt;p&gt;(3.3 Default Host for rails server}&lt;a href=&quot;http://edgeguides.rubyonrails.org/4_2_release_notes.html#default-host-for-rails-server&quot;&gt;1&lt;/a&gt;
 Due to a change in Rack, rails server now listens on localhost instead of 0.0.0.0 by default. This should have minimal impact on the standard development workflow as both http://127.0.0.1:3000 and http://localhost:3000 will continue to work as before on your own machine.&lt;/p&gt;
@@ -1310,9 +1310,9 @@ Due to a change in Rack, rails server now listens on localhost instead of 0.0.0.
  
  <entry>
    <title>Mobile에서 localhost 테스트하기</title>
-   <link href="http://localhost:4000/dev/rails/2017/02/06/ngrok-test-local-app-in-mobile/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2017/02/06/ngrok-test-local-app-in-mobile/"/>
    <updated>2017-02-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2017/02/06/ngrok-test-local-app-in-mobile</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2017/02/06/ngrok-test-local-app-in-mobile</id>
    <content type="html">&lt;h2 id=&quot;ngrok-설치&quot;&gt;ngrok 설치&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://ngrok.com/&quot;&gt;https://ngrok.com/&lt;/a&gt;&lt;/p&gt;
@@ -1331,9 +1331,9 @@ Due to a change in Rack, rails server now listens on localhost instead of 0.0.0.
  
  <entry>
    <title>Google Chart</title>
-   <link href="http://localhost:4000/2017/02/03/google-chart/"/>
+   <link href="http://ewbdoohyun.github.io/2017/02/03/google-chart/"/>
    <updated>2017-02-03T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/02/03/google-chart</id>
+   <id>http://ewbdoohyun.github.io/2017/02/03/google-chart</id>
    <content type="html">&lt;p&gt;https://developers.google.com/chart/interactive/docs/gallery/columnchart&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
@@ -1402,9 +1402,9 @@ Due to a change in Rack, rails server now listens on localhost instead of 0.0.0.
  
  <entry>
    <title>Rails Cache</title>
-   <link href="http://localhost:4000/2017/01/30/rails-cache/"/>
+   <link href="http://ewbdoohyun.github.io/2017/01/30/rails-cache/"/>
    <updated>2017-01-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/01/30/rails-cache</id>
+   <id>http://ewbdoohyun.github.io/2017/01/30/rails-cache</id>
    <content type="html">
 &lt;p&gt;http://guides.rubyonrails.org/caching_with_rails.html#fregment-caching&lt;/p&gt;
 
@@ -1417,9 +1417,9 @@ Due to a change in Rack, rails server now listens on localhost instead of 0.0.0.
  
  <entry>
    <title>Caching Act As Votable</title>
-   <link href="http://localhost:4000/2017/01/30/caching-act-as-votable/"/>
+   <link href="http://ewbdoohyun.github.io/2017/01/30/caching-act-as-votable/"/>
    <updated>2017-01-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/01/30/caching-act-as-votable</id>
+   <id>http://ewbdoohyun.github.io/2017/01/30/caching-act-as-votable</id>
    <content type="html">
 &lt;p&gt;/config/initializers/act_as_votable.md&lt;/p&gt;
 
@@ -1434,9 +1434,9 @@ end
  
  <entry>
    <title>Rails Ujs Custom Event</title>
-   <link href="http://localhost:4000/2017/01/27/rails-ujs-custom-event/"/>
+   <link href="http://ewbdoohyun.github.io/2017/01/27/rails-ujs-custom-event/"/>
    <updated>2017-01-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/01/27/rails-ujs-custom-event</id>
+   <id>http://ewbdoohyun.github.io/2017/01/27/rails-ujs-custom-event</id>
    <content type="html">&lt;p&gt;http://stackoverflow.com/questions/19516654/rails-ujs-confirm-box-cancel-button-callback&lt;/p&gt;
 
 &lt;p&gt;https://github.com/rails/jquery-ujs/blob/master/src/rails.js#L280&lt;/p&gt;
@@ -1446,27 +1446,27 @@ end
  
  <entry>
    <title>Jquery Animate</title>
-   <link href="http://localhost:4000/2017/01/22/jquery-animate/"/>
+   <link href="http://ewbdoohyun.github.io/2017/01/22/jquery-animate/"/>
    <updated>2017-01-22T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/01/22/jquery-animate</id>
+   <id>http://ewbdoohyun.github.io/2017/01/22/jquery-animate</id>
    <content type="html">&lt;p&gt;http://stackoverflow.com/questions/14304473/jquery-fadein-delay-fadeout&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>Gem Week Of Month</title>
-   <link href="http://localhost:4000/2017/01/22/gem-week-of-month/"/>
+   <link href="http://ewbdoohyun.github.io/2017/01/22/gem-week-of-month/"/>
    <updated>2017-01-22T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/01/22/gem-week-of-month</id>
+   <id>http://ewbdoohyun.github.io/2017/01/22/gem-week-of-month</id>
    <content type="html">&lt;p&gt;https://github.com/sachin87/week-of-month&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>irb, rails console에서의 한글 encoding 문제 해결</title>
-   <link href="http://localhost:4000/dev/rails/ruby/2017/01/20/irb-encoding/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/ruby/2017/01/20/irb-encoding/"/>
    <updated>2017-01-20T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/ruby/2017/01/20/irb-encoding</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/ruby/2017/01/20/irb-encoding</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;기본 encoding : UTF-8&lt;/li&gt;
   &lt;li&gt;한글 사용을 위해서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;readline&lt;/code&gt; 패키지 필요&lt;/li&gt;
@@ -1497,9 +1497,9 @@ rbenv install &amp;lt;ruby_version&amp;gt;
  
  <entry>
    <title>루비 버전 관리 - rbenv Mac 설치</title>
-   <link href="http://localhost:4000/dev/ruby/2017/01/20/install-rbenv/"/>
+   <link href="http://ewbdoohyun.github.io/dev/ruby/2017/01/20/install-rbenv/"/>
    <updated>2017-01-20T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/ruby/2017/01/20/install-rbenv</id>
+   <id>http://ewbdoohyun.github.io/dev/ruby/2017/01/20/install-rbenv</id>
    <content type="html">&lt;p&gt;(rbenv github)&lt;a href=&quot;https://github.com/rbenv/rbenv&quot;&gt;1&lt;/a&gt;
 (ruby-build)&lt;a href=&quot;https://github.com/rbenv/ruby-build#readme&quot;&gt;2&lt;/a&gt; : rbenv install 명령어를 사용가능하게 하는 plugin&lt;/p&gt;
 
@@ -1526,9 +1526,9 @@ rbenv local             // 해당 폴더 루비 버전 확인
  
  <entry>
    <title>Git - Remote branch로 local branch 만들기</title>
-   <link href="http://localhost:4000/dev/git/2017/01/18/git-pull-remote-branch/"/>
+   <link href="http://ewbdoohyun.github.io/dev/git/2017/01/18/git-pull-remote-branch/"/>
    <updated>2017-01-18T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/git/2017/01/18/git-pull-remote-branch</id>
+   <id>http://ewbdoohyun.github.io/dev/git/2017/01/18/git-pull-remote-branch</id>
    <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git pull
 git checkout -b remote_branch origin/remote_branch
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1539,9 +1539,9 @@ git checkout -b remote_branch origin/remote_branch
  
  <entry>
    <title>Subl Terminal Command</title>
-   <link href="http://localhost:4000/2017/01/17/subl-terminal-command/"/>
+   <link href="http://ewbdoohyun.github.io/2017/01/17/subl-terminal-command/"/>
    <updated>2017-01-17T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2017/01/17/subl-terminal-command</id>
+   <id>http://ewbdoohyun.github.io/2017/01/17/subl-terminal-command</id>
    <content type="html">
 &lt;hr /&gt;
 &lt;p&gt;title: SublimeText3 - terminal command 맵핑
@@ -1569,9 +1569,9 @@ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/
  
  <entry>
    <title>생각좀 하고 살아라 - 야마다 아키오</title>
-   <link href="http://localhost:4000/book/2017/2017/01/17/yamada-akio/"/>
+   <link href="http://ewbdoohyun.github.io/book/2017/2017/01/17/yamada-akio/"/>
    <updated>2017-01-17T00:00:00+09:00</updated>
-   <id>http://localhost:4000/book/2017/2017/01/17/yamada-akio</id>
+   <id>http://ewbdoohyun.github.io/book/2017/2017/01/17/yamada-akio</id>
    <content type="html">&lt;p&gt;뛰어난 아이디어는 지식이나 재능이 아니라 ‘왜?’에서 나온다.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1580,9 +1580,9 @@ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/
  
  <entry>
    <title>Rspec - partial rendering 테스트 하기</title>
-   <link href="http://localhost:4000/dev/rspec/2017/01/14/render-parital-rspec/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rspec/2017/01/14/render-parital-rspec/"/>
    <updated>2017-01-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rspec/2017/01/14/render-parital-rspec</id>
+   <id>http://ewbdoohyun.github.io/dev/rspec/2017/01/14/render-parital-rspec</id>
    <content type="html">&lt;p&gt;view에서 유저일 때는 광고를 보여주지 않는 부분을 테스트.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;%= render partial: &quot;layouts/gdn_main_top&quot; if not logged_in? %&amp;gt;
@@ -1628,9 +1628,9 @@ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/
  
  <entry>
    <title>markdown에서 한줄 띄어쓰기</title>
-   <link href="http://localhost:4000/dev/jekyll/markdown/2017/01/14/newline-markdown/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jekyll/markdown/2017/01/14/newline-markdown/"/>
    <updated>2017-01-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jekyll/markdown/2017/01/14/newline-markdown</id>
+   <id>http://ewbdoohyun.github.io/dev/jekyll/markdown/2017/01/14/newline-markdown</id>
    <content type="html">&lt;p&gt;Use two spaces or two backslashes.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;this is a  
@@ -1654,9 +1654,9 @@ in a paragraph&amp;lt;/p&amp;gt;
  
  <entry>
    <title>Ruby Sorting - nil값이 있는 경우</title>
-   <link href="http://localhost:4000/dev/ruby/2017/01/13/ruby-sort/"/>
+   <link href="http://ewbdoohyun.github.io/dev/ruby/2017/01/13/ruby-sort/"/>
    <updated>2017-01-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/ruby/2017/01/13/ruby-sort</id>
+   <id>http://ewbdoohyun.github.io/dev/ruby/2017/01/13/ruby-sort</id>
    <content type="html">&lt;h3 id=&quot;sort&quot;&gt;Sort&lt;/h3&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;array.sort&lt;/code&gt; 는 &lt;code class=&quot;highlighter-rouge&quot;&gt;array.sort { |x, y| x &amp;lt;=&amp;gt; y }&lt;/code&gt; 와 동일&lt;/p&gt;
@@ -1706,9 +1706,9 @@ array.sort { |a, b| a &amp;amp;&amp;amp; b ? a&amp;lt;=&amp;gt;b : a ? -1 : 1 }
  
  <entry>
    <title>Sprint - Jake Knapp</title>
-   <link href="http://localhost:4000/book/2017/2017/01/13/sprint/"/>
+   <link href="http://ewbdoohyun.github.io/book/2017/2017/01/13/sprint/"/>
    <updated>2017-01-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/book/2017/2017/01/13/sprint</id>
+   <id>http://ewbdoohyun.github.io/book/2017/2017/01/13/sprint</id>
    <content type="html">&lt;p&gt;곧바로 솔루션 도출로 뛰어들지 말고 시간을 들여 찬찬히 문제들을 정하고 초기 목표에 합의하라.&lt;br /&gt;
 나중에 속도를 낼 수 있도록 처음에는 천천히 시작한다.&lt;/p&gt;
 
@@ -1727,9 +1727,9 @@ array.sort { |a, b| a &amp;amp;&amp;amp; b ? a&amp;lt;=&amp;gt;b : a ? -1 : 1 }
  
  <entry>
    <title>Heroku database 업그레이드</title>
-   <link href="http://localhost:4000/dev/heroku/2017/01/11/heroku-database-upgrade/"/>
+   <link href="http://ewbdoohyun.github.io/dev/heroku/2017/01/11/heroku-database-upgrade/"/>
    <updated>2017-01-11T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/heroku/2017/01/11/heroku-database-upgrade</id>
+   <id>http://ewbdoohyun.github.io/dev/heroku/2017/01/11/heroku-database-upgrade</id>
    <content type="html">&lt;p&gt;무료버전인 Hobby-Dev에서 $9인 Hobby-Basic 버전으로 변경하는 경우&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -1818,9 +1818,9 @@ heroku에서 database 생성시, 긴 url 대신에 alias를 제공.&lt;/p&gt;
  
  <entry>
    <title>Screw it! Let's do it! - Richard Branson</title>
-   <link href="http://localhost:4000/book/2017/2017/01/11/Screw-it-lets-do-it/"/>
+   <link href="http://ewbdoohyun.github.io/book/2017/2017/01/11/Screw-it-lets-do-it/"/>
    <updated>2017-01-11T00:00:00+09:00</updated>
-   <id>http://localhost:4000/book/2017/2017/01/11/Screw-it-lets-do-it</id>
+   <id>http://ewbdoohyun.github.io/book/2017/2017/01/11/Screw-it-lets-do-it</id>
    <content type="html">&lt;ol&gt;
   &lt;li&gt;&lt;span class=&quot;hl&quot;&gt;일단 해보자.&lt;/span&gt;&lt;/li&gt;
   &lt;li&gt;좋은 생각이다 싶으면 해서는 안되는 이유보다 해야 할 이유를 찾으려 항상 애쓴다.&lt;/li&gt;
@@ -1852,9 +1852,9 @@ heroku에서 database 생성시, 긴 url 대신에 alias를 제공.&lt;/p&gt;
  
  <entry>
    <title>Ruby Regex</title>
-   <link href="http://localhost:4000/dev/ruby/2017/01/05/ruby-regex/"/>
+   <link href="http://ewbdoohyun.github.io/dev/ruby/2017/01/05/ruby-regex/"/>
    <updated>2017-01-05T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/ruby/2017/01/05/ruby-regex</id>
+   <id>http://ewbdoohyun.github.io/dev/ruby/2017/01/05/ruby-regex</id>
    <content type="html">&lt;p&gt;regex를 사용하기 전에, 특정 문자열을 바꾸는 경우라면, 간단히 아래 함수를 사용할 수도 있다.&lt;/p&gt;
 
 &lt;p&gt;.sub&lt;/p&gt;
@@ -1889,9 +1889,9 @@ pattern이 없다면 nil을 반환한다.&lt;/p&gt;
  
  <entry>
    <title>Heroku 서버 재시작</title>
-   <link href="http://localhost:4000/dev/heroku/2017/01/05/heroku-restart/"/>
+   <link href="http://ewbdoohyun.github.io/dev/heroku/2017/01/05/heroku-restart/"/>
    <updated>2017-01-05T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/heroku/2017/01/05/heroku-restart</id>
+   <id>http://ewbdoohyun.github.io/dev/heroku/2017/01/05/heroku-restart</id>
    <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;heroku restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1904,9 +1904,9 @@ pattern이 없다면 nil을 반환한다.&lt;/p&gt;
  
  <entry>
    <title>Preload/Eagerload Nest Association</title>
-   <link href="http://localhost:4000/dev/rails/2016/12/31/rails-preload-nested-association/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/12/31/rails-preload-nested-association/"/>
    <updated>2016-12-31T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/12/31/rails-preload-nested-association</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/12/31/rails-preload-nested-association</id>
    <content type="html">&lt;h2 id=&quot;preload-nest-association&quot;&gt;Preload Nest Association&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Menu.includes(submenus: :items)
@@ -1932,9 +1932,9 @@ Menu.includes(submenus: :best_item)
  
  <entry>
    <title>jQuery Dom붙이기 한 방에 이해!! - append, prepend, after, before</title>
-   <link href="http://localhost:4000/dev/rails/2016/12/31/jquery-append-prepend-after-before/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/12/31/jquery-append-prepend-after-before/"/>
    <updated>2016-12-31T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/12/31/jquery-append-prepend-after-before</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/12/31/jquery-append-prepend-after-before</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://i.stack.imgur.com/GWmap.png&quot; alt=&quot;jquery append prepend after before&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1944,9 +1944,9 @@ Menu.includes(submenus: :best_item)
  
  <entry>
    <title>Google Sheet Query Function</title>
-   <link href="http://localhost:4000/2016/12/28/google-sheet-query-function/"/>
+   <link href="http://ewbdoohyun.github.io/2016/12/28/google-sheet-query-function/"/>
    <updated>2016-12-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/12/28/google-sheet-query-function</id>
+   <id>http://ewbdoohyun.github.io/2016/12/28/google-sheet-query-function</id>
    <content type="html">
 &lt;p&gt;함수 결과를 Query의 range로 사용할 때
 column ID나 label을 따로 설정할 수 없을 때
@@ -1962,9 +1962,9 @@ Col1, Col2 를 이용해서 함수 결과 range의 첫번째 column, 두번째 c
  
  <entry>
    <title>Git - merge vs. rebase</title>
-   <link href="http://localhost:4000/dev/git/2016/12/23/git-merge-vs-rebase/"/>
+   <link href="http://ewbdoohyun.github.io/dev/git/2016/12/23/git-merge-vs-rebase/"/>
    <updated>2016-12-23T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/git/2016/12/23/git-merge-vs-rebase</id>
+   <id>http://ewbdoohyun.github.io/dev/git/2016/12/23/git-merge-vs-rebase</id>
    <content type="html">&lt;h3 id=&quot;rebase&quot;&gt;Rebase&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout feature
@@ -1988,9 +1988,9 @@ git rebase master
  
  <entry>
    <title>Javascript 'undefined' 체크</title>
-   <link href="http://localhost:4000/dev/javascript/2016/12/23/check-undefined/"/>
+   <link href="http://ewbdoohyun.github.io/dev/javascript/2016/12/23/check-undefined/"/>
    <updated>2016-12-23T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/javascript/2016/12/23/check-undefined</id>
+   <id>http://ewbdoohyun.github.io/dev/javascript/2016/12/23/check-undefined</id>
    <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typeof myVar != 'undefined'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -2000,9 +2000,9 @@ git rebase master
  
  <entry>
    <title>Bounce Vs Bounce Rate</title>
-   <link href="http://localhost:4000/2016/12/19/bounce-vs-bounce-rate/"/>
+   <link href="http://ewbdoohyun.github.io/2016/12/19/bounce-vs-bounce-rate/"/>
    <updated>2016-12-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/12/19/bounce-vs-bounce-rate</id>
+   <id>http://ewbdoohyun.github.io/2016/12/19/bounce-vs-bounce-rate</id>
    <content type="html">
 &lt;p&gt;이탈수와 이탈률 어떤 지표를 봐야될까?&lt;/p&gt;
 
@@ -2046,9 +2046,9 @@ git rebase master
  
  <entry>
    <title>.xyz 때문에 짜증이 나신다면 - GA에서 스팸제거하기</title>
-   <link href="http://localhost:4000/dev/google%20analytics/2016/12/19/prevent-ghost-spam-in-google-analytics/"/>
+   <link href="http://ewbdoohyun.github.io/dev/google%20analytics/2016/12/19/prevent-ghost-spam-in-google-analytics/"/>
    <updated>2016-12-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/google%20analytics/2016/12/19/prevent-ghost-spam-in-google-analytics</id>
+   <id>http://ewbdoohyun.github.io/dev/google%20analytics/2016/12/19/prevent-ghost-spam-in-google-analytics</id>
    <content type="html">&lt;h3 id=&quot;ghost-spam&quot;&gt;Ghost Spam&lt;/h3&gt;
 
 &lt;p&gt;주로 referral report에 나타나는 스팸성 트래픽은 랜덤하게 Google anlaytics(GA) ID를 만들어서 트래픽을 보낸다.
@@ -2108,9 +2108,9 @@ CS쪽 지식이 있는 사람이라면 단번에 or 연산자라는 걸 알것�
  
  <entry>
    <title>Postgresql 한글 정렬</title>
-   <link href="http://localhost:4000/dev/rails/pg/2016/12/14/postgresql-korean-sort/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/pg/2016/12/14/postgresql-korean-sort/"/>
    <updated>2016-12-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/pg/2016/12/14/postgresql-korean-sort</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/pg/2016/12/14/postgresql-korean-sort</id>
    <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Menu.order('name collate &quot;C&quot; asc')
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -2122,9 +2122,9 @@ CS쪽 지식이 있는 사람이라면 단번에 or 연산자라는 걸 알것�
  
  <entry>
    <title>Google Sheet - 함수에서 blank cell 반환하기</title>
-   <link href="http://localhost:4000/dev/google%20sheet/2016/12/14/google-sheet-return-blank-cell/"/>
+   <link href="http://ewbdoohyun.github.io/dev/google%20sheet/2016/12/14/google-sheet-return-blank-cell/"/>
    <updated>2016-12-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/google%20sheet/2016/12/14/google-sheet-return-blank-cell</id>
+   <id>http://ewbdoohyun.github.io/dev/google%20sheet/2016/12/14/google-sheet-return-blank-cell</id>
    <content type="html">&lt;p&gt;꼼수&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;= iferror(1/0)
@@ -2143,9 +2143,9 @@ CS쪽 지식이 있는 사람이라면 단번에 or 연산자라는 걸 알것�
  
  <entry>
    <title>린치핀 - 세스 고딘</title>
-   <link href="http://localhost:4000/book/2016/2016/12/14/linchpin/"/>
+   <link href="http://ewbdoohyun.github.io/book/2016/2016/12/14/linchpin/"/>
    <updated>2016-12-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/book/2016/2016/12/14/linchpin</id>
+   <id>http://ewbdoohyun.github.io/book/2016/2016/12/14/linchpin</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;자신이 일을 할 대상, 자신을 지켜봐줄 사람, 자신에게 돈을 지불할 사람을 찾는 것은 나쁘지 않다. 하지만 그 사람을 상사처럼 대하는 순간, 자신의 행동과 결과물에 대한 책임을 떠맡을 사람으로 대하는 순간, 우리는 더이상 예술가가 아니라 톱니바퀴가 된다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2172,9 +2172,9 @@ CS쪽 지식이 있는 사람이라면 단번에 or 연산자라는 걸 알것�
  
  <entry>
    <title>Rspec - 원하는 테스트만 실행하기</title>
-   <link href="http://localhost:4000/dev/rspec/2016/12/10/rspec-selective-test/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rspec/2016/12/10/rspec-selective-test/"/>
    <updated>2016-12-10T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rspec/2016/12/10/rspec-selective-test</id>
+   <id>http://ewbdoohyun.github.io/dev/rspec/2016/12/10/rspec-selective-test</id>
    <content type="html">&lt;p&gt;spec_helper.rb&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;config.filter_run_when_matching :focus
@@ -2191,9 +2191,9 @@ CS쪽 지식이 있는 사람이라면 단번에 or 연산자라는 걸 알것�
  
  <entry>
    <title>Rspec 에서 referrer 설정하기</title>
-   <link href="http://localhost:4000/dev/rspec/2016/12/10/rspec-mock-referrer/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rspec/2016/12/10/rspec-mock-referrer/"/>
    <updated>2016-12-10T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rspec/2016/12/10/rspec-mock-referrer</id>
+   <id>http://ewbdoohyun.github.io/dev/rspec/2016/12/10/rspec-mock-referrer</id>
    <content type="html">&lt;p&gt;referrer 설정하는 법&lt;/p&gt;
 
 &lt;p&gt;1) Mocking&lt;/p&gt;
@@ -2207,9 +2207,9 @@ CS쪽 지식이 있는 사람이라면 단번에 or 연산자라는 걸 알것�
  
  <entry>
    <title>Javascript Unicdoe/UTF-8 인코딩</title>
-   <link href="http://localhost:4000/dev/javascript/2016/12/09/javascript-encoding/"/>
+   <link href="http://ewbdoohyun.github.io/dev/javascript/2016/12/09/javascript-encoding/"/>
    <updated>2016-12-09T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/javascript/2016/12/09/javascript-encoding</id>
+   <id>http://ewbdoohyun.github.io/dev/javascript/2016/12/09/javascript-encoding</id>
    <content type="html">&lt;h3 id=&quot;unicode&quot;&gt;Unicode&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;String.prototype.toUnicode = function(){
@@ -2237,9 +2237,9 @@ var output = input.toUnicode();
  
  <entry>
    <title>Rspec</title>
-   <link href="http://localhost:4000/2016/12/07/rspec/"/>
+   <link href="http://ewbdoohyun.github.io/2016/12/07/rspec/"/>
    <updated>2016-12-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/12/07/rspec</id>
+   <id>http://ewbdoohyun.github.io/2016/12/07/rspec</id>
    <content type="html">
 &lt;p&gt;&lt;a href=&quot;http://betterspecs.org/ko/#expect&quot;&gt;rspec style guide&lt;/a&gt;&lt;/p&gt;
 
@@ -2293,9 +2293,9 @@ end
  
  <entry>
    <title>Rails Controller Test with Rspec</title>
-   <link href="http://localhost:4000/dev/rails/test/rspec/2016/12/06/rspec-controller/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/test/rspec/2016/12/06/rspec-controller/"/>
    <updated>2016-12-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/test/rspec/2016/12/06/rspec-controller</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/test/rspec/2016/12/06/rspec-controller</id>
    <content type="html">&lt;h3 id=&quot;controller-테스트-범위&quot;&gt;Controller 테스트 범위&lt;/h3&gt;
 
 &lt;ol&gt;
@@ -2524,9 +2524,9 @@ end
  
  <entry>
    <title>마인드 스토밍(mind storming) - 창의력을 기르는 방법</title>
-   <link href="http://localhost:4000/biz/idea/2016/12/04/mind-storming/"/>
+   <link href="http://ewbdoohyun.github.io/biz/idea/2016/12/04/mind-storming/"/>
    <updated>2016-12-04T00:00:00+09:00</updated>
-   <id>http://localhost:4000/biz/idea/2016/12/04/mind-storming</id>
+   <id>http://ewbdoohyun.github.io/biz/idea/2016/12/04/mind-storming</id>
    <content type="html">&lt;p&gt;마인드 스토밍(mind storming) - 창의력을 기르는 방법&lt;/p&gt;
 
 &lt;ul&gt;
@@ -2575,9 +2575,9 @@ end
  
  <entry>
    <title>VCR - 빠른 3rd party API 테스트</title>
-   <link href="http://localhost:4000/dev/rails/2016/12/02/vcr-webmocking/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/12/02/vcr-webmocking/"/>
    <updated>2016-12-02T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/12/02/vcr-webmocking</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/12/02/vcr-webmocking</id>
    <content type="html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;vcr-태그-사용&quot;&gt;:vcr 태그 사용&lt;/h3&gt;
@@ -2625,9 +2625,9 @@ context 'with valid attributes', vcr: {record: :new_episodes} do
  
  <entry>
    <title>Rspec Style Guide</title>
-   <link href="http://localhost:4000/2016/12/02/rspec-style-guide/"/>
+   <link href="http://ewbdoohyun.github.io/2016/12/02/rspec-style-guide/"/>
    <updated>2016-12-02T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/12/02/rspec-style-guide</id>
+   <id>http://ewbdoohyun.github.io/2016/12/02/rspec-style-guide</id>
    <content type="html">&lt;p&gt;http://betterspecs.org/ko/&lt;/p&gt;
 
 </content>
@@ -2635,9 +2635,9 @@ context 'with valid attributes', vcr: {record: :new_episodes} do
  
  <entry>
    <title>How To Test Crawling Codes</title>
-   <link href="http://localhost:4000/2016/12/02/how-to-test-crawling-codes/"/>
+   <link href="http://ewbdoohyun.github.io/2016/12/02/how-to-test-crawling-codes/"/>
    <updated>2016-12-02T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/12/02/how-to-test-crawling-codes</id>
+   <id>http://ewbdoohyun.github.io/2016/12/02/how-to-test-crawling-codes</id>
    <content type="html">
 &lt;p&gt;crawling할 페이지를 vcr로 mocking합니다.
 해당 페이지에서 crawling 되는 결과값을 알아내서
@@ -2647,9 +2647,9 @@ expect()로 해당 결과가 crawling code로 부터 나오는지 확인합니�
  
  <entry>
    <title>Google Sheet에서 Google Analytics add-on 사용하기</title>
-   <link href="http://localhost:4000/growth/measure/2016/12/01/google-sheet-google-analytics-addon/"/>
+   <link href="http://ewbdoohyun.github.io/growth/measure/2016/12/01/google-sheet-google-analytics-addon/"/>
    <updated>2016-12-01T00:00:00+09:00</updated>
-   <id>http://localhost:4000/growth/measure/2016/12/01/google-sheet-google-analytics-addon</id>
+   <id>http://ewbdoohyun.github.io/growth/measure/2016/12/01/google-sheet-google-analytics-addon</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://developers.google.com/analytics/solutions/google-analytics-spreadsheet-add-on&quot;&gt;Google analytic add-on&lt;/a&gt; 사용시 주의점 간략히 정리해 봅니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -2702,9 +2702,9 @@ URL 버전(%3D%3D, %3E, %3C)으로 사용하면 동작하지 않습니다.&lt;/p
  
  <entry>
    <title>Google Sheet - 대시보드 만드는데 사용되는 function들</title>
-   <link href="http://localhost:4000/growth/measure/2016/12/01/google-sheet-function-for-building-dashboard/"/>
+   <link href="http://ewbdoohyun.github.io/growth/measure/2016/12/01/google-sheet-function-for-building-dashboard/"/>
    <updated>2016-12-01T00:00:00+09:00</updated>
-   <id>http://localhost:4000/growth/measure/2016/12/01/google-sheet-function-for-building-dashboard</id>
+   <id>http://ewbdoohyun.github.io/growth/measure/2016/12/01/google-sheet-function-for-building-dashboard</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/public/google-sheet.png&quot; alt=&quot;google-sheet-dashboard&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;전체 함수 리스트는 &lt;a href=&quot;https://support.google.com/docs/table/25273?hl=en&quot;&gt;google sheet function list&lt;/a&gt; 에서 확인하세요.&lt;/p&gt;
@@ -2924,9 +2924,9 @@ row가 여러개인 경우엔 index(range, , 1) 와 같이 row값을 생략하�
  
  <entry>
    <title>Heroku에서 Timezone 설정하기</title>
-   <link href="http://localhost:4000/dev/heroku/2016/11/30/set-timezone-on-heroku/"/>
+   <link href="http://ewbdoohyun.github.io/dev/heroku/2016/11/30/set-timezone-on-heroku/"/>
    <updated>2016-11-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/heroku/2016/11/30/set-timezone-on-heroku</id>
+   <id>http://ewbdoohyun.github.io/dev/heroku/2016/11/30/set-timezone-on-heroku</id>
    <content type="html">&lt;h3 id=&quot;0-codes&quot;&gt;0. Codes&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;heroku config:add TZ=&quot;Asia/Seoul&quot;
@@ -2942,9 +2942,9 @@ row가 여러개인 경우엔 index(range, , 1) 와 같이 row값을 생략하�
  
  <entry>
    <title>Integration test or Unit test</title>
-   <link href="http://localhost:4000/dev/rails/test/2016/11/30/railscast-how-to-test/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/test/2016/11/30/railscast-how-to-test/"/>
    <updated>2016-11-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/test/2016/11/30/railscast-how-to-test</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/test/2016/11/30/railscast-how-to-test</id>
    <content type="html">&lt;p&gt;Integration_test에서는 사용자가 신경 쓸만한 부분을 테스트한다.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -2966,9 +2966,9 @@ row가 여러개인 경우엔 index(range, , 1) 와 같이 row값을 생략하�
  
  <entry>
    <title>Rails Test 0 Table of Contents</title>
-   <link href="http://localhost:4000/dev/rails/test/2016/11/30/rails-test-toc/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/test/2016/11/30/rails-test-toc/"/>
    <updated>2016-11-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/test/2016/11/30/rails-test-toc</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/test/2016/11/30/rails-test-toc</id>
    <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Test Philasophy&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;https://github.com/lelylan/betterspecs/issues/5&lt;/p&gt;
@@ -3032,9 +3032,9 @@ row가 여러개인 경우엔 index(range, , 1) 와 같이 row값을 생략하�
  
  <entry>
    <title>Rails Test 1 Model</title>
-   <link href="http://localhost:4000/dev/rails/test/2016/11/30/rails-test-model/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/test/2016/11/30/rails-test-model/"/>
    <updated>2016-11-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/test/2016/11/30/rails-test-model</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/test/2016/11/30/rails-test-model</id>
    <content type="html">&lt;p&gt;Model에서 테스트 해야 할 것.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -3094,9 +3094,9 @@ end
  
  <entry>
    <title>Jekyll에서 다른 post 링크를 넣는 방법</title>
-   <link href="http://localhost:4000/dev/jekyll/2016/11/30/jekyll-post-url/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jekyll/2016/11/30/jekyll-post-url/"/>
    <updated>2016-11-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jekyll/2016/11/30/jekyll-post-url</id>
+   <id>http://ewbdoohyun.github.io/dev/jekyll/2016/11/30/jekyll-post-url</id>
    <content type="html">&lt;p&gt;Post에서 다른 post(2016-11-30-filename.md)의 링크를 넣는 방법.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% post_url 2016-11-30-filename %}
@@ -3118,9 +3118,9 @@ end
  
  <entry>
    <title>Jekyll에서 forloop index 알아내기</title>
-   <link href="http://localhost:4000/dev/jekyll/2016/11/30/jekyll-forloop-index/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jekyll/2016/11/30/jekyll-forloop-index/"/>
    <updated>2016-11-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jekyll/2016/11/30/jekyll-forloop-index</id>
+   <id>http://ewbdoohyun.github.io/dev/jekyll/2016/11/30/jekyll-forloop-index</id>
    <content type="html">&lt;p&gt;jekyll은 liquid 문법을 사용합니다.&lt;/p&gt;
 
 &lt;p&gt;for loop에서 몇번 째 iteration인지 아는 방법&lt;/p&gt;
@@ -3139,9 +3139,9 @@ end
  
  <entry>
    <title>Gem - Factory_girl</title>
-   <link href="http://localhost:4000/dev/rails/test/2016/11/30/factory_girl/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/test/2016/11/30/factory_girl/"/>
    <updated>2016-11-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/test/2016/11/30/factory_girl</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/test/2016/11/30/factory_girl</id>
    <content type="html">&lt;p&gt;&lt;small&gt;FactoryGirl Rails v4.4 기준입니다.&lt;/small&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3292,9 +3292,9 @@ end
  
  <entry>
    <title>Gem Nokogiri - 웹페이지 크롤링</title>
-   <link href="http://localhost:4000/dev/rails/2016/11/28/nokogiri/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/11/28/nokogiri/"/>
    <updated>2016-11-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/11/28/nokogiri</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/11/28/nokogiri</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/sparklemotion/nokogiri&quot;&gt;Nokogiri&lt;/a&gt;는 selector를 이용해 웹페이지의 정보를 가져올 수 있게 해줍니다.
 링크를 타고 가면서 크롤링 하는 것을 원할 경우엔, &lt;a href=&quot;https://github.com/sparklemotion/mechanize&quot;&gt;Mechanize&lt;/a&gt;를 사용하세요.&lt;/p&gt;
 
@@ -3355,9 +3355,9 @@ end
  
  <entry>
    <title>사업을 시작하기전 해야 할 질문</title>
-   <link href="http://localhost:4000/biz/entrepreneurship/2016/11/18/first-question-to-start-business/"/>
+   <link href="http://ewbdoohyun.github.io/biz/entrepreneurship/2016/11/18/first-question-to-start-business/"/>
    <updated>2016-11-18T00:00:00+09:00</updated>
-   <id>http://localhost:4000/biz/entrepreneurship/2016/11/18/first-question-to-start-business</id>
+   <id>http://ewbdoohyun.github.io/biz/entrepreneurship/2016/11/18/first-question-to-start-business</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;어떤 이유로 기업가정신에 관심을 갖든 제일 먼저 해야 할 일은 다음의 질문에 자신만의 답을 찾는 것이다.
 “오랜 기간 지치지 않고 즐기면서 잘할 수 있는 일은 무엇일까?&lt;/p&gt;
@@ -3376,9 +3376,9 @@ end
  
  <entry>
    <title>첫 고객 만들기</title>
-   <link href="http://localhost:4000/biz/%EC%84%B8%EC%9D%BC%EC%A6%88/2016/11/16/how-to-make-first-customer/"/>
+   <link href="http://ewbdoohyun.github.io/biz/%EC%84%B8%EC%9D%BC%EC%A6%88/2016/11/16/how-to-make-first-customer/"/>
    <updated>2016-11-16T00:00:00+09:00</updated>
-   <id>http://localhost:4000/biz/%EC%84%B8%EC%9D%BC%EC%A6%88/2016/11/16/how-to-make-first-customer</id>
+   <id>http://ewbdoohyun.github.io/biz/%EC%84%B8%EC%9D%BC%EC%A6%88/2016/11/16/how-to-make-first-customer</id>
    <content type="html">&lt;h3 id=&quot;1-아는-사람-총-동원&quot;&gt;1. 아는 사람 총 동원&lt;/h3&gt;
 
 &lt;p&gt;아는 사람에게 다섯사람 정도를 소개시켜달라고 요청
@@ -3427,9 +3427,9 @@ white paper를 쓰고 이메일을 보내고
  
  <entry>
    <title>판매의 심리학 - 브라이언 트레이시</title>
-   <link href="http://localhost:4000/book/2016/2016/11/14/the-psychology-of-selling/"/>
+   <link href="http://ewbdoohyun.github.io/book/2016/2016/11/14/the-psychology-of-selling/"/>
    <updated>2016-11-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/book/2016/2016/11/14/the-psychology-of-selling</id>
+   <id>http://ewbdoohyun.github.io/book/2016/2016/11/14/the-psychology-of-selling</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;고객은 특성을 사는게 아니라, 이득을 구매할 뿐이다.
 그들은 결코 제품이나 서비스를 사는 게 아니다, 자신의 문제에 대한 해결법을 사는 것이다.&lt;/p&gt;
@@ -3452,9 +3452,9 @@ white paper를 쓰고 이메일을 보내고
  
  <entry>
    <title>Rails - text-area 줄바꿈 입력값 보여주기</title>
-   <link href="http://localhost:4000/dev/rails/2016/11/13/rails-new-line-in-text-area-input/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/11/13/rails-new-line-in-text-area-input/"/>
    <updated>2016-11-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/11/13/rails-new-line-in-text-area-input</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/11/13/rails-new-line-in-text-area-input</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-simple_format&quot;&gt;simple_format&lt;/a&gt; 을 이용하면, text-area에서 받은 줄바꿈(‘\r’)을 쉽게 보여줄 수 있다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//form
@@ -3471,9 +3471,9 @@ form_for comment
  
  <entry>
    <title>Jekyll 이용한 Gibhub pag에서 sitemap 생성</title>
-   <link href="http://localhost:4000/dev/jekyll/seo/2016/11/13/jekyll-sitemap/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jekyll/seo/2016/11/13/jekyll-sitemap/"/>
    <updated>2016-11-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jekyll/seo/2016/11/13/jekyll-sitemap</id>
+   <id>http://ewbdoohyun.github.io/dev/jekyll/seo/2016/11/13/jekyll-sitemap</id>
    <content type="html">&lt;p&gt;_config.yml 파일에 아래 &lt;em&gt;jekyll-sitemap&lt;/em&gt; gem을 추가해주면, github page에서 자동으로 sitemap.xml을 생성합니다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//_config.yml
@@ -3489,9 +3489,9 @@ form_for comment
  
  <entry>
    <title>Jekyll에 disqus 추가하기</title>
-   <link href="http://localhost:4000/dev/jekyll/2016/11/13/jekyll-disqus/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jekyll/2016/11/13/jekyll-disqus/"/>
    <updated>2016-11-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jekyll/2016/11/13/jekyll-disqus</id>
+   <id>http://ewbdoohyun.github.io/dev/jekyll/2016/11/13/jekyll-disqus</id>
    <content type="html">&lt;p&gt;모든 글에 대해서 disqus를 적용하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt;에 다음을 추가하면 된다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;disqus_thread&quot;&amp;gt;&amp;lt;/div&amp;gt;
@@ -3542,9 +3542,9 @@ comments: true
  
  <entry>
    <title>Rails - 20자 이상 자르고 말줄임표 붙이기</title>
-   <link href="http://localhost:4000/dev/rails/2016/11/12/rails-truncate/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/11/12/rails-truncate/"/>
    <updated>2016-11-12T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/11/12/rails-truncate</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/11/12/rails-truncate</id>
    <content type="html">&lt;p&gt;Rails의 &lt;a href=&quot;http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-truncate&quot;&gt;truncate&lt;/a&gt;를 쓰면, 20자 이상인 경우 20자까지만 보여주고 말줄임표로 바꿔준다.
 말줄임표를 어떤 문자로 할지도 설정할 수 있다.&lt;/p&gt;
 
@@ -3565,9 +3565,9 @@ truncate(&quot;And they found that many people were sleeping better.&quot;, leng
  
  <entry>
    <title>Rails - dev 모드에서 sass 컴파일 속도 높이기</title>
-   <link href="http://localhost:4000/dev/rails/2016/11/12/rails-fast-asset-pipelie-with-sassc/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/11/12/rails-fast-asset-pipelie-with-sassc/"/>
    <updated>2016-11-12T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/11/12/rails-fast-asset-pipelie-with-sassc</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/11/12/rails-fast-asset-pipelie-with-sassc</id>
    <content type="html">&lt;p&gt;프론트 작업할 때, sass 파일을 수정하고 브라우저에서 확인하는 것을 반복할 경우가 많다.
 ‘sass-rails’ gem을 사용하고 있다면, ‘sassc-rails’ gem으로 바꾸는 것 만으로 이 작업의 속도가 훨신 좋아진다!&lt;/p&gt;
 
@@ -3583,9 +3583,9 @@ gem 'sassc-rails'
  
  <entry>
    <title>별점넣기 - Rails Gem Ratyrate</title>
-   <link href="http://localhost:4000/dev/rails/2016/11/11/rails-gem-ratyrate/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/11/11/rails-gem-ratyrate/"/>
    <updated>2016-11-11T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/11/11/rails-gem-ratyrate</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/11/11/rails-gem-ratyrate</id>
    <content type="html">&lt;p&gt;리뷰에 별점을 넣기 위해서 Ratyrate gem을 사용했다. 사실, ruby-toolbox에서 찾아보면 제일 많은 다운로드 수를 기록한 rating gem은 Ajaxful-rating이지만, Rails4에서 제대로 동작하지 않더라.(&lt;a href=&quot;https://github.com/edgarjs/ajaxful-rating/issues/100&quot;&gt;gibhub issue&lt;/a&gt;)&lt;/p&gt;
 
 &lt;p&gt;Google 검색에서 ‘Rails gem rating’을 쳤을 때 상위에 나오는 &lt;a href=&quot;https://github.com/wazery/ratyrate&quot;&gt;Ratyrate&lt;/a&gt;라는 gem을 사용하기로 했다. 우선 Ratyrate는 &lt;a href=&quot;https://github.com/wbotelhos/raty&quot;&gt;jQuery Raty&lt;/a&gt;라는 플러그인을 wrapping한 gem이다.&lt;/p&gt;
@@ -3752,9 +3752,9 @@ gem 'ratyrate', 'git: git://github.com/wazery/ratyrate.git
  
  <entry>
    <title>Seo Friendly Url</title>
-   <link href="http://localhost:4000/2016/11/09/SEO-friendly-url/"/>
+   <link href="http://ewbdoohyun.github.io/2016/11/09/SEO-friendly-url/"/>
    <updated>2016-11-09T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/11/09/SEO-friendly-url</id>
+   <id>http://ewbdoohyun.github.io/2016/11/09/SEO-friendly-url</id>
    <content type="html">&lt;p&gt;http://railscasts.com/episodes/314-pretty-urls-with-friendlyid?view=asciicast&lt;/p&gt;
 
 &lt;p&gt;https://github.com/norman/friendly_id/tree/master/lib&lt;/p&gt;
@@ -3770,9 +3770,9 @@ end&lt;/p&gt;
  
  <entry>
    <title>네이버 블로그 - 구글 검색 등록</title>
-   <link href="http://localhost:4000/growth/google/%EB%84%A4%EC%9D%B4%EB%B2%84%EB%B8%94%EB%A1%9C%EA%B7%B8/2016/11/08/naver-blog-post-submit-google/"/>
+   <link href="http://ewbdoohyun.github.io/growth/google/%EB%84%A4%EC%9D%B4%EB%B2%84%EB%B8%94%EB%A1%9C%EA%B7%B8/2016/11/08/naver-blog-post-submit-google/"/>
    <updated>2016-11-08T00:00:00+09:00</updated>
-   <id>http://localhost:4000/growth/google/%EB%84%A4%EC%9D%B4%EB%B2%84%EB%B8%94%EB%A1%9C%EA%B7%B8/2016/11/08/naver-blog-post-submit-google</id>
+   <id>http://ewbdoohyun.github.io/growth/google/%EB%84%A4%EC%9D%B4%EB%B2%84%EB%B8%94%EB%A1%9C%EA%B7%B8/2016/11/08/naver-blog-post-submit-google</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;네이버 블로그 포스트를 구글에서 검색될 수 있게, 수동으로 등록하는 방법&lt;/li&gt;
 &lt;/ul&gt;
@@ -3785,9 +3785,9 @@ end&lt;/p&gt;
  
  <entry>
    <title>좋아요/싫어요 투표 기능 gem - acts_as_votable</title>
-   <link href="http://localhost:4000/dev/rails/2016/11/08/gem-act-as-votable/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/11/08/gem-act-as-votable/"/>
    <updated>2016-11-08T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/11/08/gem-act-as-votable</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/11/08/gem-act-as-votable</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/public/voting.png&quot; alt=&quot;bebetem.com 리뷰 투표&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;center&quot;&gt;[&lt;a href=&quot;http://bebetem.com&quot;&gt;bebetem.com&lt;/a&gt; 리뷰 투표]&lt;/p&gt;
@@ -3999,9 +3999,9 @@ end
  
  <entry>
    <title>대댓글 기능 gem - act_as_commentable_with_threading</title>
-   <link href="http://localhost:4000/dev/rails/2016/11/07/gem-act-as-commentable-with-threading/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/11/07/gem-act-as-commentable-with-threading/"/>
    <updated>2016-11-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/11/07/gem-act-as-commentable-with-threading</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/11/07/gem-act-as-commentable-with-threading</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/public/comment.png&quot; alt=&quot;bebetem.com 대댓글&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;center&quot;&gt;[&lt;a href=&quot;http://bebetem.com&quot;&gt;bebetem.com&lt;/a&gt; 대댓글]&lt;/p&gt;
@@ -4179,9 +4179,9 @@ end
  
  <entry>
    <title>Jekyll Seo Search Engine Optimization</title>
-   <link href="http://localhost:4000/2016/11/07/Jekyll-SEO-search-engine-optimization/"/>
+   <link href="http://ewbdoohyun.github.io/2016/11/07/Jekyll-SEO-search-engine-optimization/"/>
    <updated>2016-11-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/11/07/Jekyll-SEO-search-engine-optimization</id>
+   <id>http://ewbdoohyun.github.io/2016/11/07/Jekyll-SEO-search-engine-optimization</id>
    <content type="html">&lt;p&gt;https://github.com/jekyll/jekyll-seo-tag
 https://github.com/jekyll/jekyll-sitemap&lt;/p&gt;
 </content>
@@ -4189,9 +4189,9 @@ https://github.com/jekyll/jekyll-sitemap&lt;/p&gt;
  
  <entry>
    <title>webkit-pading-start 제거하기</title>
-   <link href="http://localhost:4000/dev/css/2016/11/03/remove-webkit-padding-start/"/>
+   <link href="http://ewbdoohyun.github.io/dev/css/2016/11/03/remove-webkit-padding-start/"/>
    <updated>2016-11-03T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/css/2016/11/03/remove-webkit-padding-start</id>
+   <id>http://ewbdoohyun.github.io/dev/css/2016/11/03/remove-webkit-padding-start</id>
    <content type="html">&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* {
@@ -4208,9 +4208,9 @@ https://github.com/jekyll/jekyll-sitemap&lt;/p&gt;
  
  <entry>
    <title>Godaddy에서 Heroku로 DNS 설정하기</title>
-   <link href="http://localhost:4000/dev/heroku/2016/10/28/godaddy-heroku-dns-forwarding/"/>
+   <link href="http://ewbdoohyun.github.io/dev/heroku/2016/10/28/godaddy-heroku-dns-forwarding/"/>
    <updated>2016-10-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/heroku/2016/10/28/godaddy-heroku-dns-forwarding</id>
+   <id>http://ewbdoohyun.github.io/dev/heroku/2016/10/28/godaddy-heroku-dns-forwarding</id>
    <content type="html">&lt;ol&gt;
   &lt;li&gt;Godaddy DNS 관리페이지에서 모든 레코드를 삭제.&lt;/li&gt;
   &lt;li&gt;다음 레코드 추가
@@ -4263,9 +4263,9 @@ https://github.com/jekyll/jekyll-sitemap&lt;/p&gt;
  
  <entry>
    <title>SublimeText3 - 여러 줄 한번에 수정하기</title>
-   <link href="http://localhost:4000/dev/sublimetext/2016/10/25/sublimetext3-edit-multiple-lines/"/>
+   <link href="http://ewbdoohyun.github.io/dev/sublimetext/2016/10/25/sublimetext3-edit-multiple-lines/"/>
    <updated>2016-10-25T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/sublimetext/2016/10/25/sublimetext3-edit-multiple-lines</id>
+   <id>http://ewbdoohyun.github.io/dev/sublimetext/2016/10/25/sublimetext3-edit-multiple-lines</id>
    <content type="html">&lt;h3 id=&quot;command--shift--l--split-into-lines&quot;&gt;Command + shift + L : split into lines&lt;/h3&gt;
 
 &lt;ol&gt;
@@ -4286,9 +4286,9 @@ https://github.com/jekyll/jekyll-sitemap&lt;/p&gt;
  
  <entry>
    <title>Mac OS X 10.11(El capitan)에서 SourceTree CLT 설치 실패시</title>
-   <link href="http://localhost:4000/dev/rails/2016/10/23/el-capitan-sourcetree-command-line-tool/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/10/23/el-capitan-sourcetree-command-line-tool/"/>
    <updated>2016-10-23T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/10/23/el-capitan-sourcetree-command-line-tool</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/10/23/el-capitan-sourcetree-command-line-tool</id>
    <content type="html">&lt;p&gt;workaround 방법입니다.&lt;/p&gt;
 
 &lt;p&gt;~/.bash_profile&lt;/p&gt;
@@ -4304,9 +4304,9 @@ https://github.com/jekyll/jekyll-sitemap&lt;/p&gt;
  
  <entry>
    <title>Rails4에서 PG String Array type 사용하기</title>
-   <link href="http://localhost:4000/dev/rails/2016/10/21/rails4-pg-string-array-form/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/10/21/rails4-pg-string-array-form/"/>
    <updated>2016-10-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/10/21/rails4-pg-string-array-form</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/10/21/rails4-pg-string-array-form</id>
    <content type="html">&lt;h3 id=&quot;migration&quot;&gt;migration&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class AddInstagramCodesToItem &amp;lt; ActiveRecord::Migration
@@ -4357,9 +4357,9 @@ string으로 넘겼더니 기존 값도 사라지고 blank array가 되더라.&l
  
  <entry>
    <title>Turbolink - 인스타그램 embed가 load되지 않을 때</title>
-   <link href="http://localhost:4000/dev/rails/2016/10/21/rails-turbolink-instagram-embed/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/10/21/rails-turbolink-instagram-embed/"/>
    <updated>2016-10-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/10/21/rails-turbolink-instagram-embed</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/10/21/rails-turbolink-instagram-embed</id>
    <content type="html">&lt;p&gt;이것 때문에 시간을 많이 뺐겼는데, turbolink 세팅을 바꾸면 될 줄 알았다.&lt;/p&gt;
 
 &lt;p&gt;instagram.js.coffee&lt;/p&gt;
@@ -4378,9 +4378,9 @@ string으로 넘겼더니 기존 값도 사라지고 blank array가 되더라.&l
  
  <entry>
    <title>Sitemap</title>
-   <link href="http://localhost:4000/dev/rails/2016/10/07/sitemap/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/10/07/sitemap/"/>
    <updated>2016-10-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/10/07/sitemap</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/10/07/sitemap</id>
    <content type="html">&lt;p&gt;Sitemap_generator gem을 이용합니다.&lt;/p&gt;
 
 &lt;p&gt;[Rails를 위한 가이드]가 따로 있습니다. &lt;a href=&quot;https://github.com/kjvarga/sitemap_generator#rails&quot;&gt;Rails 사용자를 위한 sitemap_generator guide&lt;/a&gt;&lt;/p&gt;
@@ -4421,9 +4421,9 @@ SitemapGenerator::Sitemap.create do
  
  <entry>
    <title>Pagination - 다른 페이지에 같은 record가 나오는 문제</title>
-   <link href="http://localhost:4000/dev/rails/sql/2016/09/28/duplicated-records-of-sql-when-using-limit-and-offset/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/sql/2016/09/28/duplicated-records-of-sql-when-using-limit-and-offset/"/>
    <updated>2016-09-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/sql/2016/09/28/duplicated-records-of-sql-when-using-limit-and-offset</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/sql/2016/09/28/duplicated-records-of-sql-when-using-limit-and-offset</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/mislav/will_paginate&quot;&gt;will_paginate&lt;/a&gt; gem을 이용하는데, 다른 페이지에 같은 record가 올라오는 경우가 있었다.
 문제는 infinite scrolling을 넣으며 ajax로 다음 페이지를 붙이다 보니, 중복되게 반복되는 경우가 발생했다.
 gem의 문제인가 해서 psql로 직접 sql을 날려보니, sql 결과에서도 같은 record가 나타났다.&lt;/p&gt;
@@ -4511,9 +4511,9 @@ pnm_development=# SELECT  &quot;sub_menus&quot;.*, &quot;menus&quot;.name FROM &
  
  <entry>
    <title>Turbolinks - Kakao sdk</title>
-   <link href="http://localhost:4000/dev/rails/2016/09/27/kakao-sdk-with-turbolink/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/09/27/kakao-sdk-with-turbolink/"/>
    <updated>2016-09-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/09/27/kakao-sdk-with-turbolink</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/09/27/kakao-sdk-with-turbolink</id>
    <content type="html">&lt;p&gt;Codes Only.&lt;/p&gt;
 
 &lt;p&gt;kakao_story.js&lt;/p&gt;
@@ -4557,9 +4557,9 @@ pnm_development=# SELECT  &quot;sub_menus&quot;.*, &quot;menus&quot;.name FROM &
  
  <entry>
    <title>Omniauth</title>
-   <link href="http://localhost:4000/dev/rails/2016/09/23/omniauth/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/09/23/omniauth/"/>
    <updated>2016-09-23T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/09/23/omniauth</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/09/23/omniauth</id>
    <content type="html">&lt;p&gt;####Gemfile
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Omniauth-identity&lt;/code&gt; 는 hash function으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;bcrypt&lt;/code&gt;를 이용합니다. Gemfile에 &lt;code class=&quot;highlighter-rouge&quot;&gt;bcrypt&lt;/code&gt;도 추가해줍니다.&lt;/p&gt;
 
@@ -4759,9 +4759,9 @@ end
  
  <entry>
    <title>tip - nil이 아닌경우에 method를 실행</title>
-   <link href="http://localhost:4000/dev/ruby/rails/2016/09/22/call-methods-only-if-exists/"/>
+   <link href="http://ewbdoohyun.github.io/dev/ruby/rails/2016/09/22/call-methods-only-if-exists/"/>
    <updated>2016-09-22T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/ruby/rails/2016/09/22/call-methods-only-if-exists</id>
+   <id>http://ewbdoohyun.github.io/dev/ruby/rails/2016/09/22/call-methods-only-if-exists</id>
    <content type="html">&lt;p&gt;object가 nil이 아닌 경우에만 method를 실행하고 싶을 때가 있다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;self.send(:method) if self.respond_to?(:method)
@@ -4778,9 +4778,9 @@ end
  
  <entry>
    <title>Heroku database로 local database 세팅하기</title>
-   <link href="http://localhost:4000/dev/rails/heroku/2016/09/21/Heroku-database-dump-out/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/heroku/2016/09/21/Heroku-database-dump-out/"/>
    <updated>2016-09-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/heroku/2016/09/21/Heroku-database-dump-out</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/heroku/2016/09/21/Heroku-database-dump-out</id>
    <content type="html">&lt;h2 id=&quot;0codes-first&quot;&gt;0.Codes first&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;heroku pg:backups capture
@@ -4832,9 +4832,9 @@ bin/rake db:reset (기존 development db의 데이터는 삭제됩니다.)
  
  <entry>
    <title>Capybara Summary</title>
-   <link href="http://localhost:4000/2016/09/20/capybara-summary/"/>
+   <link href="http://ewbdoohyun.github.io/2016/09/20/capybara-summary/"/>
    <updated>2016-09-20T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/09/20/capybara-summary</id>
+   <id>http://ewbdoohyun.github.io/2016/09/20/capybara-summary</id>
    <content type="html">&lt;p&gt;regex 사용&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;expect(page.text).to match(/regex/)&lt;/code&gt;&lt;/li&gt;
@@ -4896,9 +4896,9 @@ fill_in “name_input”&lt;/li&gt;
  
  <entry>
    <title>Development DB를 Postresql로 세팅</title>
-   <link href="http://localhost:4000/dev/rails/2016/09/17/rails-set-development-database-as-postgresql/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/09/17/rails-set-development-database-as-postgresql/"/>
    <updated>2016-09-17T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/09/17/rails-set-development-database-as-postgresql</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/09/17/rails-set-development-database-as-postgresql</id>
    <content type="html">&lt;p&gt;pg install&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;http://postgresapp.com/&lt;/li&gt;
@@ -4941,9 +4941,9 @@ pg_restore –verbose –clean –no-acl –no-owner -h localhost -U myuser -d p
  
  <entry>
    <title>Rails4 - nested form</title>
-   <link href="http://localhost:4000/dev/rails/2016/09/13/Rails4-nested-form/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/09/13/Rails4-nested-form/"/>
    <updated>2016-09-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/09/13/Rails4-nested-form</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/09/13/Rails4-nested-form</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;육아는 아이템전&lt;/code&gt;을 만들면서 사용한 nested form에 대해 정리해 둔다.&lt;/li&gt;
   &lt;li&gt;Parenting_neees_money에서 각 Item은 여러개의 keyword를 가지고 있고, keyword는 여러개의 data 로그를 가지고 있다.&lt;/li&gt;
@@ -5109,9 +5109,9 @@ pg_restore –verbose –clean –no-acl –no-owner -h localhost -U myuser -d p
  
  <entry>
    <title>Rails4 User Login - 처음부터</title>
-   <link href="http://localhost:4000/dev/rails/2016/09/10/user-login/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/09/10/user-login/"/>
    <updated>2016-09-10T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/09/10/user-login</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/09/10/user-login</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;[Michael Hartl의 Rails tutorial][railstutorial] 에 나온 user login 기능 부분을 정리해 본다.&lt;/li&gt;
   &lt;li&gt;User model 생성
@@ -5461,9 +5461,9 @@ pg_restore –verbose –clean –no-acl –no-owner -h localhost -U myuser -d p
  
  <entry>
    <title>Sublime Package</title>
-   <link href="http://localhost:4000/dev/sublimetext/2016/09/10/my-sublime-package-usges/"/>
+   <link href="http://ewbdoohyun.github.io/dev/sublimetext/2016/09/10/my-sublime-package-usges/"/>
    <updated>2016-09-10T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/sublimetext/2016/09/10/my-sublime-package-usges</id>
+   <id>http://ewbdoohyun.github.io/dev/sublimetext/2016/09/10/my-sublime-package-usges</id>
    <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;단순히 highlight snippet 때문에 사용. (ST2는 지원하지 않는다.)&lt;/p&gt;
@@ -5506,9 +5506,9 @@ pg_restore –verbose –clean –no-acl –no-owner -h localhost -U myuser -d p
  
  <entry>
    <title>Liquid syntax error - 'highlight' tag was never closed</title>
-   <link href="http://localhost:4000/dev/jekyll/2016/09/10/Jekyll-tag-never-closed/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jekyll/2016/09/10/Jekyll-tag-never-closed/"/>
    <updated>2016-09-10T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jekyll/2016/09/10/Jekyll-tag-never-closed</id>
+   <id>http://ewbdoohyun.github.io/dev/jekyll/2016/09/10/Jekyll-tag-never-closed</id>
    <content type="html">&lt;p&gt;config.yml&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;excerpt_separator&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -5521,9 +5521,9 @@ pg_restore –verbose –clean –no-acl –no-owner -h localhost -U myuser -d p
  
  <entry>
    <title>Turbolinks & Google analytics</title>
-   <link href="http://localhost:4000/dev/rails/google%20analytics/2016/09/09/turbolinks-google-analytics/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/google%20analytics/2016/09/09/turbolinks-google-analytics/"/>
    <updated>2016-09-09T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/google%20analytics/2016/09/09/turbolinks-google-analytics</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/google%20analytics/2016/09/09/turbolinks-google-analytics</id>
    <content type="html">&lt;p&gt;Turbolink는 AJAX로 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag내 컨텐츠만 바꿔서 page loading time을 줄여준다.
 GA는 page load시 마다 서버로 pageview 데이터를 전달하기 때문에 Turbolink를 사용하면 ajax로 이동한 page에 대해서는 GA로 분석 할 수 없다.&lt;/p&gt;
 
@@ -5574,9 +5574,9 @@ GA는 page load시 마다 서버로 pageview 데이터를 전달하기 때문에
  
  <entry>
    <title>document ready & Turbolinks</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/28/turbolinks-load-event/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/28/turbolinks-load-event/"/>
    <updated>2016-08-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/28/turbolinks-load-event</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/28/turbolinks-load-event</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;turbolink 5 기준이다.
     &lt;ul&gt;
@@ -5592,9 +5592,9 @@ GA는 page load시 마다 서버로 pageview 데이터를 전달하기 때문에
  
  <entry>
    <title>Tips - Rails(레일즈) active model serializer</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/25/rails-active-model-serializer/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/25/rails-active-model-serializer/"/>
    <updated>2016-08-25T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/25/rails-active-model-serializer</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/25/rails-active-model-serializer</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;Active record를 사용한다면, &lt;code class=&quot;highlighter-rouge&quot;&gt;.as_json only:&lt;/code&gt; 로 원하는 attribute만 json으로 만들 수 있다.&lt;/li&gt;
 &lt;/ul&gt;
@@ -5670,9 +5670,9 @@ GA는 page load시 마다 서버로 pageview 데이터를 전달하기 때문에
  
  <entry>
    <title>가치 기반 가격 (Value-based pricing)</title>
-   <link href="http://localhost:4000/biz/pricing/2016/08/25/value-based-pricing/"/>
+   <link href="http://ewbdoohyun.github.io/biz/pricing/2016/08/25/value-based-pricing/"/>
    <updated>2016-08-25T00:00:00+09:00</updated>
-   <id>http://localhost:4000/biz/pricing/2016/08/25/value-based-pricing</id>
+   <id>http://ewbdoohyun.github.io/biz/pricing/2016/08/25/value-based-pricing</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;제조업인 경우엔 원가에 저절한 마진을 더해서 판매가가 결정된다.&lt;/p&gt;
@@ -5817,9 +5817,9 @@ from. &lt;a href=&quot;https://www.sequoiacap.com/article/pricing-your-product&q
  
  <entry>
    <title>Rails(레일즈) bootstrap 세팅.</title>
-   <link href="http://localhost:4000/dev/rails/bootstrap/2016/08/21/initial-settings-rails-bootstrap/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/bootstrap/2016/08/21/initial-settings-rails-bootstrap/"/>
    <updated>2016-08-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/bootstrap/2016/08/21/initial-settings-rails-bootstrap</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/bootstrap/2016/08/21/initial-settings-rails-bootstrap</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/twbs/bootstrap-sass&quot;&gt;bootstrap-sass&lt;/a&gt; gem 초기 세팅 과정이다.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Stylesheets&lt;/strong&gt;&lt;/p&gt;
@@ -5855,9 +5855,9 @@ from. &lt;a href=&quot;https://www.sequoiacap.com/article/pricing-your-product&q
  
  <entry>
    <title>Rails(레일즈) scope</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/20/rails-scope/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/20/rails-scope/"/>
    <updated>2016-08-20T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/20/rails-scope</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/20/rails-scope</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt;은 자주 사용하는 query를 method형태로 사용 할 수 있게 해준다.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt;은 &lt;code class=&quot;highlighter-rouge&quot;&gt;def self.&lt;/code&gt; class method와 같다.&lt;/li&gt;
@@ -5896,9 +5896,9 @@ from. &lt;a href=&quot;https://www.sequoiacap.com/article/pricing-your-product&q
  
  <entry>
    <title>테스트 자동화 - guard</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/20/rails-guard/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/20/rails-guard/"/>
    <updated>2016-08-20T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/20/rails-guard</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/20/rails-guard</id>
    <content type="html">&lt;h3 id=&quot;guard&quot;&gt;Guard&lt;/h3&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;&lt;/p&gt;
@@ -5977,9 +5977,9 @@ end
  
  <entry>
    <title>nil?, empty?, blank? 그리고 present?</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/19/nil-empty-blank-present/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/19/nil-empty-blank-present/"/>
    <updated>2016-08-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/19/nil-empty-blank-present</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/19/nil-empty-blank-present</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;item.comment&lt;/code&gt;가 존재하는지를 &lt;code class=&quot;highlighter-rouge&quot;&gt;.empty?&lt;/code&gt;를 통해 확인했다.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;item.comment&lt;/code&gt;가 &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;인 경우에 exception이 발생한다.&lt;/li&gt;
@@ -5992,9 +5992,9 @@ end
  
  <entry>
    <title>Sass 파일에서 css 파일 import</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/19/import-css-in-scss/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/19/import-css-in-scss/"/>
    <updated>2016-08-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/19/import-css-in-scss</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/19/import-css-in-scss</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@import 'style.css'&lt;/code&gt; 라고 어딘가에서 찾았고, development 환경에서는 문제없이 import된다.&lt;/li&gt;
   &lt;li&gt;style.css는 lib/assets/stylesheets 에 위치해 있다.&lt;/li&gt;
@@ -6014,9 +6014,9 @@ end
  
  <entry>
    <title>git local strorage에 staging 파일을 제거.</title>
-   <link href="http://localhost:4000/dev/git/2016/08/19/git-remove-staging-files/"/>
+   <link href="http://ewbdoohyun.github.io/dev/git/2016/08/19/git-remove-staging-files/"/>
    <updated>2016-08-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/git/2016/08/19/git-remove-staging-files</id>
+   <id>http://ewbdoohyun.github.io/dev/git/2016/08/19/git-remove-staging-files</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rm --cached &amp;lt;file_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;directory인경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;-r&lt;/code&gt; 옵션을 사용
@@ -6034,9 +6034,9 @@ end
  
  <entry>
    <title>SQL for Cohort analysis</title>
-   <link href="http://localhost:4000/growth/cohort/2016/08/16/sql-for-cohort-analysis/"/>
+   <link href="http://ewbdoohyun.github.io/growth/cohort/2016/08/16/sql-for-cohort-analysis/"/>
    <updated>2016-08-16T00:00:00+09:00</updated>
-   <id>http://localhost:4000/growth/cohort/2016/08/16/sql-for-cohort-analysis</id>
+   <id>http://ewbdoohyun.github.io/growth/cohort/2016/08/16/sql-for-cohort-analysis</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;가입일로 보는 cohort는 크게 의미가 없기에, 특정 이벤트 액션별로 비교한다.&lt;/li&gt;
 &lt;/ul&gt;
@@ -6060,9 +6060,9 @@ end
  
  <entry>
    <title>Jekyll - category array를 sub-category처럼 사용하기</title>
-   <link href="http://localhost:4000/dev/jekyll/2016/08/14/jekyll-sub-category/"/>
+   <link href="http://ewbdoohyun.github.io/dev/jekyll/2016/08/14/jekyll-sub-category/"/>
    <updated>2016-08-14T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/jekyll/2016/08/14/jekyll-sub-category</id>
+   <id>http://ewbdoohyun.github.io/dev/jekyll/2016/08/14/jekyll-sub-category</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; category의 sub category를 만들려고 했다.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; category 페이지에서 sub category별로 post title을 모아서 보여주려고 했다.&lt;/li&gt;
@@ -6234,9 +6234,9 @@ comments: true
  
  <entry>
    <title>Rails Integration Test</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/13/integration-test/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/13/integration-test/"/>
    <updated>2016-08-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/13/integration-test</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/13/integration-test</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g integration_test &amp;lt;NAME&amp;gt;&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;`get &lt;path&gt;, &lt;params_hash&gt;
@@ -6282,9 +6282,9 @@ comments: true
  
  <entry>
    <title>빠른 테스트 - Guard & Zeus</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/13/fast-test-with-guard-and-zeus/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/13/fast-test-with-guard-and-zeus/"/>
    <updated>2016-08-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/13/fast-test-with-guard-and-zeus</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/13/fast-test-with-guard-and-zeus</id>
    <content type="html">&lt;h3 id=&quot;zeus--guard&quot;&gt;&lt;a href=&quot;https://github.com/burke/zeus&quot;&gt;Zeus&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://github.com/guard/guard&quot;&gt;Guard&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;zeus는 rails app을 미리 로딩해 두어서, test 실행 마다 로딩에 걸리는 시간을 줄일 수 있습니다.&lt;/p&gt;
@@ -6325,9 +6325,9 @@ end
  
  <entry>
    <title>Ruby - Naver 검색광고 API</title>
-   <link href="http://localhost:4000/dev/rails/2016/08/11/naver-searchad-api-ruby/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/08/11/naver-searchad-api-ruby/"/>
    <updated>2016-08-11T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/08/11/naver-searchad-api-ruby</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/08/11/naver-searchad-api-ruby</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;API Access License 와 Secret Key를 발급받자. (&lt;a href=&quot;https://manage.searchad.naver.com/&quot;&gt;네이버 검색광고&lt;/a&gt; 에 들어가 도구 &amp;gt; API 사용관리)&lt;/li&gt;
   &lt;li&gt;Header에 다음을 추가해야 한다.
@@ -6412,9 +6412,9 @@ end
  
  <entry>
    <title>Chrome에서 video tag 사용</title>
-   <link href="http://localhost:4000/dev/web/2016/07/29/chrome-video-tag/"/>
+   <link href="http://ewbdoohyun.github.io/dev/web/2016/07/29/chrome-video-tag/"/>
    <updated>2016-07-29T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/web/2016/07/29/chrome-video-tag</id>
+   <id>http://ewbdoohyun.github.io/dev/web/2016/07/29/chrome-video-tag</id>
    <content type="html">&lt;p&gt;Chrome limits the number of videos/audio files to 4 or 6 (I can’t remember which) so, as brianchirls mentions, you need to set the preload attribute, although you need to set it to none.&lt;/p&gt;
 
 &lt;p&gt;My recommendation is to provide a poster image (via the poster attribute) for all your videos and to set preload=”none” to all of them. That way the browser only actually tries to load them if the user actively clicks the play button.&lt;/p&gt;
@@ -6425,9 +6425,9 @@ end
  
  <entry>
    <title>Carrierwave video thumbnailer</title>
-   <link href="http://localhost:4000/dev/rails/2016/07/29/carrierwave-video-thumbnailer/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/07/29/carrierwave-video-thumbnailer/"/>
    <updated>2016-07-29T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/07/29/carrierwave-video-thumbnailer</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/07/29/carrierwave-video-thumbnailer</id>
    <content type="html">&lt;p&gt;video tag의 poster attribute에 동영상이 재생되기 전에 보이는 이미지를 정해 줄 수 있다.
 w3school에서 poster attribute를 설정하지 않으면 동영상의 첫 frame이 사용된다고 했는데, Chrome에서는 이미지가 뜨지않았다.&lt;/p&gt;
 
@@ -6468,18 +6468,18 @@ buildpack은 &lt;a href=&quot;https://elements.heroku.com/buildpacks/akomic/hero
  
  <entry>
    <title>Single Uploader Multiple Content Type</title>
-   <link href="http://localhost:4000/2016/07/26/single-uploader-multiple-content-type/"/>
+   <link href="http://ewbdoohyun.github.io/2016/07/26/single-uploader-multiple-content-type/"/>
    <updated>2016-07-26T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2016/07/26/single-uploader-multiple-content-type</id>
+   <id>http://ewbdoohyun.github.io/2016/07/26/single-uploader-multiple-content-type</id>
    <content type="html">
 </content>
  </entry>
  
  <entry>
    <title>Heroku에 ffmpeg 설치하기 (Multi buildpack 사용하기)</title>
-   <link href="http://localhost:4000/dev/heroku/2016/07/25/Heroku-multi-build-packs/"/>
+   <link href="http://ewbdoohyun.github.io/dev/heroku/2016/07/25/Heroku-multi-build-packs/"/>
    <updated>2016-07-25T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/heroku/2016/07/25/Heroku-multi-build-packs</id>
+   <id>http://ewbdoohyun.github.io/dev/heroku/2016/07/25/Heroku-multi-build-packs</id>
    <content type="html">&lt;p&gt;Video 파일 변환을 위해서 &lt;code class=&quot;highlighter-rouge&quot;&gt;carrierwave-video&lt;/code&gt; gem을 사용했다. 이 gem은 ffmpeg를 사용하기 때문에, Heroku에도 ffmpeg를 설치해 주어야 한다.&lt;/p&gt;
 
 &lt;p&gt;carrierwave-video는 audio codec으로 fdk-aac를 사용한다. License 문제로 fdk-aac를 포함한 binary file을 공식적으로 배포하지는 않고, 직접 compile해서 사용해야 한다.&lt;/p&gt;
@@ -6507,9 +6507,9 @@ buildpack은 &lt;a href=&quot;https://elements.heroku.com/buildpacks/akomic/hero
  
  <entry>
    <title>Bootstrap collapse의 event handler 사용하기</title>
-   <link href="http://localhost:4000/dev/bootstrap/2016/07/24/bootrap-collapse/"/>
+   <link href="http://ewbdoohyun.github.io/dev/bootstrap/2016/07/24/bootrap-collapse/"/>
    <updated>2016-07-24T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/bootstrap/2016/07/24/bootrap-collapse</id>
+   <id>http://ewbdoohyun.github.io/dev/bootstrap/2016/07/24/bootrap-collapse</id>
    <content type="html">&lt;p&gt;우선 만든것을 먼저 보여드린다.&lt;/p&gt;
 
 &lt;p&gt;감춰진 상태
@@ -6552,9 +6552,9 @@ i tag의 class를 바꿔주면 화살표가 바뀌게 된다.&lt;/p&gt;
  
  <entry>
    <title>model이 없는 form의 입력을 validation 이후에도 유지하기.</title>
-   <link href="http://localhost:4000/dev/rails/2016/07/21/repopulate-non-model-form-field/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/07/21/repopulate-non-model-form-field/"/>
    <updated>2016-07-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/07/21/repopulate-non-model-form-field</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/07/21/repopulate-non-model-form-field</id>
    <content type="html">&lt;p&gt;Rails는 많은 일을 해줘서, 가끔은 이게 Rails에서 해주는것인지 브라우저에서 해주는 것인지 헷갈릴 때가 있다.&lt;/p&gt;
 
 &lt;p&gt;비밀번호가 틀렸을 때, id값을 유지하는 것도 model을 사용한다면 form에 인스턴스를 사용하는 것 만으로 해결된다.&lt;/p&gt;
@@ -6597,9 +6597,9 @@ i tag의 class를 바꿔주면 화살표가 바뀌게 된다.&lt;/p&gt;
  
  <entry>
    <title>모바일 Layout - View port</title>
-   <link href="http://localhost:4000/dev/html/2016/07/19/set-viewport/"/>
+   <link href="http://ewbdoohyun.github.io/dev/html/2016/07/19/set-viewport/"/>
    <updated>2016-07-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/html/2016/07/19/set-viewport</id>
+   <id>http://ewbdoohyun.github.io/dev/html/2016/07/19/set-viewport</id>
    <content type="html">&lt;p&gt;Viewport는 웹페이지에서 눈에 보이는 영역을 말한다.&lt;/p&gt;
 
 &lt;p&gt;Desktop기준으로 만들어 둔 web page는 모바일의 viewport보다 훨씬 큰데,
@@ -6629,9 +6629,9 @@ i tag의 class를 바꿔주면 화살표가 바뀌게 된다.&lt;/p&gt;
  
  <entry>
    <title>EXIF 옵션에 따라 이미지 회전시키기</title>
-   <link href="http://localhost:4000/dev/rails/2016/07/18/rotate-image/"/>
+   <link href="http://ewbdoohyun.github.io/dev/rails/2016/07/18/rotate-image/"/>
    <updated>2016-07-18T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dev/rails/2016/07/18/rotate-image</id>
+   <id>http://ewbdoohyun.github.io/dev/rails/2016/07/18/rotate-image</id>
    <content type="html">&lt;p&gt;모바일에서 세로로 찍은 사진을 &lt;a href=&quot;https://ara-house.herokuapp.com&quot;&gt;ara house&lt;/a&gt;에 올리니, 데스크탑에서 제대로 보이지 않았다.
 모바일에서는 브라우저가 자동으로 이미지를 회전시켜주지만, 데스크탑에서는 그렇지 않은가보다.&lt;/p&gt;
 
