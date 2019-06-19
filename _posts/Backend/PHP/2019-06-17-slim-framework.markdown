@@ -1,18 +1,17 @@
 ---
 layout: post
+comments: true
 title:  "Slim Framework"
-date:   2019-06-18 13:00:00
-author: Danny Kim
-categories: Backend PHP Slim framework
-tags:	php slim
+category: [backend, php]
 ---
 Slim Framework 적용기 (간단한 Restful API을 PHP로 )
 
-![1560917521622](C:\Users\trumpia\AppData\Roaming\Typora\typora-user-images\1560917521622.png)
+![62697485-D98E-435E-88B6-0B19BE26EEEB](https://user-images.githubusercontent.com/42507943/59740653-af4e9c80-92a3-11e9-874d-82f618f8ba81.png)
+
 
 다음과 같은 형태로 Ajax 콜을 PHP로 관리 하고 있었다.
 
- 생각을 해 보니, 단순 콜 하나일 때는 상관이 없었으나, 여러개가 되고, 담당자가 변경이 된다고 하였을 때 유지보수나, 새로운 기능을 만든다고 생각을 했을 때 일관성을 유지하기가 힘들 것 같bundle exec jekyll build았다.
+ 생각을 해 보니, 단순 콜 하나일 때는 상관이 없었으나, 여러개가 되고, 담당자가 변경이 된다고 하였을 때 유지보수나, 새로운 기능을 만든다고 생각을 했을 때 일관성을 유지하기가 힘들 것 같았다.
 
 해당 부분을 Restful API로 개조하여 사용하기로 결정하고, 어떤 Framework을 사용하는 것이 좋을 지에 대하여 고려해 보았다.
 
