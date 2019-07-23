@@ -276,6 +276,73 @@
       </div>
     
   
+    <div class="category">
+      <a href="#spring">SPRING (1)</a>
+
+    </div>
+    
+      <div class="post">
+        <h4 class="post-title">
+          <a href="/backend/spring/2019/07/19/componentscan/">
+            ComponentScan에 대하여
+          </a>
+        </h4>
+        <div class="post-description">
+          <small><span class="post-date">19 Jul 2019</span></small>
+        </div>
+        <!-- <p>들어가기 전에 : @SpringbootApplication anotation 안에도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">autoconfigure</span><span class="o">;</span>
+
+<span class="nd">@Target</span><span class="o">({</span><span class="n">ElementType</span><span class="o">.</span><span class="na">TYPE</span><span class="o">})</span>
+<span class="nd">@Retention</span><span class="o">(</span><span class="n">RetentionPolicy</span><span class="o">.</span><span class="na">RUNTIME</span><span class="o">)</span>
+<span class="nd">@Documented</span>
+<span class="nd">@Inherited</span>
+<span class="nd">@SpringBootConfiguration</span>
+<span class="nd">@EnableAutoConfiguration</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span>
+    <span class="n">excludeFilters</span> <span class="o">=</span> <span class="o">{</span><span class="nd">@Filter</span><span class="o">(</span>
+    <span class="n">type</span> <span class="o">=</span> <span class="n">FilterType</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">,</span>
+    <span class="n">classes</span> <span class="o">=</span> <span class="o">{</span><span class="n">TypeExcludeFilter</span><span class="o">.</span><span class="na">class</span><span class="o">}</span>
+<span class="o">),</span> <span class="nd">@Filter</span><span class="o">(</span>
+    <span class="n">type</span> <span class="o">=</span> <span class="n">FilterType</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">,</span>
+    <span class="n">classes</span> <span class="o">=</span> <span class="o">{</span><span class="n">AutoConfigurationExcludeFilter</span><span class="o">.</span><span class="na">class</span><span class="o">}</span>
+<span class="o">)}</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="n">SpringBootApplication</span> <span class="o">{</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>@ComponentScan 의 경우 
+@Component annotation이 포함되어 있는 것들을 Scan할 수 있다.
+대표적인 예로 @Repository, @Service, @Controller 등이 있다.
+(관련한 정보는 spring docs 참조)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span><span class="n">basePackageClasses</span> <span class="o">=</span> <span class="n">DemoApplication</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="c1">//여기가 위치한 곳 부터</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplicationConfig</span> <span class="o">{</span>
+	
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">BookRepository</span> <span class="nf">bookRepository</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">BookRepository</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>혹은 다음과 같이 직업 Config를 설정하여 사용할 수 있다.</p>
+
+<p>작성자는 DemoApplication.class 라고 적어 놓았는데, 이는 DemoApplication이 위치한 Depth부터 탐색 하겠다는  뜻이다.</p>
+
+<p>(추후 업데이트 가능성 있음. 개인 사정상 블로그를 잠깐 쉬게 되었어서 주기화를 위해 짧게나마 기록 해 놓습니다.)</p>
+
+<p>출처 : https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Component.html
+인프런 스프링프레임워크 핵심기술</p>
+ -->
+      </div>
+    
+  
   </div>
 
 
@@ -305,6 +372,19 @@
             <li>
               Slim Framework
               <small>17 Jun 2019</small>
+            </li></a>
+        
+      </ul>
+    </div>
+    
+    <div class="category-posts">
+      <h2 id="spring">spring</h2>
+      <ul>
+        
+          <a href="/backend/spring/2019/07/19/componentscan/" class="category-post">
+            <li>
+              ComponentScan에 대하여
+              <small>19 Jul 2019</small>
             </li></a>
         
       </ul>

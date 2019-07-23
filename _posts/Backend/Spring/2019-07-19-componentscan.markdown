@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  "ComponentScan에 대하여"
-category: [Backend, spring]
+category: [backend, spring]
 ---
 
 들어가기 전에 : @SpringbootApplication anotation 안에도 있다.
