@@ -26,6 +26,8 @@ package org.springframework.boot.autoconfigure;
 )}
 )
 public @interface SpringBootApplication {
+    
+}
 ```
 
 @ComponentScan 의 경우 

@@ -12,7 +12,7 @@
 
   <title>
     
-      Svn에서 Git으로의 이전기 &middot; Doohyun Kim
+      ComponentScan에 대하여 &middot; Doohyun Kim
     
   </title>
   <!-- meta -->
@@ -84,73 +84,69 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post__title">Svn에서 Git으로의 이전기</h1>
+  <h1 class="post__title">ComponentScan에 대하여</h1>
   <div class="post__desc">
-    <small class="post-date">Apr 20, 19</small>
+    <small class="post-date">Jul 19, 19</small>
     
       
-        <small>server</small>
+        <small>Backend</small>
       
     
       
-        <small>etc</small>
+        <small>spring</small>
       
     
   </div>
   <div class="post-content">
-    <p>Svn에서 Git으로 이전하는 법은 가장 유명한 방법으로는 2가지가 있다.<br />
-git-svn 과 svn2git</p>
+    <p>들어가기 전에 : @SpringbootApplication anotation 안에도 있다.</p>
 
-<p>git-svn의 경우 git에서 제공하고 있고, svn2git은 ruby로 만들어진 서드파티 같은 느낌임.<br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">autoconfigure</span><span class="o">;</span>
 
-<p>https://viastudio.com/migrate-svn-git/</p>
+<span class="nd">@Target</span><span class="o">({</span><span class="n">ElementType</span><span class="o">.</span><span class="na">TYPE</span><span class="o">})</span>
+<span class="nd">@Retention</span><span class="o">(</span><span class="n">RetentionPolicy</span><span class="o">.</span><span class="na">RUNTIME</span><span class="o">)</span>
+<span class="nd">@Documented</span>
+<span class="nd">@Inherited</span>
+<span class="nd">@SpringBootConfiguration</span>
+<span class="nd">@EnableAutoConfiguration</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span>
+    <span class="n">excludeFilters</span> <span class="o">=</span> <span class="o">{</span><span class="nd">@Filter</span><span class="o">(</span>
+    <span class="n">type</span> <span class="o">=</span> <span class="n">FilterType</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">,</span>
+    <span class="n">classes</span> <span class="o">=</span> <span class="o">{</span><span class="n">TypeExcludeFilter</span><span class="o">.</span><span class="na">class</span><span class="o">}</span>
+<span class="o">),</span> <span class="nd">@Filter</span><span class="o">(</span>
+    <span class="n">type</span> <span class="o">=</span> <span class="n">FilterType</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">,</span>
+    <span class="n">classes</span> <span class="o">=</span> <span class="o">{</span><span class="n">AutoConfigurationExcludeFilter</span><span class="o">.</span><span class="na">class</span><span class="o">}</span>
+<span class="o">)}</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="n">SpringBootApplication</span> <span class="o">{</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
 
-<p>window 환경에서 svn2git을 하기엔 이것저것 해야 할 게 많아서 git-svn으로 시도하기로 함.</p>
+<p>@ComponentScan 의 경우 
+@Component annotation이 포함되어 있는 것들을 Scan할 수 있다.
+대표적인 예로 @Repository, @Service, @Controller 등이 있다.
+(관련한 정보는 spring docs 참조)</p>
 
-<p>최초 시도 : 
-git svn clone svn://dev.docircle.com/trumpia_web/trunk<br />
-git svn clone -s svn://dev.docircle.com/trumpia_web<br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span><span class="n">basePackageClasses</span> <span class="o">=</span> <span class="n">DemoApplication</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="c1">//여기가 위치한 곳 부터</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplicationConfig</span> <span class="o">{</span>
+	
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">BookRepository</span> <span class="nf">bookRepository</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">BookRepository</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-<p>-s 옵션은 optional하긴 하지만, 한번 더 실패하기 싫어서 같이 걸어줌.</p>
+</code></pre></div></div>
 
-<p>merge 로그를 만들 때 전략적으로 해주는 느낌인 것 같은데.. 참고만 하면 좋을듯,.</p>
+<p>혹은 다음과 같이 직업 Config를 설정하여 사용할 수 있다.</p>
 
-<p>https://www.atlassian.com/git/tutorials/using-branches/merge-strategy</p>
+<p>작성자는 DemoApplication.class 라고 적어 놓았는데, 이는 DemoApplication이 위치한 Depth부터 탐색 하겠다는  뜻이다.</p>
 
-<p>진행 도중 도중</p>
+<p>(추후 업데이트 가능성 있음. 개인 사정상 블로그를 잠깐 쉬게 되었어서 주기화를 위해 짧게나마 기록 해 놓습니다.)</p>
 
-<p>Connection reset by peer: Can’t read from connection: Connection reset by peer at C:/Program Files/Git/
-mingw64/share/perl5/Git/SVN/Ra.pm line 312.</p>
-
-<p>이라는 에러가 뜨는걸 볼수 있다.
-stack overflow에서 확인 해 보니
-https://stackoverflow.com/questions/5551200/git-svn-clone-chokes-on-moved-directories
-“Connection reset by peer” means that the SVN server closed the connection at this point. <br />
-왠지는 모르겠지만 svn server에 connection이 
-You can resume by issuing “git svn fetch” in the newly created directory.</p>
-
-<p>git svn fetch –fetch-all 로 진행 한 결과  어느정도 진행이 되다가 다른 에러 발생<br />
-r540 = 8c77dd73e55fc960d5cbdafbc180528c947c5975 (refs/remotes/git-svn)<br />
-rev-parse –git-path svn: command returned error: 127
-이 때 다시 fetch를 하면 다음 것이 진행이 되는데… 계속 끊긴다. 무언가 잘못된 것이 있었을 것이다 하고 찾아보니<br />
-https://stackoverflow.com/questions/50842991/ <br />
-command-returned-error127-while-executing-git-svn-clone-command <br /></p>
-
-<p>git svn gc 를 해 주면 좋다고 한다.</p>
-
-<p>— 이건 명령을 실행하는게 아니라 옵션을 키는거라서, 진행도중 자동으로 gc를 해 줌..<br />
-( gc는 로그를 최적화 하기 위함인데, 최적화 하지 않으면 무언가가 꼬이는 듯 하다. 하지만 그에대한 설명이 없어서…)</p>
-
-<p>Fail case: gc를 진행하고 fetch를 계속 진행하자 다음과 같은 문제가 나왔다.
-Checksum mismatch: onlineSignup/script/script_signin.js 78a77ebf462792b8fff07b2600d652f8281a6fc6<br />
-expected: 58f86f60f75207646e2b37abee61b0f4<br />
-     got: 2a4c0da51dd4648d4330b9c17cb8dbe9</p>
-
-<p>이리저리 해결해 보려다가 결국 새롭게 시도했음..<br />
-gc를 키라는 말도 있고 rebase를 하라는 사람도 있고 말은 많은데.. 정상적으로 되는게 없었음..<br />
-같은 삽질 하지 말고 한번에 옵션을 잘 거는걸 추천합니다.<br /></p>
-
-<p>Ps2. 회사 리비전이 67000인가 그런데… 일주일 넘게 걸립니다…사실 그냥 버리고 Git으로 가도 되지만 미련이 남아서 한겁니다.</p>
+<p>출처 : https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Component.html
+인프런 스프링프레임워크 핵심기술</p>
 
   </div>
 </div>
@@ -230,15 +226,6 @@ s.setAttribute('data-timestamp', +new Date());
     
       <li>
         <h3>
-          <a href="/backend/spring/2019/07/19/componentscan/">
-            ComponentScan에 대하여
-            <small>19 Jul 2019</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="/backend/php/2019/06/17/slim-framework/">
             Slim Framework
             <small>17 Jun 2019</small>
@@ -251,6 +238,15 @@ s.setAttribute('data-timestamp', +new Date());
           <a href="/frontend/javascript/2019/05/21/javascript-closure/">
             JavaScript Closure의 실 사용으로 보는 의미 ( 클로저 사용법 )
             <small>21 May 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/backend/nodejs/2019/05/19/helmet-security/">
+            helmet을 통한 보안 강화
+            <small>19 May 2019</small>
           </a>
         </h3>
       </li>
