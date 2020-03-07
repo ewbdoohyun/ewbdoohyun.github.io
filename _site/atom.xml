@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Doohyun Kim</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2019-08-06T22:32:02+09:00</updated>
- <id>http://localhost:4000</id>
+ <link href="http://ewbdoohyun.github.io/atom.xml" rel="self"/>
+ <link href="http://ewbdoohyun.github.io/"/>
+ <updated>2020-03-07T12:04:32+09:00</updated>
+ <id>http://ewbdoohyun.github.io</id>
  <author>
    <name>Doohyun Kim</name>
    <email></email>
@@ -13,10 +13,184 @@
 
  
  <entry>
+   <title>JPA Join 한번에 정복하기 ( OneToOne, OneToMany, ManyToOne ) , 발생할 수 있는 문제 ( N+1 , Json exception)</title>
+   <link href="http://ewbdoohyun.github.io/backend/spring/2020/03/06/JoinAndProblem/"/>
+   <updated>2020-03-06T00:00:00+09:00</updated>
+   <id>http://ewbdoohyun.github.io/backend/spring/2020/03/06/JoinAndProblem</id>
+   <content type="html">&lt;p&gt;JPA를 사용할 경우&lt;/p&gt;
+
+&lt;p&gt;다음은 Join 관계를 정의하기 위한 Table이다. MemberInfo의 경우 단순히 OneToOne을 설명하기 위해 정의하였다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Table&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Entity&lt;/span&gt;
+ &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Memeber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;/// one&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Column&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;componentId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MemberInfo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Table&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Entity&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MemberInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;/// member 1: memberInfo 1 &lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;componentId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Column&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Table&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Entity&lt;/span&gt;
+ &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//member1 : memberInfo 1&lt;/span&gt;
+     &lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;componentId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+     &lt;span class=&quot;nd&quot;&gt;@Column&lt;/span&gt;
+     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;관계를 간단하게 정리하자면 Memeber와 MemberInfo는 1:1 관계이고, Member와 Posts는 1:N 관계로 만드려는 의도가 있다..
+하지만 지금의 상태는 서로 클래스 간 Mapping이 되어 있지 않은 상태이다. 즉 내가 post들을 가져오려면&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Member를 가져온다.&lt;/li&gt;
+  &lt;li&gt;Member 정보를 기반으로 MemberInfo를 가져와 채워 넣는다.&lt;/li&gt;
+  &lt;li&gt;Member 정보를 기반으로 Post들을 가져와 채워 넣는다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;의 세 단계로 이루어진 작업을 하여야 한다.&lt;/p&gt;
+
+&lt;p&gt;DB Query를 사용할 경우에는 이것을 Join (Inner, outer 등등) 으로 해결 하고 있고,
+JPA 또한 이를 Join으로 해결 하고 있는데. 방법은 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;One To One의 예&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Table&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Entity&lt;/span&gt;
+ &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Memeber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;/// one&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Column&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;componentId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@OneToOne&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@JoinColumn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;memberId&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MemberInfo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Table&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Entity&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MemberInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;/// member 1: memberInfo 1 &lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;componentId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Column&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@OneToOne&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@JoinColumn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;componentId&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;위와같이 부모는 자식의 column, 자식은 부모의 column을 명시하면 양방향으로 mapping을 수행 할 수 있다.
+그런 후에 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// repository는 생략함&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MemberService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;MemberRepository&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;findByMemberIdsIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberIds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findByMemberIdsIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;memberIds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;와 같이 호출을 하면 가져올 수 있다.
+  그런데,  이와 같이 class를 작성하였을 때 문제가 발생할 수 있는 문제는 총 세가지가 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;내가 원하지 않을 경우에도 강제로 MemberInfo를 가져와야 함.&lt;/li&gt;
+  &lt;li&gt;DB에 대한 Call Long를 확인해 보면 Member를 한 번 호출하고, 각 Member 별로 MemberInfo를 호출한다. ( N+1번의 호출 횟수를 가지게 되는 문제 )&lt;/li&gt;
+  &lt;li&gt;해당 객체를 서비스 밖으로 빼 내 api의 return으로 사용할 경우, 재귀에 의한 Exception이 발생 - Stackoverflow (Member는 memberInfo를, memberInfo는 member를 호출하게 되는 )&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;한 가지씩 해결 방안에 대하여 언급하자면&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;@OneToMany, @ManyToOne, @OneToOne에 다음과 같은 옵션을 추가한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nd&quot;&gt;@OneToOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fetch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FetchType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;LAZY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;말 그대로 LAZY한 Fetching을 수행하겠다는 것인데, 이러면 필요할 떄만 연관된 테이블을 가져올 수 있게 된다. ( 해당 객체에 접근 할 떄만 가져옴)
+그러면, 필요할 때라는 것은 어떤 상황을 의미하는가.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;객체에 대한 실제 접근하여 값을 가져올 때&lt;/li&gt;
+  &lt;li&gt;repository에 relation을 강제로 맺을 경우&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;다음과 같은 두 가지 케이스에 대하여 가능한다.
+ 1의 경우 객체의 내부 값을 접근하기 때문에 별도 언급이 없이 이해가 되나, 2번의 경우는 repository에 다음과 같은 옵션을 추가하여야 한다.
+ 또한 2번 ( N+1 문제 ) 의 해결 방법도 다음과 같다.&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nd&quot;&gt;@RepositoryRestResource&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MemberRepository&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JPARepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;{&lt;/span&gt;
+      &lt;span class=&quot;nd&quot;&gt;@Qyery&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SELECT DISTINCT m FROM Member m JOIN FETCH m.memberInfo mI JOIN FETCH m.posts p&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;findByMemberIdsIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@Param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;memberIds&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberIds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음과 같이 Query로 명시적인 mapping 관계를 맺게 되면, 각 member 별로 하위의 data를 가져오는 사항에 대하여 해결 할 수도 있고, Lazy를 설정해 놓았으나, 한번에 하위 까지 같이 가져와야 하는 repository의 method를 만들경우 다음과 같이 운용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;그럼 이제 딱 하나 세 번쨰의 문제가 남았다.&lt;/p&gt;
+
+&lt;p&gt;해당 객체를 통채로 return 받게 되면, 데이터를 받는 서비스 바깥에서 stachoverflow가 발생한다.
+문제는 json의 연관 관계가 맺어져 있지 않아, 서로가 서로를 참조하여 데이터를 무한정 양산해 내기 때문이다.
+이를 해결하기 위해 json의 참조 관계를 만들어 주어야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Table&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Entity&lt;/span&gt;
+ &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Memeber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;/// one&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Column&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;componentId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@OneToOne&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@JoinColumn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;memberId&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@JsonBackReference&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// parent&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MemberInfo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Table&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Entity&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MemberInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;/// member 1: memberInfo 1 &lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;componentId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Column&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;memberId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@OneToOne&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@JoinColumn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;componentId&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@JsonManagedReference&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// son&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;OneToMany와 ManyToOne의 경우 위의 내용으로 설명이 같이 되었을 것이라 생각한다.
+다만 OneToMany는 한 객체가 여러 객체를 참조할 경우 (ex member가 소유하는 posts) 
+ManyToOne은 여러객체가 한 객체를 참조할 경우 ( 여러 post가 한 member를 참조하기 떄문 )
+를사용하면 된다.&lt;/p&gt;
+
+&lt;p&gt;끝!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>의존성 주입과 그 선택 ( @Autowired, @Primary, @Qualifier )</title>
-   <link href="http://localhost:4000/backend/spring/2019/07/29/autowired-qualifier-primary/"/>
+   <link href="http://ewbdoohyun.github.io/backend/spring/2019/07/29/autowired-qualifier-primary/"/>
    <updated>2019-07-29T00:00:00+09:00</updated>
-   <id>http://localhost:4000/backend/spring/2019/07/29/autowired-qualifier-primary</id>
+   <id>http://ewbdoohyun.github.io/backend/spring/2019/07/29/autowired-qualifier-primary</id>
    <content type="html">&lt;p&gt;의존성 주입과 그 선택 ( Autowired, Primary, Qualifier )&lt;/p&gt;
 
 &lt;p&gt;@Autowired&lt;/p&gt;
@@ -85,9 +259,9 @@
  
  <entry>
    <title>ComponentScan에 대하여</title>
-   <link href="http://localhost:4000/backend/spring/2019/07/19/componentscan/"/>
+   <link href="http://ewbdoohyun.github.io/backend/spring/2019/07/19/componentscan/"/>
    <updated>2019-07-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/backend/spring/2019/07/19/componentscan</id>
+   <id>http://ewbdoohyun.github.io/backend/spring/2019/07/19/componentscan</id>
    <content type="html">&lt;p&gt;들어가기 전에 : @SpringbootApplication anotation 안에도 있다.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;boot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;autoconfigure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
@@ -142,9 +316,9 @@
  
  <entry>
    <title>Slim Framework</title>
-   <link href="http://localhost:4000/backend/php/2019/06/17/slim-framework/"/>
+   <link href="http://ewbdoohyun.github.io/backend/php/2019/06/17/slim-framework/"/>
    <updated>2019-06-17T00:00:00+09:00</updated>
-   <id>http://localhost:4000/backend/php/2019/06/17/slim-framework</id>
+   <id>http://ewbdoohyun.github.io/backend/php/2019/06/17/slim-framework</id>
    <content type="html">&lt;p&gt;Slim Framework 적용기 (간단한 Restful API을 PHP로 )&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42507943/59740653-af4e9c80-92a3-11e9-874d-82f618f8ba81.png&quot; alt=&quot;62697485-D98E-435E-88B6-0B19BE26EEEB&quot; /&gt;&lt;/p&gt;
@@ -224,9 +398,9 @@
  
  <entry>
    <title>JavaScript Closure의 실 사용으로 보는 의미 ( 클로저 사용법 )</title>
-   <link href="http://localhost:4000/frontend/javascript/2019/05/21/javascript-closure/"/>
+   <link href="http://ewbdoohyun.github.io/frontend/javascript/2019/05/21/javascript-closure/"/>
    <updated>2019-05-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000/frontend/javascript/2019/05/21/javascript-closure</id>
+   <id>http://ewbdoohyun.github.io/frontend/javascript/2019/05/21/javascript-closure</id>
    <content type="html">&lt;p&gt;클로저의 설명으로 내부함수가 외부 함수의 맥락에 접근 할 수 있는 것을 가르킨다고 많이들 설명한다.
 하지만 단지 그 설명만으로 개인적으로 처음 클로저를 이해하는데 의아한 점이 많았으며, 좀 더 본인에게 와 닿는 설명을 위해 작성한다. ( 또한 내가 잊지 않기 위해)&lt;/p&gt;
 
@@ -297,9 +471,9 @@
  
  <entry>
    <title>helmet을 통한 보안 강화</title>
-   <link href="http://localhost:4000/backend/nodejs/2019/05/19/helmet-security/"/>
+   <link href="http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security/"/>
    <updated>2019-05-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000/backend/nodejs/2019/05/19/helmet-security</id>
+   <id>http://ewbdoohyun.github.io/backend/nodejs/2019/05/19/helmet-security</id>
    <content type="html">&lt;p&gt;Node를 사용하면서 Helmet을 통해 보안을 손쉽게 강화 할 수 있다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add helmet 
@@ -379,9 +553,9 @@
  
  <entry>
    <title>SSL Cert  인증서 reformatting ( crt , bundle , pfx ) for apache</title>
-   <link href="http://localhost:4000/server/etc/2019/05/16/ssl/"/>
+   <link href="http://ewbdoohyun.github.io/server/etc/2019/05/16/ssl/"/>
    <updated>2019-05-16T00:00:00+09:00</updated>
-   <id>http://localhost:4000/server/etc/2019/05/16/ ssl</id>
+   <id>http://ewbdoohyun.github.io/server/etc/2019/05/16/ ssl</id>
    <content type="html">&lt;p&gt;사내 시스템이 리셀러를 구성할 수 있게 되어 있다.&lt;/p&gt;
 
 &lt;p&gt;이 때 고객에게서 SSL 파일을 받아서 우리측 Server에 세팅하는데 문제는 제각각으로 파일이 온다는 것에 있다.&lt;/p&gt;
@@ -452,9 +626,9 @@ openssl rsa -in {encrypted_key_name}.key -out {decrypted_key_name}.key
  
  <entry>
    <title>React Fragment와 div</title>
-   <link href="http://localhost:4000/frontend/react/2019/04/21/react_fragment/"/>
+   <link href="http://ewbdoohyun.github.io/frontend/react/2019/04/21/react_fragment/"/>
    <updated>2019-04-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000/frontend/react/2019/04/21/react_fragment</id>
+   <id>http://ewbdoohyun.github.io/frontend/react/2019/04/21/react_fragment</id>
    <content type="html">&lt;p&gt;React Fragment와 div&lt;/p&gt;
 
 &lt;p&gt;Code들을 보게 되면 가끔 다음과 같은 것들을 볼 수 있을 것입니다.&lt;/p&gt;
@@ -538,9 +712,9 @@ openssl rsa -in {encrypted_key_name}.key -out {decrypted_key_name}.key
  
  <entry>
    <title>Svn에서 Git으로의 이전기</title>
-   <link href="http://localhost:4000/server/etc/2019/04/20/svn_to_git/"/>
+   <link href="http://ewbdoohyun.github.io/server/etc/2019/04/20/svn_to_git/"/>
    <updated>2019-04-20T00:00:00+09:00</updated>
-   <id>http://localhost:4000/server/etc/2019/04/20/svn_to_git</id>
+   <id>http://ewbdoohyun.github.io/server/etc/2019/04/20/svn_to_git</id>
    <content type="html">&lt;p&gt;Svn에서 Git으로 이전하는 법은 가장 유명한 방법으로는 2가지가 있다.&lt;br /&gt;
 git-svn 과 svn2git&lt;/p&gt;
 
@@ -599,9 +773,9 @@ gc를 키라는 말도 있고 rebase를 하라는 사람도 있고 말은 많은
  
  <entry>
    <title>Why I Select github.io ( 왜 나는 github로 기술 블로그를 정착하였는가.)</title>
-   <link href="http://localhost:4000/personal/etc/2019/04/01/select_blog/"/>
+   <link href="http://ewbdoohyun.github.io/personal/etc/2019/04/01/select_blog/"/>
    <updated>2019-04-01T00:00:00+09:00</updated>
-   <id>http://localhost:4000/personal/etc/2019/04/01/select_blog</id>
+   <id>http://ewbdoohyun.github.io/personal/etc/2019/04/01/select_blog</id>
    <content type="html">&lt;p&gt;여러 타입을 사용 및 고려한 후기입니다.&lt;/p&gt;
 
 &lt;p&gt;1) Naver Blog
@@ -649,9 +823,9 @@ gc를 키라는 말도 있고 rebase를 하라는 사람도 있고 말은 많은
  
  <entry>
    <title>rsync 사용법 및 core 문제 해결</title>
-   <link href="http://localhost:4000/server/etc/2019/01/03/rsync_use/"/>
+   <link href="http://ewbdoohyun.github.io/server/etc/2019/01/03/rsync_use/"/>
    <updated>2019-01-03T00:00:00+09:00</updated>
-   <id>http://localhost:4000/server/etc/2019/01/03/rsync_use</id>
+   <id>http://ewbdoohyun.github.io/server/etc/2019/01/03/rsync_use</id>
    <content type="html">&lt;p&gt;현재 재직중인 곳에선 배포를 jenkins를 이용하여 rsync 배포를 하고 있다.&lt;/p&gt;
 
 &lt;p&gt;여러개의 서버를 동시에 사용하고 있기 때문인데, 문제가 있던 사항이 있어 기록해 둔다.&lt;/p&gt;
@@ -689,9 +863,9 @@ rsync란 : n개의 site의 file &amp;amp; directory의 동기화를 위한 unix 
  
  <entry>
    <title>[Oracle] Materialized View의 Exception ( ORA-12034 )</title>
-   <link href="http://localhost:4000/dbms/oracle/2018/12/03/materialized_view/"/>
+   <link href="http://ewbdoohyun.github.io/dbms/oracle/2018/12/03/materialized_view/"/>
    <updated>2018-12-03T00:00:00+09:00</updated>
-   <id>http://localhost:4000/dbms/oracle/2018/12/03/materialized_view</id>
+   <id>http://ewbdoohyun.github.io/dbms/oracle/2018/12/03/materialized_view</id>
    <content type="html">&lt;p&gt;일단 Materialized View에 대하여 짧게 언급하고 지나가겠습니다.
 Materialized View는 일반 View와는 다르게, 물리적인 데이터를 실제로 가지고 있는 View입니다.
 일반적으로 우리가 생각하고 있는 View는 물리적으로 존재하는 데이터가 아닙니다. 하나 이상의 테이블의 결과를 논리적인 형태로 풀어놓은 것에 불과한 것이죠.
